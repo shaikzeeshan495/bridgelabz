@@ -9,7 +9,6 @@
 
 package com.bridgelabz.AlgorithmPrograms;
 
-import com.bridgelabz.utility.CalenderFun;
 import com.bridgelabz.utility.Utility;
 
 public class Calender {
@@ -17,12 +16,15 @@ public class Calender {
 	public static void main(String[] args) {
 		
 		System.out.println("Please enter the date");
-		int date=Utility.inputInteger();
+		int date=Integer.parseInt(args[0]);
+		//int date=Utility.inputInteger();
 		System.out.println("Please enter the month");
-		int mon=Utility.inputInteger();
+		int mon=Integer.parseInt(args[1]);
+		//int mon=Utility.inputInteger();
 		System.out.println("Please enter the year");
-		int year=Utility.inputInteger();
-		CalenderFun.dayOfWeek(date,mon,year);
+		int year=Integer.parseInt(args[2]);
+		//int year=Utility.inputInteger();
+		Utility.dayOfWeek(date,mon,year);
 
 	}
 

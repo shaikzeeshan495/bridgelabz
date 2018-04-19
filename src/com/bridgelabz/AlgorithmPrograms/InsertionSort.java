@@ -8,7 +8,6 @@
  ******************************************************************************/
 
 package com.bridgelabz.AlgorithmPrograms;
-import com.bridgelabz.utility.InsertionFunc;
 import com.bridgelabz.utility.Utility;
 
 public class InsertionSort {
@@ -17,7 +16,7 @@ public class InsertionSort {
 		System.out.println("enter the length of the array");
 		int length=Utility.inputInteger();
 		int array[]=new int[length];
-		InsertionFunc.sorting(array);
+		Utility.sorting(array);
 	}
 
 }

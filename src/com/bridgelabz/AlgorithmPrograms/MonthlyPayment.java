@@ -10,7 +10,6 @@
 
 package com.bridgelabz.AlgorithmPrograms;
 
-import com.bridgelabz.utility.PaymentFunc;
 import com.bridgelabz.utility.Utility;
 
 public class MonthlyPayment {
@@ -23,7 +22,7 @@ public class MonthlyPayment {
 		double rateOfInterest=Utility.inputInteger();
 		System.out.println("Enter Years Y");
 		double year=Utility.inputInteger();
-		PaymentFunc.calculation(principal,rateOfInterest,year);
+		Utility.calculation(principal,rateOfInterest,year);
 
 	}
 

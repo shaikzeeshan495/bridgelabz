@@ -8,17 +8,18 @@
  *
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
-import com.bridgelabz.utility.AnnagramFun;
+
 import com.bridgelabz.utility.Utility;
 
 public class Annagram {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Please enter two Strings");
-		String str1=Utility.inputString();
-		String str2=Utility.inputString();
-		AnnagramFun.annagramFun(str1, str2);
+		System.out.println("Please enter String 1");
+		String str1=Utility.inputString1();
+		System.out.println("Please enter String 2");
+		String str2=Utility.inputString1();
+		Utility.annagramFun(str1, str2);
 	}
 	
 

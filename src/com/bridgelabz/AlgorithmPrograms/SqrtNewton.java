@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Purpose:	To check a palindrome.
+ *  Purpose:	To find the square root of a number by using Newton
  *
  *  @author  Zeeshan
  *  @version 1.0
@@ -10,13 +10,13 @@ package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class Palindrome {
+public class SqrtNewton {
 
 	public static void main(String[] args) {
-		
-		System.out.println("enter a number");
-		int num=Utility.inputInteger();
-		Utility.palindrome(num);
+		 double c;
+		    System.out.println("Enter a non-negative number");
+		    c = Utility.inputInteger();
+		    Utility.calcSqrt(c);
 	}
 
 }

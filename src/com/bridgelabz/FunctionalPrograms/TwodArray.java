@@ -8,7 +8,7 @@
  ******************************************************************************/
 
 package com.bridgelabz.FunctionalPrograms;
-import java.io.PrintWriter;
+
 import com.bridgelabz.utility.Utility;
 
 public class TwodArray {
@@ -18,37 +18,32 @@ public class TwodArray {
 	    *
 	    * @param number the number to intialize the array
 	    */	
-	static void function(int m,int n,int array[][])
-		{
-			
-			for(int i=0;i<=m-1;i++)
-			{
-				for(int j=0;j<=n-1;j++)
-				{
-					array[i][j]=Utility.inputInteger();
-				}
-			}
-			
-			PrintWriter pw = new PrintWriter(System.out);
-			for(int i=0;i<m;i++)
-			{
-				for(int j=0;j<n;j++)
-				{
-					pw.print(array[i][j]+" ");
-				}
-				pw.println();
-			}
-			pw.flush();
-		}
+	
 		
 		/*
 	    * The main function is create 2 dimensional array in memory to read in M rows and N cols
 	    */
 		public static void main(String[] args) {
-			int m=Utility.inputInteger();
-			int n=Utility.inputInteger();
-			int array[][]=new int[m][n];
-			function(m,n,array);
+			
+			System.out.println("Select Input type In Which You Want To Enter Number:-");
+		      System.out.println("1:-Enter the number in Integer ");
+		      System.out.println("2:-Enter the number in Double ");
+		      System.out.println("3:-Enter the number in Boolean ");
+		      int choice=Utility.inputInteger();
+		      
+		      switch(choice)
+		      {
+		      case 1:Utility.arrayInteger();
+		      			break;
+		      case 2:Utility.arrayDouble();
+    					break;
+		      case 3:Utility.arrayBoolean();
+    					break;
+		      default:System.out.println("invalid input");
+    					break;
+		      
+		      }
+		      
 		}
 
 }

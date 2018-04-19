@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Purpose:	To check a palindrome.
+ *  Purpose:	To generate prime numbers and find annagram in that numbers
  *
  *  @author  Zeeshan
  *  @version 1.0
@@ -10,13 +10,16 @@ package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class Palindrome {
-
-	public static void main(String[] args) {
+public class ExtendAnnag {
+	
+	public static void main(String []args)
+	{
 		
-		System.out.println("enter a number");
-		int num=Utility.inputInteger();
-		Utility.palindrome(num);
+		
+		System.out.println("enter the Nth term");
+		int nTerm=Utility.inputInteger();
+		int res[]=Utility.primeNum(nTerm);
+		Utility.extendAnnagram(res);
 	}
 
 }

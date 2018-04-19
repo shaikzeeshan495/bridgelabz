@@ -8,7 +8,7 @@
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
 
-import com.bridgelabz.utility.TemperatureFunc;
+
 import com.bridgelabz.utility.Utility;
 
 public class TemperatureConversion {
@@ -20,9 +20,9 @@ public class TemperatureConversion {
 		int input=Utility.inputInteger();
 		switch(input)
 		{
-		case 1:TemperatureFunc.celsius();
+		case 1:Utility.celsius();
 				break;
-		case 2:TemperatureFunc.fahrenheit();
+		case 2:Utility.fahrenheit();
 				break;
 		default: System.out.println("enter valid input");
 				break;
