@@ -1,4 +1,11 @@
-
+/******************************************************************************
+ *  Purpose:	To check the time of searching and sorting methods
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   19-04-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
@@ -7,48 +14,23 @@ public class SortsearchTime {
 
 	public static void main(String[] args) {
 		
-		int mTime[]=new int[6];
-		for(int i=0;i<6;i++)
-		{
-		  System.out.println("Select Input type In Which You Want To Enter Number:-");
-	      System.out.println("binarySearch method for integer enter 1 :");
-	      System.out.println("binarySearch method for string enter 2 :");
-	      System.out.println("insertionSort method for integer enter 3 :");
-	      System.out.println("insertionSort method for string enter 4 :");
-	      System.out.println("bubbleSort method for integer enter 5 :");
-	      System.out.println("bubbleSort method for string enter 6 :");
-	      int choice=Utility.inputInteger();
-	      switch(choice)
-	      {
-	      case 1:Utility.binaryIntegers();
-	      		break;
-	      case 2:Utility.binaryStrings();
-	      		break;
-	      case 3:System.out.println("enter the length of the array");
-				int length=Utility.inputInteger();
-				int array[]=new int[length];
-				Utility.sorting(array);
-				break;
-	      
-	      case 4:System.out.println("enter the length of the array");
-				int lengthInsertion=Utility.inputInteger();
-				String arrayInsertion[]=new String[lengthInsertion];
-				Utility.sortingString(arrayInsertion);
-				break;
-	      case 5:System.out.println("enter the length of the array");
-				int lengthBubble=Utility.inputInteger();
-				int arrayBubble[]=new int[lengthBubble];
-				Utility.sorting(arrayBubble);
-				break;
-	      case 6:System.out.println("enter the length of the array");
-				int lengthBubbleStr=Utility.inputInteger();
-				String arrayBubbleStr[]=new String[lengthBubbleStr];
-				Utility.sortingBubbleString(arrayBubbleStr);
-				break;
-	      default:System.out.println("invalid");
-	      		break;
-	      }
-		}
+		
+		String str[]={"america","europe","india","london","riyadh"};
+		int array[]={45,69,72,79,88,95};
+		long timeBinaryInteger=Utility.binaryStopwatchInt(array,88);
+		long timeBinaryString=Utility.binaryStopwatchStr(str,str[2]);
+		long timeInsertInteger=Utility.insertStopwatchInt(array);
+		long timeInsertString=Utility.insertStopwatchStr(str);
+		long timeBubbleInteger=Utility.bubbleStopwatchInt(array);
+		long timeBubbleString=Utility.bubbleStopwatchStr(str);
+		System.out.println("Time of Binary Integers search " +timeBinaryInteger+ " Nano seconds");
+		System.out.println("Time of Binary Strings search " +timeBinaryString+ " Nano seconds");
+		System.out.println("Time of Insertion sort Integers search " +timeInsertInteger+ " Nano seconds");
+		System.out.println("Time of Insertion sort Strings search " +timeInsertString+ " Nano seconds");
+		System.out.println("Time of Bubble sort Integers search " +timeBubbleInteger+ " Nano seconds");
+		System.out.println("Time of Bubble sort Strings search " +timeBubbleString+ " Nano seconds");
+
+
 	}
 
 }

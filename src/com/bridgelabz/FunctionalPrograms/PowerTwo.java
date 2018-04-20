@@ -16,6 +16,7 @@ public class PowerTwo {
 		    */
 		public static void main(String[] args) {
 			System.out.println(" The Power Value N");
+			
 			int power=Utility.inputInteger();
 			Utility.powerValue(power);
 		}

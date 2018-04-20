@@ -2,6 +2,7 @@ package com.bridgelabz.utility;
 
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utility {
@@ -52,72 +53,294 @@ public class Utility {
 		return scanner.nextLine();
 	}
 	
-	//Functional 13. Stopwatch
-	static long START_TIME=0;
-	static long STOP_TIME=0;
-	static boolean Running=false;
+	//to enter integer elements in array
+	/**
+	 * @param array is to collect inputs from user.
+	 * @return array with inputs.
+	 */
+	public static int[] inputIntArray(int array[])
+	{
 	
-		/**
-	    * Function to start time
-	    */
-		public static void start()
+		for(int i=0;i<array.length;i++)
 		{
-			START_TIME=System.currentTimeMillis();
-			Running=true;
+			array[i]=inputInteger();
 		}
-		
+		return array;
+	}
+	
+	//to enter string elements in array
 		/**
-	    * Function to stop time
-	    */
-		public static void stop()
+		 * @param array 
+		 * @return
+		 */
+		public static String[] inputStringArray(String array[])
 		{
-			STOP_TIME=System.currentTimeMillis();
-			Running=false;
+		for(int i=0;i<array.length;i++)
+		{
+			array[i]=inputString();
+		}
+		return array;
+		}
+		// Functional 1.username
+			
+		
+		/**Static Function replacing to read input String from user and printing them out to standard output.
+		 * @param string the String to replace in the Line
+		 * @param name
+		 * @return
+		 */
+		public	static String replacing(String string,String name)
+			{
+				if(name.length()>=3)
+				{
+					string=string.replace("<<UserName>>", name);
+					return string;
+				}
+				else
+					return "invalid input";
+			}
+		//Functional 2.Flip coin
+		/**
+		    * Static function to Flip the coin. 
+		    *
+		    * @param number the number is for how many times to flip the coin
+		    */
+		
+		public static void flip(int numberOfTimes)
+		{
+			int heads=0,tails=0;
+			if(numberOfTimes>=0)
+			{
+				for(int flip=1;flip<=numberOfTimes;flip++)
+				{
+					if(Math.random()<0.5)
+						tails++;
+					else
+						heads++;
+				}
+			}
+			
+			else
+				System.out.println("enter the positive integer");
+			
+			System.out.println("Percentage of head "+100.0*heads/numberOfTimes);
+			System.out.println("Percentage of tails "+100.0*tails/numberOfTimes);		
+		}
+		
+		//Functional 3.Leap year
+		/**
+		    * Static function to check a leap year. 
+		    *
+		    * @param number the number is year to check for a leap year.
+		    */	
+		public static void isLeap(int year)
+			{
+				boolean isLeapYear=false;
+	    	if(year%4==0)
+	    	{
+	    		if( year % 100 == 0)
+	            {
+	                if ( year % 400 == 0)
+	                	isLeapYear = true;
+	                else
+	                	isLeapYear = false;
+	            }
+	            else
+	            	isLeapYear = true;
+	        }
+	        else {
+	        	isLeapYear = false;
+	        }
+
+	        if(isLeapYear==true)
+	            System.out.println(year + " is a Leap Year.");
+	        else
+	            System.out.println(year + " is not a Leap Year.");
+	    }
+
+		// Functional 4.power of two
+	/**
+	 * Static function to give value of power 2.
+	 *
+	 * @param number the number is power to give value of power 2.
+	 */
+		public static void powerValue(int times){		
+		for(int i=0;i<=times;i++)
+		{
+			int d=(int)Math.pow(2, i);
+			System.out.println("2 ^ "+i+" = "+d);
+		}
 		}
 		
 		/**
-		* Function to calculate time in millisec.
-	    */
-		public static long getElapsedTime() {
-		    long elapsed;
-		    if (Running) 
-		      elapsed = (System.currentTimeMillis() - START_TIME);
-		    else 
-		      elapsed = (STOP_TIME - START_TIME);
-		    return elapsed;
+		 * Static function to find annagram from prime numbers
+		 *
+		 * @param number the array contains prime num to find annagram
+		 */
+		public static void extendAnnagram(int res[])
+		{
+			int count=0,j=0;
+			String s1=" ";
+			String s2=" ";
+
+			
+			for(int i=0;i<res.length;i++)
+			{
+				
+				if(res[i]!=0){
+					count++;
+				}
+			}
+			
+			int arr[]=new int[count];
+			
+			for(int i=0;i<res.length;i++)
+			{
+				
+				if(res[i]!=0){
+					arr[j++]=res[i];
+					System.out.print(res[i]+" ");
+				}
+			}
+			
+			System.out.println();
+			
+			for(int i=0;i<arr.length-1;i++)
+			{
+				for(int k=i+1;k<arr.length;k++)
+				{
+					s1=""+arr[i];
+					s2=""+arr[k];
+					Utility.annagFunNum(s1,s2);
+				}
+				
+			}
 		}
 		
+		//Functional 5.Harmonic
 		/**
-		* Function to calculate time in sec.
-	    */
-		public static long getElapsedTimeNanosec() {
-		    long elapsed;
-		    
-		    if (Running) 
-		      elapsed = ((System.nanoTime() - START_TIME));
-		    else 
-		      elapsed = (STOP_TIME - START_TIME);
-		    return elapsed;
+		    * Static function to calculate Harmonic value. 
+		    *
+		    * @param number the number is to give N value.
+		    */
+		
+		public static void sum(int number)
+		{
+			float harmonicValue=0;
+			if(number!=0)
+			{
+			for(int i=1;i<=number;i++)
+				harmonicValue=((float)1/i)+harmonicValue;
+			System.out.println("the harmonic value is: "+harmonicValue);
+			}
+			else
+				System.out.println("please check the entered number");
 		}
 		
+		// Functional 6.Factors
 		/**
-		* Function to calculate time in sec.
-	    */
-		public static long getElapsedTimesec() {
-		    long elapsed;
-		    
-		    if (Running) 
-		      elapsed = ((System.currentTimeMillis() - START_TIME)/1000);
-		    else 
-		      elapsed = ((STOP_TIME - START_TIME)/1000);
-		    return elapsed;
+		    * Static function to computes the prime factorization of N. 
+		    *
+		    * @param number the number is to give N value.
+		    */
+		public static void factorization(int number)
+		{
+			while(number%2==0)
+			{
+				System.out.print(2+" ");
+				number/=2;
+			}
+			
+			for(int i=3;i*i<=number;i++)
+			{
+				while(number%i==0)
+				{
+					System.out.print(i+" ");
+					number/=i;
+				}
+			}
+			
+			if(number>2)
+				System.out.print(number);
 		}
-	
-	
+		
+		//Functional 7.Gambler
+		/**
+		    * Static function to Play till the gambler is broke or has won 
+		    *
+		    * @param number the number is initial amount.
+		    * @param number the number is goal.
+		    * @param number the number is number of times to play.
+		    */
+		public static void game(int stake,int goal,int numberOfTimes)
+		{	
+			int loss=0;
+			int wins=0;
+			for(int i=1;i<=numberOfTimes;i++)
+			{
+				int amount=stake;
+				while(amount>0 && amount<goal)
+				{
+				
+					if(Math.random()>0.5)
+						amount++;
+					else
+						amount--;
+				}
+					if(amount==goal)
+						wins++;
+					else
+						loss++;
+			}
+			System.out.println("Total number of wins: "+wins);
+			System.out.println("Percentage of Win "+100.0*wins/numberOfTimes);
+			System.out.println("Percentage of Loss"+100.0*loss/numberOfTimes);	
+		}
+		
+		// Functional 8. coupon number 
+		/**
+		    * Static function to generate random number and to process distinct coupons. 
+		    *
+		    * @param number the number is to generate random number.
+		    */
+		public static void randomnumber(int number)
+		{
+			int count=0;
+			int array[]=new int[number];
+			for(int i=0;i<number;i++)
+			{
+				Random r=new Random();
+				int temp=r.nextInt(number);
+				count++;
+				array[i]=temp+1;
+				for(int j=0;j<i;j++)
+				{
+					if(array[i]==array[j])
+					{
+						i--;
+						break;
+					}
+				}
+			
+			}
+			
+				for(int i=0;i<number;i++)
+					System.out.print(array[i]+" ");
+			System.out.println();
+			System.out.println(count);
+		}
+		
+		
 	
 	// 9.two d array integers
+		//creating a printwriter class
 	public static	PrintWriter pw = new PrintWriter(System.out,true);
-	
+	/**
+	 * static function printarray is to print elements in array
+	 * @param array
+	 * @param row
+	 * @param column
+	 */
 	public static <T> void printArray(T[][] array,int row,int column)
 	{
 		for(int i=0;i<row;i++)
@@ -203,7 +426,148 @@ public class Utility {
 		
 		printArray(array,m,n);
 	}
+	// Functional 10. sum equal to zero.
+	/**
+	    * Static function to check the number of triples that sum to exactly 0. 
+	    *
+	    * @param array the array to read input.
+	    */
+	public	static void triplets(int array[])
+		{
+			int count=0;
+		System.out.println("enter integers in array");
+		for(int i=0;i<array.length;i++)
+			array[i]=Utility.inputInteger();
+		for(int i=0;i<array.length-2;i++)
+		{
+			for(int j=i+1;j<array.length-1;j++)
+			{
+				for(int k=j+1;k<array.length;k++)
+				{
+					if(array[i]+array[j]+array[k]==0)
+					{
+						count++;
+						System.out.println(array[i]+" "+array[j]+" "+array[k]);
+					}
+				}
+			}
+		}
+		
+		System.out.println("Total number of triplets "+count);
+	}
 	
+	// Functional 11.Distance
+	/**
+	    * Static function to calculate the distance.
+	    *
+	    * @param numbers the numbers is to calculate the equation.
+	    */
+	public static void distance(int x,int y)
+	{
+		double distance=Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2));
+		System.out.println(distance);
+	}
+	
+	//Functional 13. Stopwatch
+		static long START_TIME=0;
+		static long STOP_TIME=0;
+		static boolean Running=false;
+		
+			/**
+		    * Function to start time
+		    */
+			public static void start()
+			{
+				START_TIME=System.currentTimeMillis();
+				Running=true;
+			}
+			
+			/**
+		    * Function to stop time
+		    */
+			public static void stop()
+			{
+				STOP_TIME=System.currentTimeMillis();
+				Running=false;
+			}
+			
+			/**
+			* Function to calculate time in millisec.
+		    */
+			public static long getElapsedTime() {
+			    long elapsed;
+			    if (Running) 
+			      elapsed = (System.currentTimeMillis() - START_TIME);
+			    else 
+			      elapsed = (STOP_TIME - START_TIME);
+			    return elapsed;
+			}
+			
+			/**
+			* Function to calculate time in sec.
+		    */
+			public static double getElapsedTimeNanosec() {
+			    double elapsed;
+			    
+			    if (Running) 
+			      elapsed = ((System.nanoTime() - START_TIME));
+			    else 
+			      elapsed = (STOP_TIME - START_TIME);
+			    return elapsed;
+			}
+			
+			/**
+			* Function to calculate time in sec.
+		    */
+			public static long getElapsedTimesec() {
+			    long elapsed;
+			    
+			    if (Running) 
+			      elapsed = ((System.currentTimeMillis() - START_TIME)/1000);
+			    else 
+			      elapsed = ((STOP_TIME - START_TIME)/1000);
+			    return elapsed;
+			}
+			// Functional 15.Quadratic
+			/**
+			    * Static function to find the roots of the equation.
+			    *
+			    * @param numbers the numbers is to calculate the equation.
+			    * @param numbers the numbers is to calculate the equation.
+			    * @param numbers the numbers is to calculate the equation.
+			    */
+			public static void findRoots(int a,int b,int c)
+			{
+				double delta=0;
+				double root2=0;
+				double root1=0;
+				delta= (b*b)-(4*a*c);
+				root1= (-b + Math.sqrt(delta))/(2*a);
+				root2= (-b - Math.sqrt(delta))/(2*a);
+				System.out.println("Root 1 of x = "+root1);
+				System.out.println("Root 2 of x = "+root2);
+			}
+			
+			//Functional 16.Wind chill
+			/**
+			    * Static function to find the weather.
+			    *
+			    * @param numbers the numbers is to calculate the temperature.
+			    */
+				public static void weather(int t,int v)
+				{
+				
+				double w=0;
+				if(t<=50 && v<=120 && v>=3)
+				{
+					w=35.74 + (0.6215*t) + ((0.4275*t)-35.75)*Math.pow(v, 0.16);
+					System.out.println(w);
+				}
+				else
+					System.out.println("please enter valid input");
+				
+			}
+				
 	// Algorithm 1.Annagram string
 	
 	/**
@@ -344,6 +708,102 @@ public class Utility {
 			System.out.println(temp+" not a palindrome");
 		
 	}
+	
+	// Algorithm 4. StopWatch to calculate searching and sorting methods.
+	/**
+	    * Static function to calculate time of binary Strings
+	    * @param array the array is input for binary search strings
+	    * @param string the string is key to search in given words
+	    */
+	public static <T extends Comparable> long binaryStopwatchStr(T array[],T key)
+	{
+		
+		long startTime=System.nanoTime();
+		
+		int position=Utility.searchingKey(array, 0, 5,key);
+		long stopTime=System.nanoTime();
+		
+	
+				long timeBinary=stopTime-startTime;
+		
+		    System.out.println("Binary search for String:key found at "+(position+1));
+		return timeBinary;
+	}
+	/**
+	    * Static function to calculate time of binary Strings
+	    * @param array the array is input for binary search strings
+	    * @param string the string is key to search in given words
+	    */
+	public static  long binaryStopwatchInt(int []array,int key)
+	{
+		
+		long startTime=System.nanoTime();
+		int position=Utility.binSearchIntegers(array, 0, 5,key);
+		long stopTime=System.nanoTime();
+		
+	
+				long timeBinary=stopTime-startTime;
+		
+		    System.out.println("Binary search for integer:key found at "+(position+1));
+		return timeBinary;
+	}
+	
+	/**
+	    * Static function to calculate time of insertion sort
+	    * @param array the array of integers is input for insertion sort
+	    */
+	public static long insertStopwatchInt(int[] array) {
+		
+		long startTime=System.nanoTime();
+		int afterSort[]=Utility.inSorting(array);
+	
+		long stopTime=System.nanoTime();
+		long timeInsertInteger=stopTime-startTime;
+		return timeInsertInteger;
+	}
+	
+	/**
+	    * Static function to calculate time of insertion sort
+	    * @param array the array of string is input for insertion sort
+	    */
+	public static long insertStopwatchStr(String[] array) {
+		long startTime=System.nanoTime();
+		String afterSort[]=Utility.sortingString(array);
+	
+		long stopTime=System.nanoTime();
+		long timeInsertString=stopTime-startTime;
+		return timeInsertString;
+	
+	}
+	/**
+	    * Static function to calculate time of Bubble sort
+	    * @param array the array of integer is input for Bubble sort
+	    */
+public static long bubbleStopwatchInt(int array[]) {
+		
+	long startTime=System.nanoTime();
+	int afterSort[]=Utility.sortBubble(array);
+
+	long stopTime=System.nanoTime();
+	long timeBubbleInteger=stopTime-startTime;
+	return timeBubbleInteger;
+	}
+
+/**
+ * Static function to calculate time of Bubble sort
+ * @param array the array of string is input for Bubble sort
+ */
+public static long bubbleStopwatchStr(String array[]) {
+	
+long startTime=System.nanoTime();
+String afterSort[]=Utility.sortingBubbleString(array);
+
+long stopTime=System.nanoTime();
+long timeBubbleString=stopTime-startTime;
+return timeBubbleString;
+}
+
+
 	// Algorithm 5. Question and answer
 	/**
 	    * Static function to guess the number.
@@ -368,17 +828,17 @@ public class Utility {
 		      return guessing(mid+1,high);
 	}
 	
-	// Algorithm 6.Binary Search for string
+	// Algorithm 6.Binary Search Generic static function
 		/**
 		    * Static function to search given word.
 		    * @param array the array is to print the sorting number.
 		    */
-		public  static int searchingKey(String array[],int low,int high,String key)
+		public  static <T extends Comparable<T>>int searchingKey(T array[],int low,int high,T key)
 		{
 			int mid=(low+high)/2;	
 			if(mid==high)
 		    	return mid;
-			if(array[mid].equalsIgnoreCase(key))
+			if(((String) array[mid]).equalsIgnoreCase((String) key))
 		    	return mid;
 			else if(array[mid].compareTo(key)>0)
 		      return searchingKey(array,low,mid,key);
@@ -431,21 +891,21 @@ public class Utility {
 			Utility.stop();
 			if(res==-1)
 			{
-				long Nanosec=Utility.getElapsedTimeNanosec();
+			double Nanosec=Utility.getElapsedTimeNanosec();
 				System.out.println(Nanosec+" Nano sec");
 				System.out.println("key not found");
 			}
 			else
 			{
 				
-				long Nanosec=Utility.getElapsedTimeNanosec();
+				double Nanosec=Utility.getElapsedTimeNanosec();
 				System.out.println(Nanosec+" Nano sec");
 				System.out.println(res+1+" is the position");
 			}
 			
 		}
 		
-		public static int binSearchIntegers(int array[],int low,int high,int key)
+		public static int binSearchIntegers(int[] array,int low,int high,int key)
 		{
 			int mid=(low+high)/2;
 			if(mid==high)
@@ -498,16 +958,13 @@ public class Utility {
 	    * Static function to sort numbers.
 	    * @param array the array is to sorting.
 	    */
-	public static void sorting(int array[])
+	public static  int[] inSorting(int array[])
 	{
-		for(int i=0;i<array.length;i++)
-		{
-			array[i]=Utility.inputInteger();
-		}
 		
 		for(int i=0;i<array.length;i++)
 		{
-			int key=array[i],temp;
+			int key=array[i];
+			int temp;
 			for(int j=i-1;j>=0;j--)
 			{
 				if(key<array[j])
@@ -519,29 +976,31 @@ public class Utility {
 			}
 		}
 		
-		printOrder(array);
+		return array;
 	}
 	
-		
 		/**
 	    * Static function to print order numbers.
 	    * @param array the array is to sorting.
 	    */
-	static void printOrder(int array[])
+	public static  void printOrder(int[] array)
 	{
 	for(int i=0;i<array.length;i++)
 			System.out.print(array[i]+" ");
 		
 	}
 	
-	
-	
-	public static void sortingString(String array[])
+	// Insertion sort for string
+	/**
+	    * Static function to sort string.
+	    * @param array the array is to sorting.
+	    */
+	public static String[] sortingString(String array[])
 	{
-		for(int i=0;i<array.length;i++)
+	/*	for(int i=0;i<array.length;i++)
 		{
 			array[i]=Utility.inputString();
-		}
+		} */
 		
 		for(int i=0;i<array.length;i++)
 		{
@@ -556,8 +1015,8 @@ public class Utility {
 				}
 			}
 		}
-		
-		printOrderString(array);
+		return array;
+		//printOrderString(array);
 	}
 	
 	/**
@@ -571,19 +1030,14 @@ public class Utility {
 		
 	}
 	
-	// Algorithm 8.Bubble Sort
+	// Algorithm 8.Bubble Sort for numbers
 	/**
 	    * Static function to sort numbers.
 	    * @param array the array is to sorting.
 	    */
-	public static void sortBubble(int array[])
+	public static int[] sortBubble(int array[])
 	{
 		int temp=0;
-		for(int i=0;i<array.length;i++)
-		{
-			array[i]=Utility.inputInteger();
-		}
-		
 		for(int i=0;i<array.length-2;i++)
 		{
 			for(int j=0;j<=array.length-2-i;j++)
@@ -596,30 +1050,30 @@ public class Utility {
 				}
 			}
 		}
-		printNum(array);
+		return array;
 	}
 	
 		/**
 	    * Static function to print order numbers.
 	    * @param array the array is to print the sorting number.
 	    */
-	static void printNum(int array[]){
+	public static void printNum(int array[]){
 		for(int i=0;i<array.length;i++)
 			System.out.print(array[i]+" ");
 	}
 	
-	// Algorithm 8.Bubble Sort
+	// Algorithm 8.Bubble Sort for strings
 		/**
 		    * Static function to sort numbers.
 		    * @param array the array is to sorting.
 		    */
-		public static void sortingBubbleString(String array[])
+		public static String[] sortingBubbleString(String array[])
 		{
 			String temp="";
-			for(int i=0;i<array.length;i++)
+		/*	for(int i=0;i<array.length;i++)
 			{
 				array[i]=Utility.inputString();
-			}
+			} */
 			
 			for(int i=0;i<array.length-2;i++)
 			{
@@ -633,7 +1087,8 @@ public class Utility {
 					}
 				}
 			}
-			printBubbleString(array);
+			return array;
+			//printBubbleString(array);
 		}
 		
 			/**
@@ -668,6 +1123,7 @@ public class Utility {
 		 */
 		public static void mergeArrays(int array[],int low,int mid,int high)
 		{
+			//taking length to initialize arrays
 			int p=mid-low+1;
 			int q=high-mid;
 			int[] leftArray=new int[p];
@@ -844,29 +1300,6 @@ public class Utility {
 		
 		public static String toBinary(int decimal)
 		{
-		/*	int temp[]=new int[decimal];
-			int index=0,j=0;
-			while(decimal>0)
-			{
-					//temp[index]=dec%2;
-					//index++;
-					//dec=dec/2;
-				int value=decimal%2;
-				if(value==0)
-					temp[j++]=0;
-				else
-					temp[j++]=1;
-				index++;
-				decimal=decimal/2;
-			}
-			int array[]=new int[index+1];
-			for(int i=array.length-1;i>=0;i--)
-			{
-				array[i]=temp[i];
-				System.out.print(array[i]);
-			}
-			System.out.println();
-				return array;		*/
 			
 			String binary="";
 			int rem=0;
@@ -876,6 +1309,7 @@ public class Utility {
 				binary=rem+binary;
 				decimal=decimal/2;
 			}
+			
 			while(binary.length()<8)
 			{
 				binary=0+binary;
@@ -919,64 +1353,6 @@ public static String binToDecimal(String binary)
 	str=str+sum;
 	return str;
 }
-/**
- * Static function to give value of power 2.
- *
- * @param number the number is power to give value of power 2.
- */
-	public static void powerValue(int times){		
-	for(int i=0;i<times;i++)
-	{
-		int d=(int)Math.pow(2, i);
-		System.out.println("2 ^ "+i+" = "+d);
-	}
-	}
-	
-	/**
-	 * Static function to find annagram from prime numbers
-	 *
-	 * @param number the array contains prime num to find annagram
-	 */
-	public static void extendAnnagram(int res[])
-	{
-		int count=0,j=0;
-		String s1=" ";
-		String s2=" ";
-
-		
-		for(int i=0;i<res.length;i++)
-		{
-			
-			if(res[i]!=0){
-				count++;
-			}
-		}
-		
-		int arr[]=new int[count];
-		
-		for(int i=0;i<res.length;i++)
-		{
-			
-			if(res[i]!=0){
-				arr[j++]=res[i];
-				System.out.print(res[i]+" ");
-			}
-		}
-		
-		System.out.println();
-		
-		for(int i=0;i<arr.length-1;i++)
-		{
-			for(int k=i+1;k<arr.length;k++)
-			{
-				s1=""+arr[i];
-				s2=""+arr[k];
-				Utility.annagFunNum(s1,s2);
-			}
-			
-		}
-	}
-	
 	/**
 	 * Static function to find annagram from prime numbers.
 	 *
@@ -992,12 +1368,10 @@ public static String binToDecimal(String binary)
 				count++;
 			}
 		}
-		
+		//creating new array and collecting from old array
 		int arr[]=new int[count];
-		
 		for(int i=0;i<res.length;i++)
-		{
-			
+		{	
 			if(res[i]!=0){
 				arr[j++]=res[i];
 				System.out.print(res[i]+" ");
@@ -1005,9 +1379,13 @@ public static String binToDecimal(String binary)
 		}
 		
 		System.out.println();
+		//Passing array for palindrome.
 		for(int i=0;i<arr.length;i++)
 			Utility.palindrome(arr[i]);
 	
 	}
+
+	
+
 	
 }

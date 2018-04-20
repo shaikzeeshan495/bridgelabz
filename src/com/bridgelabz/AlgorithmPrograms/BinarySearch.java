@@ -18,20 +18,17 @@ public class BinarySearch {
 		
 		System.out.println("Enter the number of words");
 		int count=Utility.inputInteger();
-		String array[]=new String[count];
+		String temp[]=new String[count];
 		System.out.println("Enter the words");
+		String array[]=Utility.inputStringArray(temp);
 		
-		for(int i=0;i<array.length;i++)
-		{
-			array[i]=Utility.inputString();
-		}
 		
-		array=Utility.sortingWords(array);
+		String []arraySort=Utility.sortingWords(array);
 		
 		System.out.println("after sorting: ");
-		for(int i=0;i<array.length;i++)
+		for(int i=0;i<arraySort.length;i++)
 		{
-			System.out.print(array[i]+" ");
+			System.out.print(arraySort[i]+" ");
 		}
 		
 		System.out.println();

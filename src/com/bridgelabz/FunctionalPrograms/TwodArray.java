@@ -13,13 +13,6 @@ import com.bridgelabz.utility.Utility;
 
 public class TwodArray {
 		
-	 	/**
-	    * Static Function to read inputs from array and printing them out to standard output. 
-	    *
-	    * @param number the number to intialize the array
-	    */	
-	
-		
 		/*
 	    * The main function is create 2 dimensional array in memory to read in M rows and N cols
 	    */
