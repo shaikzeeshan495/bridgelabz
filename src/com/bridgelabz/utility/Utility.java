@@ -1428,8 +1428,12 @@ public static String binToDecimal(String binary)
 	
 	}
 	
+	/** static fuction insertionSort for generic.
+	 * @param array collecting array to sort.
+	 * @return array after sorting.
+	 */
 	@SuppressWarnings("unchecked")
-	public static <T extends Comparable> T[]  insertionSortGen(T[] array)
+	public static <T extends Comparable> T[]  insertionSortGeneric(T[] array)
 	{
 		for(int i=1;i<array.length;i++)
 		{
@@ -1442,6 +1446,51 @@ public static String binToDecimal(String binary)
 			array[j]=x;
 		}
 		return array;
+	}
+	
+	/**
+	 * @param array
+	 * @return
+	 */
+	public static <T extends Comparable> T[] sortBubbleGeneric(T[] array)
+	{
+		T temp;
+		for(int i=0;i<array.length-2;i++)
+		{
+			for(int j=0;j<=array.length-2-i;j++)
+			{
+				
+				if((array[j]).compareTo(array[j+1])>0)
+				{
+					temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+				}
+			}
+		}
+		return array;
+	}
+	
+	/**
+	 * @param array
+	 * @param low
+	 * @param high
+	 * @param key
+	 */
+	public  static <T extends Comparable<T>>void searchingKeyGeneric(T array[],int low,int high,T key)
+	{
+		if(low<=high)
+		{
+			int mid=low+(high-low)/2;
+		
+		if(((String) array[mid]).equalsIgnoreCase((String) key))
+			System.out.println("String found at "+(mid+1));
+		else if(array[mid].compareTo(key)>0)
+			searchingKey(array,low,mid-1,key);
+	    else if(array[mid].compareTo(key)<0)
+	    	searchingKey(array,mid+1,high,key);
+		}else
+			 System.out.println("Key not found");
 	}
 
 }

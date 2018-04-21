@@ -8,6 +8,8 @@
  ******************************************************************************/
 
 package com.bridgelabz.AlgorithmPrograms;
+import java.util.Arrays;
+
 import com.bridgelabz.utility.Utility;
 
 public class InsertionSort {
@@ -20,8 +22,7 @@ public class InsertionSort {
 		int array[]=Utility.inputIntArray(tempArray);
 		int arrayAfterSort[]=Utility.inSorting(array);
 		Utility.printOrder(arrayAfterSort);
-	
-	//	Integer arrayAfterSort[]=Utility.insertionSortGen(array);
+	System.out.println(Arrays.toString(arrayAfterSort));
 		
 	}
 

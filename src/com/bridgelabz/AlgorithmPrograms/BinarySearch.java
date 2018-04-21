@@ -7,6 +7,8 @@
  *
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
+import java.util.Arrays;
+
 import com.bridgelabz.utility.Utility;
 
 public class BinarySearch {
