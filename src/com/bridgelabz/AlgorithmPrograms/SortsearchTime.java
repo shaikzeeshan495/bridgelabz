@@ -14,7 +14,6 @@ public class SortsearchTime {
 
 	public static void main(String[] args) {
 		
-		
 		String str[]={"america","europe","india","london","riyadh"};
 		int array[]={45,69,72,79,88,95};
 		long timeBinaryInteger=Utility.binaryStopwatchInt(array,88);
@@ -29,7 +28,6 @@ public class SortsearchTime {
 		System.out.println("Time of Insertion sort Strings search " +timeInsertString+ " Nano seconds");
 		System.out.println("Time of Bubble sort Integers search " +timeBubbleInteger+ " Nano seconds");
 		System.out.println("Time of Bubble sort Strings search " +timeBubbleString+ " Nano seconds");
-
 
 	}
 

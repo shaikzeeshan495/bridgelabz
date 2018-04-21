@@ -70,8 +70,8 @@ public class Utility {
 	
 	//to enter string elements in array
 		/**
-		 * @param array 
-		 * @return
+		 * @param array is to collect strings from user.
+		 * @return array with input Strings.
 		 */
 		public static String[] inputStringArray(String array[])
 		{
@@ -81,13 +81,12 @@ public class Utility {
 		}
 		return array;
 		}
-		// Functional 1.username
-			
 		
+		// Functional 1.username
 		/**Static Function replacing to read input String from user and printing them out to standard output.
-		 * @param string the String to replace in the Line
-		 * @param name
-		 * @return
+		 * @param string the String to replace in the Line.
+		 * @param name is a string to replace in parent string.
+		 * @return String which is replaced.
 		 */
 		public	static String replacing(String string,String name)
 			{
@@ -337,9 +336,9 @@ public class Utility {
 	public static	PrintWriter pw = new PrintWriter(System.out,true);
 	/**
 	 * static function printarray is to print elements in array
-	 * @param array
-	 * @param row
-	 * @param column
+	 * @param array to print array
+	 * @param row the size of the row
+	 * @param column the size of the column
 	 */
 	public static <T> void printArray(T[][] array,int row,int column)
 	{
@@ -352,7 +351,6 @@ public class Utility {
 			System.out.println();
 		}
 	}
-	
 	
 	
 	/**
@@ -401,8 +399,7 @@ public class Utility {
 		
 		printArray(array,m,n);
 	}
-	
-	
+		
 	/**
 	    * Static arrayDouble the array to store Boolean.
 	    */
@@ -415,7 +412,6 @@ public class Utility {
 		Boolean array[][]=new Boolean[m][n];
 		System.out.println("Enter the inputs");
 		
-		
 		for(int i=0;i<=m-1;i++)
 		{
 			for(int j=0;j<=n-1;j++)
@@ -427,7 +423,7 @@ public class Utility {
 		printArray(array,m,n);
 	}
 	// Functional 10. sum equal to zero.
-	/**
+		/**
 	    * Static function to check the number of triples that sum to exactly 0. 
 	    *
 	    * @param array the array to read input.
@@ -468,6 +464,43 @@ public class Utility {
 		System.out.println(distance);
 	}
 	
+	//Functional 12. Permutations of a String
+	/**
+	 * static function to permute the String.
+	 * @param str is String to permute.
+	 * @param left is a low index.
+	 * @param rigth is a high index.
+	 */
+	public static void permute(String str,int left,int rigth)
+	{
+		 if (left == rigth)
+	            System.out.println(str);
+	        else
+	        {
+	            for (int i = left; i <= rigth; i++)
+	            {
+	                str = swap(str,left,i);
+	                permute(str, left+1, rigth);
+	            }
+	        }
+	}
+	
+	/**static function Swap is to swap characters in a String.
+	 * @param str is a String passing to swap a characters in a String.
+	 * @param left is a left index.
+	 * @param right is a right index.
+	 * @return String after swapping.
+	 */
+	public static String swap(String str,int left,int right)
+	{
+		 char temp;
+	        char[] charArray = str.toCharArray();
+	        temp = charArray[left] ;
+	        charArray[left] = charArray[right];
+	        charArray[right] = temp;
+	        return String.valueOf(charArray);
+	}
+		
 	//Functional 13. Stopwatch
 		static long START_TIME=0;
 		static long STOP_TIME=0;
@@ -506,8 +539,8 @@ public class Utility {
 			/**
 			* Function to calculate time in sec.
 		    */
-			public static double getElapsedTimeNanosec() {
-			    double elapsed;
+			public static long getElapsedTimeNanosec() {
+			    long elapsed;
 			    
 			    if (Running) 
 			      elapsed = ((System.nanoTime() - START_TIME));
@@ -516,9 +549,9 @@ public class Utility {
 			    return elapsed;
 			}
 			
-			/**
-			* Function to calculate time in sec.
-		    */
+			/**Static function to get a time in seconds.
+			 * @return time.
+			 */
 			public static long getElapsedTimesec() {
 			    long elapsed;
 			    
@@ -532,9 +565,9 @@ public class Utility {
 			/**
 			    * Static function to find the roots of the equation.
 			    *
-			    * @param numbers the numbers is to calculate the equation.
-			    * @param numbers the numbers is to calculate the equation.
-			    * @param numbers the numbers is to calculate the equation.
+			    * @param numbers the number is to calculate the equation.
+			    * @param numbers the number is to calculate the equation.
+			    * @param numbers the number is to calculate the equation.
 			    */
 			public static void findRoots(int a,int b,int c)
 			{
@@ -549,7 +582,7 @@ public class Utility {
 			}
 			
 			//Functional 16.Wind chill
-			/**
+				/**
 			    * Static function to find the weather.
 			    *
 			    * @param numbers the numbers is to calculate the temperature.
@@ -564,17 +597,16 @@ public class Utility {
 					System.out.println(w);
 				}
 				else
-					System.out.println("please enter valid input");
-				
+					System.out.println("please enter valid input");		
 			}
 				
 	// Algorithm 1.Annagram string
 	
-	/**
-	    * Static function to check annagram.
-	    *
-	    * @param arrays the char arrays to check the annagram.
-	    */
+	/**Static function to check annagram.
+	 * @param ch1 is a char array to check is it annagram or not.
+	 * @param ch2 is a char array to check is it annagram or not.
+	 * @return String gives a message wheather is a annagram or not.
+	 */
 	public static String checkAnnagram(char ch1[],char ch2[])
 	{
 		Arrays.sort(ch1);
@@ -594,9 +626,7 @@ public class Utility {
 					return "It is a Annagram";
 		}
 	
-	}	
-	
-		
+	}			
 		/**
 	    * Static function to convert strings to char arrays.
 	    *
@@ -623,9 +653,7 @@ public class Utility {
 	    * @param string the string to convert string to array.
 	    */
 	public static void annagFunNum(String s1,String s2)
-	{
-		
-		
+	{	
 		char ch1[]=s1.toCharArray();
 		char ch2[]=s2.toCharArray();
 		checkAnnagNum(ch1,ch2);
@@ -650,13 +678,11 @@ public class Utility {
 			String s1=new String(ch1);
 			String s2=new String(ch2);
 			if(s1.equals(s2))
-				System.out.println(s1+" "+temp+" Annagram");
-					
+				System.out.println(s1+" "+temp+" Annagram");					
 		}
 	
 	}
-		
-	
+			
 	// Algorithm 2.Prime number
 		/**
 	    * Static function to generate prime numbers in given range.
@@ -685,13 +711,11 @@ public class Utility {
 	
 	}
 	
-	
 	// Palindrome
 		/**
 	    * Static function to check palindrome.
 	    * @param number the number is to check palindrome.
 	    */
-	
 	public static void palindrome(int num)
 	{
 		int rem,sum=0;
@@ -711,22 +735,17 @@ public class Utility {
 	
 	// Algorithm 4. StopWatch to calculate searching and sorting methods.
 	/**
-	    * Static function to calculate time of binary Strings
-	    * @param array the array is input for binary search strings
-	    * @param string the string is key to search in given words
+	    * Static function to calculate time of binary Strings.
+	    * @param array the array is input for binary search strings.
+	    * @param string the string is key to search in given words.
 	    */
-	public static <T extends Comparable> long binaryStopwatchStr(T array[],T key)
-	{
-		
-		long startTime=System.nanoTime();
-		
-		int position=Utility.searchingKey(array, 0, 5,key);
+	public static  long binaryStopwatchStr(String array[],String key)
+	{	
+		long startTime=System.nanoTime();	
+		Utility.searchingKey(array, 0, 5,key);
 		long stopTime=System.nanoTime();
-		
-	
-				long timeBinary=stopTime-startTime;
-		
-		    System.out.println("Binary search for String:key found at "+(position+1));
+		long timeBinary=stopTime-startTime;
+		   
 		return timeBinary;
 	}
 	/**
@@ -736,75 +755,67 @@ public class Utility {
 	    */
 	public static  long binaryStopwatchInt(int []array,int key)
 	{
-		
 		long startTime=System.nanoTime();
+		//Utility.start();
 		int position=Utility.binSearchIntegers(array, 0, 5,key);
 		long stopTime=System.nanoTime();
-		
-	
-				long timeBinary=stopTime-startTime;
-		
+		//Utility.stop();	
+		long timeBinary=stopTime-startTime;
 		    System.out.println("Binary search for integer:key found at "+(position+1));
 		return timeBinary;
 	}
 	
-	/**
+		/**
 	    * Static function to calculate time of insertion sort
 	    * @param array the array of integers is input for insertion sort
 	    */
-	public static long insertStopwatchInt(int[] array) {
-		
+	public static long insertStopwatchInt(int[] array) {		
 		long startTime=System.nanoTime();
-		int afterSort[]=Utility.inSorting(array);
-	
+		Utility.inSorting(array);
 		long stopTime=System.nanoTime();
 		long timeInsertInteger=stopTime-startTime;
 		return timeInsertInteger;
 	}
 	
-	/**
+		/**
 	    * Static function to calculate time of insertion sort
 	    * @param array the array of string is input for insertion sort
 	    */
 	public static long insertStopwatchStr(String[] array) {
 		long startTime=System.nanoTime();
-		String afterSort[]=Utility.sortingString(array);
-	
+		Utility.sortingString(array);
 		long stopTime=System.nanoTime();
 		long timeInsertString=stopTime-startTime;
 		return timeInsertString;
 	
 	}
-	/**
+		/**
 	    * Static function to calculate time of Bubble sort
 	    * @param array the array of integer is input for Bubble sort
 	    */
 public static long bubbleStopwatchInt(int array[]) {
 		
 	long startTime=System.nanoTime();
-	int afterSort[]=Utility.sortBubble(array);
-
+	 Utility.sortBubble(array);
 	long stopTime=System.nanoTime();
 	long timeBubbleInteger=stopTime-startTime;
 	return timeBubbleInteger;
 	}
 
 /**
- * Static function to calculate time of Bubble sort
- * @param array the array of string is input for Bubble sort
+ * Static function to calculate time of Bubble sort.
+ * @param array the array of string is input for Bubble sort.
  */
 public static long bubbleStopwatchStr(String array[]) {
 	
 long startTime=System.nanoTime();
-String afterSort[]=Utility.sortingBubbleString(array);
-
+Utility.sortingBubbleString(array);
 long stopTime=System.nanoTime();
 long timeBubbleString=stopTime-startTime;
 return timeBubbleString;
 }
 
-
-	// Algorithm 5. Question and answer
+// Algorithm 5. Question and answer
 	/**
 	    * Static function to guess the number.
 	    * @param number the number is to calculate range of guessing.
@@ -815,10 +826,9 @@ return timeBubbleString;
 			int mid=(low+high)/2;	
 			if(mid==high)
 		    	return mid;
-			
 		    System.out.println("If it is "+mid+" then enter 'STOP'");
 		    System.out.println("If it is less than" + " " + mid+" then enter 'YES' otherwise 'NO'");
-		    String option=Utility.inputString();
+		    String option=Utility.inputString();	    
 		    
 		    if(option.equalsIgnoreCase("stop"))
 		    	return mid;
@@ -833,23 +843,26 @@ return timeBubbleString;
 		    * Static function to search given word.
 		    * @param array the array is to print the sorting number.
 		    */
-		public  static <T extends Comparable<T>>int searchingKey(T array[],int low,int high,T key)
+		public  static <T extends Comparable<T>>void searchingKey(T array[],int low,int high,T key)
 		{
-			int mid=(low+high)/2;	
-			if(mid==high)
-		    	return mid;
+			if(low<=high)
+			{
+				int mid=low+(high-low)/2;
+			
 			if(((String) array[mid]).equalsIgnoreCase((String) key))
-		    	return mid;
+				System.out.println("String found at "+(mid+1));
 			else if(array[mid].compareTo(key)>0)
-		      return searchingKey(array,low,mid,key);
+				searchingKey(array,low,mid-1,key);
 		    else if(array[mid].compareTo(key)<0)
-		      return searchingKey(array,mid+1,high,key);
-		        	return -1;
+		    	searchingKey(array,mid+1,high,key);
+			}else
+				 System.out.println("Key not found");
 		}
-		/**
-		    * Static function to compare strings.
-		    * @param array the String array is to compare string.
-		    */
+		
+		/** Static function to compare strings and sort to words.
+		 * @param str is input String array is to compare string each other.
+		 * @return sorting string.
+		 */
 		public  static String[] sortingWords(String str[])
 		{
 			for(int i=0;i<str.length-1;i++)
@@ -869,6 +882,9 @@ return timeBubbleString;
 		}
 		
 		//Binary search for integers for calculating time
+		/**static function binaryIntegers is to search a integer and calculate time.
+		 * 
+		 */
 		public static void binaryIntegers()
 		{
 			System.out.println("enter the length of array");
@@ -905,6 +921,13 @@ return timeBubbleString;
 			
 		}
 		
+		/**static function binSearchIntegers is to search integers in binary.
+		 * @param array is with input numbers.
+		 * @param low is initial index of array.
+		 * @param high is maximum index of array.
+		 * @param key is the number to search.
+		 * @return number which is index of key.
+		 */
 		public static int binSearchIntegers(int[] array,int low,int high,int key)
 		{
 			int mid=(low+high)/2;
@@ -920,8 +943,10 @@ return timeBubbleString;
 			
 		}
 		
-		// Binary search for calculate time Strings
-		
+		// Binary search for calculate time Strings.
+		/**static function binaryString
+		 * 
+		 */
 		public static void binaryStrings()
 		{
 			System.out.println("Enter the number of words");
@@ -931,10 +956,10 @@ return timeBubbleString;
 			
 			for(int i=0;i<array.length;i++)
 			{
-				array[i]=Utility.inputString();
+				array[i]=inputString();
 			}
 			
-			array=Utility.sortingWords(array);
+			array=sortingWords(array);
 			
 			System.out.println("after sorting: ");
 			for(int i=0;i<array.length;i++)
@@ -944,13 +969,10 @@ return timeBubbleString;
 			
 			System.out.println();
 			System.out.println("Enter the word to search");
-			String key=Utility.inputString();
+			String key=inputString();
 			
-			int position=Utility.searchingKey(array, 0, array.length-1,key);
-			if(position == -1)
-			    System.out.println("Not found");
-			  else
-			    System.out.println("String found at "+(position+1));
+			Utility.searchingKey(array, 0, array.length-1,key);
+			
 		}
 		
 	// Algorithm 7.Insertionsort
@@ -990,18 +1012,14 @@ return timeBubbleString;
 		
 	}
 	
-	// Insertion sort for string
-	/**
-	    * Static function to sort string.
-	    * @param array the array is to sorting.
-	    */
+	// Insertion sort for string.
+	    /**
+		    * Static function to sort string.
+		    * @param array the array is to sorting.
+	 * @return String of sorting words.
+	 */
 	public static String[] sortingString(String array[])
 	{
-	/*	for(int i=0;i<array.length;i++)
-		{
-			array[i]=Utility.inputString();
-		} */
-		
 		for(int i=0;i<array.length;i++)
 		{
 			String key=array[i],temp;
@@ -1062,18 +1080,15 @@ return timeBubbleString;
 			System.out.print(array[i]+" ");
 	}
 	
-	// Algorithm 8.Bubble Sort for strings
-		/**
-		    * Static function to sort numbers.
-		    * @param array the array is to sorting.
-		    */
+	// Algorithm 8.Bubble Sort for strings.
+		    /**
+			    * Static function to sort numbers.
+			    * @param array the array is to sorting.
+		 * @return string array after Bubble sorting.
+		 */
 		public static String[] sortingBubbleString(String array[])
 		{
 			String temp="";
-		/*	for(int i=0;i<array.length;i++)
-			{
-				array[i]=Utility.inputString();
-			} */
 			
 			for(int i=0;i<array.length-2;i++)
 			{
@@ -1088,7 +1103,6 @@ return timeBubbleString;
 				}
 			}
 			return array;
-			//printBubbleString(array);
 		}
 		
 			/**
@@ -1101,73 +1115,102 @@ return timeBubbleString;
 		}
 	
 		//Algorithm 10. Merge Sort
-		/* 
-		 * static function to sort numbers
-		 * param integer the number is the given input aarray
+		
+		/** static function to sort the numbers.
+		 * @param arrayInput is the array with inputs to do partition.
+		 * @return array with sorting numbers.
 		 */
-		public static int[] sortMergeNum(int array[],int low,int high)
+		public static int[] sortMergeNum(int arrayInput[])
 		{
-			if(low<high)
-			{
-				int mid=(low+high)/2;
-				sortMergeNum(array, low, mid);
-				sortMergeNum(array, mid+1, high);
-				mergeArrays(array,low,mid,high);
+			
+			//if given number is only one integer or nothing then it will return.
+			if(arrayInput.length<=1)
+			{return arrayInput;
 			}
-			return array;
+			
+			//dividing length into half.
+			int mid=arrayInput.length/2;
+			int left[]=new int[mid];
+			int right[];
+			if(arrayInput.length%2==0)
+				right=new int[mid];
+			else
+				right=new int[mid+1];
+			
+			//collecting in left array.
+			for(int i=0;i<mid;i++)
+			{
+				left[i]=arrayInput[i];
+			}
+			//collecting in right array.
+			int x=0;
+			for(int j=mid;j<arrayInput.length;j++)
+			{
+				if(x<right.length)
+				{
+					right[x]=arrayInput[j];
+					x++;
+				}
+			}
+			
+			left=sortMergeNum(left);
+			right=sortMergeNum(right);
+			int result[]=mergeArrays(left,right);
+			return result;
 		}
 		
-		/* 
-		 * static function to merge arrays
-		 * param integer the number is the given input aarray
+		
+		/** static function to merge arrays.
+		 * @param leftArray to sort and merge with left array.
+		 * @param rightArray to sort and merge with right array.
+		 * @return array with a sorting numbers.
 		 */
-		public static void mergeArrays(int array[],int low,int mid,int high)
+		public static int[] mergeArrays(int leftArray[],int[] rightArray)
 		{
 			//taking length to initialize arrays
-			int p=mid-low+1;
-			int q=high-mid;
-			int[] leftArray=new int[p];
-			int[] rightArray=new int[q];
-		
-	        for (int i=0; i<p; ++i)
-	            leftArray[i] = array[low + i];
-	        for (int j=0; j<q; ++j)
-	            rightArray[j] = array[mid + 1+ j];
-	        
-	        int i = 0, j = 0;
-	        int k = low;
-	        while (i < p && j < q)
-	        {
-	            if (leftArray[i] <= rightArray[j])
-	            {
-	                array[k] = leftArray[i];
-	                i++;
-	            }
-	            else
-	            {
-	                array[k] = rightArray[j];
-	                j++;
-	            }
-	            k++;
-	        }
-			
-	        while (i < p)
-	        {
-	            array[k] = leftArray[i];
-	            i++;
-	            k++;
-	        }
-	 
-	        while (j < q)
-	        {
-	            array[k] = rightArray[j];
-	            j++;
-	            k++;
-	        }
+			int lengthResult=leftArray.length+rightArray.length;
+			int []result=new int[lengthResult];
+			int indexLeft=0;
+			int indexRight=0;
+			int indexResult=0;
+			while(indexLeft<leftArray.length||indexRight<rightArray.length)
+			{
+				if(indexLeft<leftArray.length&&indexRight<rightArray.length)
+				{
+					if(leftArray[indexLeft]<=rightArray[indexRight])
+					{
+						result[indexResult]=leftArray[indexLeft];
+						indexLeft++;
+						indexResult++;
+					}
+					else
+					{
+						result[indexResult]=rightArray[indexRight];
+						indexRight++;
+						indexResult++;
+					}
+				}
+				else if(indexLeft<leftArray.length)
+				{
+					result[indexResult]=leftArray[indexLeft];
+					indexLeft++;
+					indexResult++;
+				}
+				else if(indexRight<rightArray.length)
+				{
+					result[indexResult]=rightArray[indexRight];
+					indexRight++;
+					indexResult++;
+				}
+			}
+			return result;
 	        
 		}
-		
-		 public static void printArray(int array[])
+		//to print array
+		 /**static function to print array.
+		 * @param array to print the array
+		 */
+		public static void printArray(int array[])
 		    {
 		        int n = array.length;
 		        for (int i=0; i<n; ++i)
@@ -1176,9 +1219,10 @@ return timeBubbleString;
 		    }
 		
 	//Algorithm 10. Vending Machine
-	/* 
+	/** 
 	 * static function to count notes
-	 * param integer the number is the given input amount
+	 *@param integer the number is the given input amount
+	 *@return number the total no of notes.
 	 */
 	public static int countingNotes(int amount)
 	{
@@ -1194,14 +1238,13 @@ return timeBubbleString;
 		return note;
 	}
 	
+	// Algorithm 11.Calender.
 	
-	
-	
-	// Algorithm 11.Calender
-	/**
-	    * Static function to calculate the day.
-	    */
-	
+	/**Static function to calculate the day.
+	 * @param day given input to find the day of week.
+	 * @param mon given input to find the day of week.
+	 * @param year given input to find the day of week.
+	 */
 	public static void dayOfWeek(int day,int mon,int year)
 	{
 		
@@ -1247,8 +1290,8 @@ return timeBubbleString;
 	public static void celsius()
 	{
 				int fahrenheitTemp=Utility.inputInteger();
-				int temperature=(fahrenheitTemp - 32) * 5/9;
-				System.out.println(temperature);
+				int Celsius=(fahrenheitTemp - 32) * 5/9;
+				System.out.println(Celsius);
 	}
 	
 	
@@ -1258,8 +1301,8 @@ return timeBubbleString;
 	public static void fahrenheit()
 	{
 		int celsiusTemp=Utility.inputInteger();
-		int temperature=(celsiusTemp * 9/5) + 32;
-		System.out.println(temperature);
+		int fahrenheit=(celsiusTemp * 9/5) + 32;
+		System.out.println(fahrenheit);
 	}
 	
 	// Algorithm 13. Monthly Payment
@@ -1270,14 +1313,14 @@ return timeBubbleString;
 		public static void calculation(double principal,double rateOfInterest,double year)
 		{
 			double n=12*year,r=rateOfInterest/(12*100);
-			double payment=(principal*r)/1-Math.pow((1+r), (-n));
-			System.out.println(payment);
+			double payment=(principal*r)/(1-Math.pow((1+r), (-n)));
+			System.out.println("monthly payment: "+payment);
 		}
 	
 	//Algorithm 14. Sqrt Newton Method
 		/**
 	    * Static function  calcSqrt is find square root.
-	    * param double is number to substitute in equation.
+	    * @param double is number to substitute in equation.
 	    */
 	public static void calcSqrt(double c)
 	{
@@ -1293,11 +1336,11 @@ return timeBubbleString;
 	}
 	
 	// Algorithm 15. Decimal to Binary Conversion.
-		/**
-		 * static function toBinary is to convert decinal value to binary.
-		 * param integer the number to convert binary
-		 */
 		
+		/**static function toBinary is to convert decinal value to binary.
+		 * @param decimal is given input to convrt binary.
+		 * @return string which is binary
+		 */
 		public static String toBinary(int decimal)
 		{
 			
@@ -1319,9 +1362,9 @@ return timeBubbleString;
 		}
 		
 		/**
-		 * static function swapNibbles is to swap nibbles
-		 * @param binary is string of binary to swap nibbles
-		 * @return string
+		 * static function swapNibbles is to swap nibbles.
+		 * @param binary is string of binary to swap nibbles.
+		 * @return string after swapping nibbles.
 		 */
 		
 	public static String swapNibbles(String binary)
@@ -1333,9 +1376,9 @@ return timeBubbleString;
 		 return tempString;
 	}
 	/**
-	 * static function swapNibbles is to swap nibbles
-	 * @param binary is string of binary to swap nibbles
-	 * @return string
+	 * static function binToDecimal is to convert binary to decimal.
+	 * @param binary is string of binary to swap nibbles.
+	 * @return string after converting decimal.
 	 */
 	
 public static String binToDecimal(String binary)
@@ -1384,8 +1427,21 @@ public static String binToDecimal(String binary)
 			Utility.palindrome(arr[i]);
 	
 	}
-
 	
+	@SuppressWarnings("unchecked")
+	public static <T extends Comparable> T[]  insertionSortGen(T[] array)
+	{
+		for(int i=1;i<array.length;i++)
+		{
+			T x=array[i];
+			int j;
+			for(j=i;j>0&&(array[j-1].compareTo(x))>0;j--)
+			{
+				array[j]=array[j-1];
+			}
+			array[j]=x;
+		}
+		return array;
+	}
 
-	
 }

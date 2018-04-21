@@ -7,8 +7,6 @@
  *
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
-
-
 import com.bridgelabz.utility.Utility;
 
 public class BinarySearch {
@@ -22,7 +20,6 @@ public class BinarySearch {
 		System.out.println("Enter the words");
 		String array[]=Utility.inputStringArray(temp);
 		
-		
 		String []arraySort=Utility.sortingWords(array);
 		
 		System.out.println("after sorting: ");
@@ -34,12 +31,7 @@ public class BinarySearch {
 		System.out.println();
 		System.out.println("Enter the word to search");
 		String key=Utility.inputString();
-		
-		int position=Utility.searchingKey(array, 0, array.length-1,key);
-		if(position == -1)
-		    System.out.println("Not found");
-		  else
-		    System.out.println("String found at "+(position+1));
+		Utility.searchingKey(array, 0, array.length-1,key);
 		
 	}
 

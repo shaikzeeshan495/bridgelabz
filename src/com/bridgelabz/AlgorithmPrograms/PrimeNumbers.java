@@ -3,7 +3,7 @@
  *
  *  @author  Zeeshan
  *  @version 1.0
- *  @since   16-04-2018
+ *  @since   17-04-2018
  *
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
@@ -22,7 +22,7 @@ public class PrimeNumbers {
 		for(int i=0;i<res.length;i++)
 		{
 			if(res[i]!=0)
-		System.out.print(res[i]+" ");
+				System.out.print(res[i]+" ");
 		}
 	}
 

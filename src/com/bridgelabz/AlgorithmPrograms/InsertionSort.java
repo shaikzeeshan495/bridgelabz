@@ -15,11 +15,14 @@ public class InsertionSort {
 	public static void main(String[] args) {
 		System.out.println("enter the length of the array");
 		int length=Utility.inputInteger();
-		int array[]=new int[length];
+		int tempArray[]=new int[length];
 		System.out.println("Enter the elements:");
-		Utility.inputIntArray(array);
+		int array[]=Utility.inputIntArray(tempArray);
 		int arrayAfterSort[]=Utility.inSorting(array);
 		Utility.printOrder(arrayAfterSort);
+	
+	//	Integer arrayAfterSort[]=Utility.insertionSortGen(array);
+		
 	}
 
 }

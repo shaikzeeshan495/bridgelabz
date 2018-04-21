@@ -16,12 +16,15 @@ public class MonthlyPayment {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Enter principal loan amount P");
-		double principal=Utility.inputInteger();
-		System.out.println("Enter interest R");
-		double rateOfInterest=Utility.inputInteger();
-		System.out.println("Enter Years Y");
-		double year=Utility.inputInteger();
+		//System.out.println("Enter principal loan amount P");
+		//double principal=Utility.inputInteger();
+		//System.out.println("Enter interest R");
+		//double rateOfInterest=Utility.inputInteger();
+		//System.out.println("Enter Years Y");
+		//double year=Utility.inputInteger();
+		double principal=Double.parseDouble(args[0]);
+		double rateOfInterest=Double.parseDouble(args[1]);
+		double year=Double.parseDouble(args[2]);
 		Utility.calculation(principal,rateOfInterest,year);
 
 	}

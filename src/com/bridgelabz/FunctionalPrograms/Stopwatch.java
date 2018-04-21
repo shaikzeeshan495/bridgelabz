@@ -22,7 +22,9 @@ public class Stopwatch {
 			Utility.inputInteger();
 			Utility.stop();
 			long sec=Utility.getElapsedTimesec();
-			System.out.println(sec+" sec");	
+			long Nano=Utility.getElapsedTimeNanosec();
+			System.out.println(sec+" sec");
+			System.out.println(Nano+ " nano");
 		}
 
 }

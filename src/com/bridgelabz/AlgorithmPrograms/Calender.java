@@ -14,17 +14,17 @@ import com.bridgelabz.utility.Utility;
 public class Calender {
 
 	public static void main(String[] args) {
-		
-		System.out.println("Please enter the date");
 		int date=Integer.parseInt(args[0]);
-		//int date=Utility.inputInteger();
-		System.out.println("Please enter the month");
 		int mon=Integer.parseInt(args[1]);
-		//int mon=Utility.inputInteger();
-		System.out.println("Please enter the year");
 		int year=Integer.parseInt(args[2]);
+			Utility.dayOfWeek(date,mon,year);
+		//System.out.println("Please enter the date");
+		//int date=Utility.inputInteger();
+		//System.out.println("Please enter the month");
+		//int mon=Utility.inputInteger();
+		//System.out.println("Please enter the year");
 		//int year=Utility.inputInteger();
-		Utility.dayOfWeek(date,mon,year);
+		
 
 	}
 
