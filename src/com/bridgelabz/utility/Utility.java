@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Utility {
 	
 	private static Scanner scanner = new Scanner(System.in);
@@ -742,7 +741,8 @@ public class Utility {
 	public static  long binaryStopwatchStr(String array[],String key)
 	{	
 		long startTime=System.nanoTime();	
-		Utility.searchingKey(array, 0, 5,key);
+		String []sortArray=sortingString(array);
+		Utility.binarySearchGeneric(sortArray, 0, 5,key);
 		long stopTime=System.nanoTime();
 		long timeBinary=stopTime-startTime;
 		   
@@ -753,15 +753,17 @@ public class Utility {
 	    * @param array the array is input for binary search strings
 	    * @param string the string is key to search in given words
 	    */
-	public static  long binaryStopwatchInt(int []array,int key)
+	public static  long binaryStopwatchInt(Integer []array,Integer key)
 	{
 		long startTime=System.nanoTime();
 		//Utility.start();
-		int position=Utility.binSearchIntegers(array, 0, 5,key);
+		//int position=
+		Arrays.sort(array);
+				Utility.binarySearchGeneric(array, 0, 5,key);
 		long stopTime=System.nanoTime();
 		//Utility.stop();	
 		long timeBinary=stopTime-startTime;
-		    System.out.println("Binary search for integer:key found at "+(position+1));
+		   // System.out.println("Binary search for integer:key found at "+(position+1));
 		return timeBinary;
 	}
 	
@@ -769,9 +771,9 @@ public class Utility {
 	    * Static function to calculate time of insertion sort
 	    * @param array the array of integers is input for insertion sort
 	    */
-	public static long insertStopwatchInt(int[] array) {		
+	public static long insertStopwatchInt(Integer[] array) {		
 		long startTime=System.nanoTime();
-		Utility.inSorting(array);
+		Utility.insertionSortGeneric(array);
 		long stopTime=System.nanoTime();
 		long timeInsertInteger=stopTime-startTime;
 		return timeInsertInteger;
@@ -783,7 +785,7 @@ public class Utility {
 	    */
 	public static long insertStopwatchStr(String[] array) {
 		long startTime=System.nanoTime();
-		Utility.sortingString(array);
+		Utility.insertionSortGeneric(array);
 		long stopTime=System.nanoTime();
 		long timeInsertString=stopTime-startTime;
 		return timeInsertString;
@@ -793,10 +795,10 @@ public class Utility {
 	    * Static function to calculate time of Bubble sort
 	    * @param array the array of integer is input for Bubble sort
 	    */
-public static long bubbleStopwatchInt(int array[]) {
+public static long bubbleStopwatchInt(Integer array[]) {
 		
 	long startTime=System.nanoTime();
-	 Utility.sortBubble(array);
+	 Utility.sortBubbleGeneric(array);
 	long stopTime=System.nanoTime();
 	long timeBubbleInteger=stopTime-startTime;
 	return timeBubbleInteger;
@@ -809,7 +811,7 @@ public static long bubbleStopwatchInt(int array[]) {
 public static long bubbleStopwatchStr(String array[]) {
 	
 long startTime=System.nanoTime();
-Utility.sortingBubbleString(array);
+Utility.sortBubbleGeneric(array);
 long stopTime=System.nanoTime();
 long timeBubbleString=stopTime-startTime;
 return timeBubbleString;
@@ -843,7 +845,7 @@ return timeBubbleString;
 		    * Static function to search given word.
 		    * @param array the array is to print the sorting number.
 		    */
-		public  static <T extends Comparable<T>>void searchingKey(T array[],int low,int high,T key)
+	/*	public  static <T extends Comparable<T>>void searchingKey(T array[],int low,int high,T key)
 		{
 			if(low<=high)
 			{
@@ -857,7 +859,7 @@ return timeBubbleString;
 		    	searchingKey(array,mid+1,high,key);
 			}else
 				 System.out.println("Key not found");
-		}
+		} */
 		
 		/** Static function to compare strings and sort to words.
 		 * @param str is input String array is to compare string each other.
@@ -947,7 +949,7 @@ return timeBubbleString;
 		/**static function binaryString
 		 * 
 		 */
-		public static void binaryStrings()
+	/*	public static void binaryStrings()
 		{
 			System.out.println("Enter the number of words");
 			int count=Utility.inputInteger();
@@ -973,7 +975,7 @@ return timeBubbleString;
 			
 			Utility.searchingKey(array, 0, array.length-1,key);
 			
-		}
+		} */
 		
 	// Algorithm 7.Insertionsort
 		/**
@@ -1034,7 +1036,7 @@ return timeBubbleString;
 			}
 		}
 		return array;
-		//printOrderString(array);
+		
 	}
 	
 	/**
@@ -1448,9 +1450,9 @@ public static String binToDecimal(String binary)
 		return array;
 	}
 	
-	/**
-	 * @param array
-	 * @return
+	/**static fuction BubbleSort for generic.
+	 * @param array input array to sort
+	 * @return sorting array
 	 */
 	public static <T extends Comparable> T[] sortBubbleGeneric(T[] array)
 	{
@@ -1471,26 +1473,28 @@ public static String binToDecimal(String binary)
 		return array;
 	}
 	
-	/**
-	 * @param array
-	 * @param low
-	 * @param high
-	 * @param key
+	/**static function binary search for generic
+	 * @param array collection of words.
+	 * @param low initial index.
+	 * @param high highest index.
+	 * @param key word to be search.
 	 */
-	public  static <T extends Comparable<T>>void searchingKeyGeneric(T array[],int low,int high,T key)
+	public  static <T extends Comparable<T>>void binarySearchGeneric(T array[],Integer low,Integer high,T key)
 	{
 		if(low<=high)
 		{
 			int mid=low+(high-low)/2;
 		
-		if(((String) array[mid]).equalsIgnoreCase((String) key))
+		if(( array[mid]).compareTo( key)==0)
 			System.out.println("String found at "+(mid+1));
 		else if(array[mid].compareTo(key)>0)
-			searchingKey(array,low,mid-1,key);
+			binarySearchGeneric(array,low,mid-1,key);
 	    else if(array[mid].compareTo(key)<0)
-	    	searchingKey(array,mid+1,high,key);
+	    	binarySearchGeneric(array,mid+1,high,key);
 		}else
 			 System.out.println("Key not found");
 	}
+	
+	
 
 }

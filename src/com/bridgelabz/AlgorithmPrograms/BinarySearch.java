@@ -7,7 +7,6 @@
  *
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
-import java.util.Arrays;
 
 import com.bridgelabz.utility.Utility;
 
@@ -33,7 +32,7 @@ public class BinarySearch {
 		System.out.println();
 		System.out.println("Enter the word to search");
 		String key=Utility.inputString();
-		Utility.searchingKey(array, 0, array.length-1,key);
+		Utility.binarySearchGeneric(array, 0, array.length-1,key);
 		
 	}
 

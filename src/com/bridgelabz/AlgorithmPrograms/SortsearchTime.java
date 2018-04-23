@@ -8,6 +8,8 @@
  ******************************************************************************/
 package com.bridgelabz.AlgorithmPrograms;
 
+
+
 import com.bridgelabz.utility.Utility;
 
 public class SortsearchTime {
@@ -15,8 +17,8 @@ public class SortsearchTime {
 	public static void main(String[] args) {
 		
 		String str[]={"america","europe","india","london","riyadh"};
-		int array[]={45,69,72,79,88,95};
-		long timeBinaryInteger=Utility.binaryStopwatchInt(array,88);
+		Integer array[]={45,69,72,79,88,95};
+		long timeBinaryInteger=Utility.binaryStopwatchInt(array,array[4]);
 		long timeBinaryString=Utility.binaryStopwatchStr(str,str[2]);
 		long timeInsertInteger=Utility.insertStopwatchInt(array);
 		long timeInsertString=Utility.insertStopwatchStr(str);
@@ -28,7 +30,7 @@ public class SortsearchTime {
 		System.out.println("Time of Insertion sort Strings search " +timeInsertString+ " Nano seconds");
 		System.out.println("Time of Bubble sort Integers search " +timeBubbleInteger+ " Nano seconds");
 		System.out.println("Time of Bubble sort Strings search " +timeBubbleString+ " Nano seconds");
-
+		
 	}
 
 }
