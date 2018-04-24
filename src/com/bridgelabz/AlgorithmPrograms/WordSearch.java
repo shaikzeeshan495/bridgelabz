@@ -21,7 +21,7 @@ public class WordSearch {
 	public static void main(String[] args) {
 		try{
 			
-		FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/wordsearch.txt");
+		FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/wordsearch.txt");
 		BufferedReader br=new BufferedReader(fileRead);
 		String fileStr=br.readLine();
 		System.out.println(fileStr);

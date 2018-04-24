@@ -1,5 +1,9 @@
 package com.bridgelabz.utility;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Random;
@@ -332,7 +336,7 @@ public class Utility {
 	
 	// 9.two d array integers
 		//creating a printwriter class
-	public static	PrintWriter pw = new PrintWriter(System.out,true);
+	public static	PrintWriter pwrite = new PrintWriter(System.out,true);
 	/**
 	 * static function printarray is to print elements in array
 	 * @param array to print array
@@ -345,7 +349,7 @@ public class Utility {
 		{
 			for(int j=0;j<column;j++)
 			{
-				pw.printf("%s ", array[i][j]);
+				pwrite.printf("%s ", array[i][j]);
 			}
 			System.out.println();
 		}
@@ -1495,6 +1499,19 @@ public static String binToDecimal(String binary)
 			 System.out.println("Key not found");
 	}
 	
-	
+	/**static function printwrite to write a data in a file.
+	 * @param file is a location of file where we have to print.
+	 * @param data the data which is inserting in a file.
+	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies .
+	 */
+	public  static <T extends Comparable<T>> void printwrite(File file,Comparable data) throws IOException
+	{
+		FileWriter fw = new FileWriter(file,true);
+  	  BufferedWriter bw = new BufferedWriter(fw);
+  	  PrintWriter pw = new PrintWriter(bw);
+  	  pw.print(data+" ");
+  	  pw.close();
+  	  
+	}
 
 }
