@@ -85,7 +85,7 @@ public class UnorderedList <T>{
 	/**static function show to display the list.
 	 * 
 	 */
-	public  <T extends Comparable<T>> void show()
+	public  <T extends Comparable<T>> void display()
 		{
 			Node node=HEAD;
 			while(node.nextNode!=null)
@@ -96,12 +96,12 @@ public class UnorderedList <T>{
 			System.out.println(node.data);
 		}
 		
-	public static void operation(String word,String str[]) throws IOException
+	public static void operation(String word,String stringArray[]) throws IOException
 	{
 		UnorderedList list=new UnorderedList();
-			for(int i=0;i<str.length;i++)
+			for(int i=0;i<stringArray.length;i++)
 			{
-				list.add(str[i]);
+				list.add(stringArray[i]);
 			}
 			
 			int position=list.search(word);
@@ -110,7 +110,7 @@ public class UnorderedList <T>{
 			else
 				list.remove(position);
 			
-			list.show();
+			list.display();
 			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedListOut.txt");
 			Node node=HEAD;
 			while(node.nextNode!=null)

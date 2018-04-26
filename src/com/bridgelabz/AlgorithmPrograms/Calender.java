@@ -15,9 +15,9 @@ public class Calender {
 
 	public static void main(String[] args) {
 		int date=Integer.parseInt(args[0]);
-		int mon=Integer.parseInt(args[1]);
+		int month=Integer.parseInt(args[1]);
 		int year=Integer.parseInt(args[2]);
-			Utility.dayOfWeek(date,mon,year);
+			Utility.dayOfWeek(date,month,year);
 		//System.out.println("Please enter the date");
 		//int date=Utility.inputInteger();
 		//System.out.println("Please enter the month");

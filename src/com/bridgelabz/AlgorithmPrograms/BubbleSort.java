@@ -15,8 +15,8 @@ public class BubbleSort {
 	public static void main(String []args)
 	{
 		System.out.println("enter the length of the array");
-		int len=Utility.inputInteger();
-		int tempArray[]=new int[len];
+		int length=Utility.inputInteger();
+		int tempArray[]=new int[length];
 		System.out.println("enter the elements");
 		int array[]=Utility.inputIntArray(tempArray);
 		int afterSortBuble[]=Utility.sortBubble(array);

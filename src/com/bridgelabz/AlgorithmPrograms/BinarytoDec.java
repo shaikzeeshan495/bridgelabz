@@ -14,12 +14,12 @@ public class BinarytoDec {
 
 	public static void main(String[] args) {
 		System.out.println("Please enter a decimal  number");
-		int dec=Utility.inputInteger();
-		String binary=Utility.toBinary(dec);
+		int decimal=Utility.inputInteger();
+		String binary=Utility.toBinary(decimal);
 		System.out.println("Binary is "+binary);
 		String swapBinary=Utility.swapNibbles(binary);
 		System.out.println("after swap "+swapBinary);
-		String result=Utility.binToDecimal(swapBinary);
+		String result=Utility.binaryToDecimal(swapBinary);
 		System.out.println(result);
 	}
 

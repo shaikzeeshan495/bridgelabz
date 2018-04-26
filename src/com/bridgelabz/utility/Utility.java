@@ -12,6 +12,9 @@ public class Utility {
 	
 	private static Scanner scanner = new Scanner(System.in);
 	
+	/**inputInteger is to take input from scanner
+	 * @return scanner to take next input
+	 */
 	public static int inputInteger(){
 		try {
 			return scanner.nextInt();
@@ -23,6 +26,9 @@ public class Utility {
 		}
 	}
 	
+	/**inputDouble is to take a double value from input.
+	 * @return scanner to take next value.
+	 */
 	public static double inputDouble(){
 		try {
 			return scanner.nextDouble();
@@ -34,6 +40,9 @@ public class Utility {
 		}
 	}
 	
+	/**inputBoolean is to take a boolean value from input.
+	 * @return scanner to take next value.
+	 */
 	public static Boolean inputBoolean(){
 		try {
 			return scanner.nextBoolean();
@@ -44,13 +53,17 @@ public class Utility {
 			return inputBoolean();
 		}
 	}
-	
+	/**inputString is to take a string value from input.
+	 * @return scanner to take next value.
+	 */
 	public static String inputString(){
 		
 			return scanner.next();
 		
 	}
-	
+	/**inputString1 is to take a string value from input.
+	 * @return scanner to take next value from next Line.
+	 */
 	public static String inputString1()
 	{
 		return scanner.nextLine();
@@ -182,8 +195,8 @@ public class Utility {
 		public static void extendAnnagram(int res[])
 		{
 			int count=0,j=0;
-			String s1=" ";
-			String s2=" ";
+			String tempString1=" ";
+			String tempString2=" ";
 
 			
 			for(int i=0;i<res.length;i++)
@@ -211,9 +224,9 @@ public class Utility {
 			{
 				for(int k=i+1;k<arr.length;k++)
 				{
-					s1=""+arr[i];
-					s2=""+arr[k];
-					Utility.annagFunNum(s1,s2);
+					tempString1=""+arr[i];
+					tempString2=""+arr[k];
+					Utility.annagFunNum(tempString1,tempString2);
 				}
 				
 			}
@@ -610,17 +623,17 @@ public class Utility {
 	 * @param ch2 is a char array to check is it annagram or not.
 	 * @return String gives a message wheather is a annagram or not.
 	 */
-	public static String checkAnnagram(char ch1[],char ch2[])
+	public static String checkAnnagram(char charArray1[],char charArray2[])
 	{
-		Arrays.sort(ch1);
-		Arrays.sort(ch2);
-		if(ch1.length!=ch2.length)
+		Arrays.sort(charArray1);
+		Arrays.sort(charArray2);
+		if(charArray1.length!=charArray2.length)
 			return "Not a Annagram";
 		else 
 		{
-			for(int i=0;i<ch1.length;i++)
+			for(int i=0;i<charArray1.length;i++)
 			{
-				if(ch1[i]!=ch2[i])
+				if(charArray1[i]!=charArray2[i])
 				{
 					return "Not a Annagram";
 					
@@ -635,17 +648,17 @@ public class Utility {
 	    *
 	    * @param string the strings to convert char array.
 	    */
-	public static void annagramFun(String s1,String s2)
+	public static void annagramFunction(String s1,String s2)
 	{
-		String str1=s1.replaceAll("\\s","");
-		String str2=s2.replaceAll("\\s","");
+		String string1=s1.replaceAll("\\s","");
+		String string2=s2.replaceAll("\\s","");
 
-		str1=str1.toLowerCase();
-		str2=str2.toLowerCase();
+		string1=string1.toLowerCase();
+		string2=string2.toLowerCase();
 		
-		char ch1[]=str1.toCharArray();
-		char ch2[]=str2.toCharArray();
-		String str=checkAnnagram(ch1,ch2);
+		char charArray1[]=string1.toCharArray();
+		char charArray2[]=string2.toCharArray();
+		String str=checkAnnagram(charArray1,charArray2);
 		System.out.println(str);
 	}
 	
@@ -655,11 +668,11 @@ public class Utility {
 	    * @param string the string to convert string to array.
 	    * @param string the string to convert string to array.
 	    */
-	public static void annagFunNum(String s1,String s2)
+	public static void annagFunNum(String inputString1,String inputString2)
 	{	
-		char ch1[]=s1.toCharArray();
-		char ch2[]=s2.toCharArray();
-		checkAnnagNum(ch1,ch2);
+		char charArray1[]=inputString1.toCharArray();
+		char charArray2[]=inputString2.toCharArray();
+		checkAnnagNum(charArray1,charArray2);
 	}
 	/**
 	    * Static function to check annagram.
@@ -667,21 +680,21 @@ public class Utility {
 	    * @param arrays the char arrays to check the annagram.
 	    * @param arrays the char arrays to check the annagram.
 	    */
-	public static void checkAnnagNum(char ch1[],char ch2[])
+	public static void checkAnnagNum(char charArray1[],char charArray2[])
 	{
-		String temp=new String(ch2);
-		Arrays.sort(ch1);
-		Arrays.sort(ch2);
-		if(ch1.length!=ch2.length)
+		String temp=new String(charArray2);
+		Arrays.sort(charArray1);
+		Arrays.sort(charArray2);
+		if(charArray1.length!=charArray2.length)
 		{
 			
 		}
 		else 
 		{
-			String s1=new String(ch1);
-			String s2=new String(ch2);
-			if(s1.equals(s2))
-				System.out.println(s1+" "+temp+" Annagram");					
+			String string1=new String(charArray1);
+			String string2=new String(charArray2);
+			if(string1.equals(string2))
+				System.out.println(string1+" "+temp+" Annagram");					
 		}
 	
 	}
@@ -719,15 +732,15 @@ public class Utility {
 	    * Static function to check palindrome.
 	    * @param number the number is to check palindrome.
 	    */
-	public static void palindrome(int num)
+	public static void palindrome(int inputNumber)
 	{
-		int rem,sum=0;
-		int temp=num;
-		while(num>0)
+		int remainder,sum=0;
+		int temp=inputNumber;
+		while(inputNumber>0)
 		{
-			rem=num%10;
-			sum=(sum*10)+rem;
-			num=num/10;
+			remainder=inputNumber%10;
+			sum=(sum*10)+remainder;
+			inputNumber=inputNumber/10;
 		}
 		if(temp==sum)
 			System.out.println(sum+" palindrome");
@@ -761,7 +774,6 @@ public class Utility {
 	{
 		long startTime=System.nanoTime();
 		//Utility.start();
-		//int position=
 		Arrays.sort(array);
 				Utility.binarySearchGeneric(array, 0, 5,key);
 		long stopTime=System.nanoTime();
@@ -869,22 +881,22 @@ return timeBubbleString;
 		 * @param str is input String array is to compare string each other.
 		 * @return sorting string.
 		 */
-		public  static String[] sortingWords(String str[])
+		public  static String[] sortingWords(String stringArray[])
 		{
-			for(int i=0;i<str.length-1;i++)
+			for(int i=0;i<stringArray.length-1;i++)
 			{
-				for(int k=i+1;k<str.length;k++)
+				for(int k=i+1;k<stringArray.length;k++)
 				{
-					if(str[i].compareTo(str[k])>0)
+					if(stringArray[i].compareTo(stringArray[k])>0)
 					{
-						String temp=str[i];
-						str[i]=str[k];
-						str[k]=temp;
+						String temp=stringArray[i];
+						stringArray[i]=stringArray[k];
+						stringArray[k]=temp;
 					}
 						
 				}
 			}
-				return str;
+				return stringArray;
 		}
 		
 		//Binary search for integers for calculating time
@@ -913,7 +925,7 @@ return timeBubbleString;
 			Utility.stop();
 			if(res==-1)
 			{
-			double Nanosec=Utility.getElapsedTimeNanosec();
+				double Nanosec=Utility.getElapsedTimeNanosec();
 				System.out.println(Nanosec+" Nano sec");
 				System.out.println("key not found");
 			}
@@ -939,13 +951,15 @@ return timeBubbleString;
 			int mid=(low+high)/2;
 			if(mid==high)
 		    	return mid;
+			
 			if(array[mid]==key)
 		    	return mid;
 			else if(array[mid]>key)
 		      return binSearchIntegers(array,low,mid,key);
 		    else if(array[mid]<key)
 		      return binSearchIntegers(array,mid+1,high,key);
-		        	return -1;
+		        	
+			return -1;
 			
 		}
 		
@@ -986,7 +1000,7 @@ return timeBubbleString;
 	    * Static function to sort numbers.
 	    * @param array the array is to sorting.
 	    */
-	public static  int[] inSorting(int array[])
+	public static  int[] insertSorting(int array[])
 	{
 		
 		for(int i=0;i<array.length;i++)
@@ -1100,6 +1114,7 @@ return timeBubbleString;
 			{
 				for(int j=0;j<=array.length-2-i;j++)
 				{
+					//if condition true then interchanging values.
 					if(array[j].compareTo(array[j+1])>0)
 					{
 						temp=array[j];
@@ -1131,8 +1146,7 @@ return timeBubbleString;
 			
 			//if given number is only one integer or nothing then it will return.
 			if(arrayInput.length<=1)
-			{return arrayInput;
-			}
+				return arrayInput;
 			
 			//dividing length into half.
 			int mid=arrayInput.length/2;
@@ -1162,6 +1176,7 @@ return timeBubbleString;
 			left=sortMergeNum(left);
 			right=sortMergeNum(right);
 			int result[]=mergeArrays(left,right);
+			
 			return result;
 		}
 		
@@ -1251,13 +1266,13 @@ return timeBubbleString;
 	 * @param mon given input to find the day of week.
 	 * @param year given input to find the day of week.
 	 */
-	public static void dayOfWeek(int day,int mon,int year)
+	public static void dayOfWeek(int day,int month,int year)
 	{
 		
-		int y=year-(14-mon)/12;
-		int x=y+y/4-4/100+y/400;
-		int m=mon+12*((14-mon)/12)-2;
-		int d=(day+x+31*m)%7;
+		int yo=year-(14-month)/12;
+		int xo=yo+yo/4-4/100+yo/400;
+		int mo=month+12*((14-month)/12)-2;
+		int d=(day+xo+31*mo)%7;
 		day(d);
 		
 	}
@@ -1328,16 +1343,16 @@ return timeBubbleString;
 	    * Static function  calcSqrt is find square root.
 	    * @param double is number to substitute in equation.
 	    */
-	public static void calcSqrt(double c)
+	public static void calculateSqrt(double inputValue)
 	{
-		 double temp=c, epsilon = 1e-15;
+		 double temp=inputValue, epsilon = 1e-15;
 		    
-		    while(Math.abs(temp - (c/temp)) > (epsilon * temp))
+		    while(Math.abs(temp - (inputValue/temp)) > (epsilon * temp))
 		        {
-		            temp = (((c/temp)+temp)/2.0);
+		            temp = (((inputValue/temp)+temp)/2.0);
 		        }
 		       
-		    System.out.println("The Square Root of "+c +" is "+temp);
+		    System.out.println("The Square Root of "+inputValue +" is "+temp);
 		
 	}
 	
@@ -1387,50 +1402,50 @@ return timeBubbleString;
 	 * @return string after converting decimal.
 	 */
 	
-public static String binToDecimal(String binary)
+public static String binaryToDecimal(String binary)
 {
 	int sum=0;
-	String str="";
-	char ch[]=binary.toCharArray();
-	int power=ch.length-1;
-	for(int i=0;i<ch.length-1;i++)
+	String tempString="";
+	char charArray[]=binary.toCharArray();
+	int power=charArray.length-1;
+	for(int i=0;i<charArray.length-1;i++)
 	{
-		int indexValue=Integer.parseInt(Character.toString(ch[i]));
+		int indexValue=Integer.parseInt(Character.toString(charArray[i]));
 		sum=sum+(int)(indexValue*Math.pow(2, power));
 		power--;
 	}
-	str=str+sum;
-	return str;
+	tempString=tempString+sum;
+	return tempString;
 }
 	/**
 	 * Static function to find annagram from prime numbers.
 	 *
 	 * @param number the array contains prime num to find Palindrome.
 	 */
-	public static void extendPalindrome(int res[])
+	public static void extendPalindrome(int primeArray[])
 	{
 		int count=0,j=0;
-		for(int i=0;i<res.length;i++)
+		for(int i=0;i<primeArray.length;i++)
 		{
 			
-			if(res[i]!=0){
+			if(primeArray[i]!=0){
 				count++;
 			}
 		}
 		//creating new array and collecting from old array
-		int arr[]=new int[count];
-		for(int i=0;i<res.length;i++)
+		int palindromeArray[]=new int[count];
+		for(int i=0;i<primeArray.length;i++)
 		{	
-			if(res[i]!=0){
-				arr[j++]=res[i];
-				System.out.print(res[i]+" ");
+			if(primeArray[i]!=0){
+				palindromeArray[j++]=primeArray[i];
+				System.out.print(primeArray[i]+" ");
 			}
 		}
 		
 		System.out.println();
 		//Passing array for palindrome.
-		for(int i=0;i<arr.length;i++)
-			Utility.palindrome(arr[i]);
+		for(int i=0;i<palindromeArray.length;i++)
+			Utility.palindrome(palindromeArray[i]);
 	
 	}
 	

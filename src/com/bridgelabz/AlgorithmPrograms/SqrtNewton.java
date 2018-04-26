@@ -13,10 +13,10 @@ import com.bridgelabz.utility.Utility;
 public class SqrtNewton {
 
 	public static void main(String[] args) {
-		 double c;
+		 double inputValue;
 		    System.out.println("Enter a non-negative number");
-		    c = Utility.inputInteger();
-		    Utility.calcSqrt(c);
+		    inputValue = Utility.inputInteger();
+		    Utility.calculateSqrt(inputValue);
 	}
 
 }

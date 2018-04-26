@@ -13,12 +13,12 @@ public static void main(String[] args) {
 			UnorderedList list=new UnorderedList();
 			FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
 			BufferedReader br=new BufferedReader(fileRead);
-			String fileStr=br.readLine();
-			System.out.println(fileStr);
-			String []str=fileStr.split("\\s");
+			String fileString=br.readLine();
+			System.out.println(fileString);
+			String []stringArray=fileString.split("\\s");
 			System.out.println("Enter the word");
 			String word=Utility.inputString();
-			list.operation(word,str);
+			list.operation(word,stringArray);
 		}
 		catch(IOException e)
 		{

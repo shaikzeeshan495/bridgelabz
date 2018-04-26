@@ -15,8 +15,8 @@ public class GuessNum {
 
 	public static void main(String[] args) {
 		System.out.println("Enter a number");
-		int num=Utility.inputInteger();
-		int range=(int)Math.pow(2, num);
+		int inputNumber=Utility.inputInteger();
+		int range=(int)Math.pow(2, inputNumber);
 		 System.out.println("Think of a number between 0 and "+range);    
 		   int result=Utility.guessing(0,range);
 		    System.out.println(result + " " + "is the number");

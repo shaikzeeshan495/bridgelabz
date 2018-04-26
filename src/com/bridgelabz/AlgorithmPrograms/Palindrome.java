@@ -15,8 +15,8 @@ public class Palindrome {
 	public static void main(String[] args) {
 		
 		System.out.println("enter a number");
-		int num=Utility.inputInteger();
-		Utility.palindrome(num);
+		int number=Utility.inputInteger();
+		Utility.palindrome(number);
 	}
 
 }

@@ -22,16 +22,16 @@ public class WordSearch {
 		try{
 			
 		FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/wordsearch.txt");
-		BufferedReader br=new BufferedReader(fileRead);
-		String fileStr=br.readLine();
-		System.out.println(fileStr);
-		String []str=fileStr.split("\\s");
-		String sortArr[]=Utility.sortingWords(str);
-		String sortString=Arrays.toString(sortArr);
+		BufferedReader bufferRead=new BufferedReader(fileRead);
+		String inputFile=bufferRead.readLine();
+		System.out.println(inputFile);
+		String []stringArray=inputFile.split("\\s");
+		String sortArray[]=Utility.sortingWords(stringArray);
+		String sortString=Arrays.toString(sortArray);
 		System.out.println(sortString);
 		System.out.println("enter a word to search");
 		String key=Utility.inputString();
-		Utility.binarySearchGeneric(sortArr,0,sortArr.length-1,key);
+		Utility.binarySearchGeneric(sortArray,0,sortArray.length-1,key);
 		
 		}
 		catch(IOException e)

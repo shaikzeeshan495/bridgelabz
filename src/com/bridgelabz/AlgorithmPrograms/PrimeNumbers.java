@@ -17,12 +17,12 @@ public class PrimeNumbers {
 	{
 		System.out.println("enter the Nth term");
 		int nTerm=Utility.inputInteger();
-		int res[]=Utility.primeNum(nTerm);
+		int primeArray[]=Utility.primeNum(nTerm);
 		System.out.println("Prime numbers are");
-		for(int i=0;i<res.length;i++)
+		for(int i=0;i<primeArray.length;i++)
 		{
-			if(res[i]!=0)
-				System.out.print(res[i]+" ");
+			if(primeArray[i]!=0)
+				System.out.print(primeArray[i]+" ");
 		}
 	}
 

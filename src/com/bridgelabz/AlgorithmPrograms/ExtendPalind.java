@@ -17,8 +17,8 @@ public class ExtendPalind {
 		
 		System.out.println("enter the Nth term");
 		int nTerm=Utility.inputInteger();
-		int res[]=Utility.primeNum(nTerm);
-		Utility.extendPalindrome(res);
+		int primeArray[]=Utility.primeNum(nTerm);
+		Utility.extendPalindrome(primeArray);
 		
 	}
 }

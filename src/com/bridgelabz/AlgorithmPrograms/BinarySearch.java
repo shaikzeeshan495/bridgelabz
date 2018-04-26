@@ -17,9 +17,9 @@ public class BinarySearch {
 		
 		System.out.println("Enter the number of words");
 		int count=Utility.inputInteger();
-		String temp[]=new String[count];
+		String tempArray[]=new String[count];
 		System.out.println("Enter the words");
-		String array[]=Utility.inputStringArray(temp);
+		String array[]=Utility.inputStringArray(tempArray);
 		
 		String []arraySort=Utility.sortingWords(array);
 		

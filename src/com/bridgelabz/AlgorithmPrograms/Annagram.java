@@ -16,10 +16,10 @@ public class Annagram {
 	public static void main(String[] args) {
 		
 		System.out.println("Please enter String 1");
-		String str1=Utility.inputString1();
+		String string1=Utility.inputString1();
 		System.out.println("Please enter String 2");
-		String str2=Utility.inputString1();
-		Utility.annagramFun(str1, str2);
+		String string2=Utility.inputString1();
+		Utility.annagramFunction(string1, string2);
 	}
 	
 

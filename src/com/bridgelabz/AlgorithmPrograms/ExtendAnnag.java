@@ -18,8 +18,8 @@ public class ExtendAnnag {
 		
 		System.out.println("enter the Nth term");
 		int nTerm=Utility.inputInteger();
-		int res[]=Utility.primeNum(nTerm);
-		Utility.extendAnnagram(res);
+		int primeArray[]=Utility.primeNum(nTerm);
+		Utility.extendAnnagram(primeArray);
 	}
 
 }

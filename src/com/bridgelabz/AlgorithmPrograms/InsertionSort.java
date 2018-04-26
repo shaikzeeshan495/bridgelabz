@@ -19,7 +19,7 @@ public class InsertionSort {
 		int tempArray[]=new int[length];
 		System.out.println("Enter the elements:");
 		int array[]=Utility.inputIntArray(tempArray);
-		int arrayAfterSort[]=Utility.inSorting(array);
+		int arrayAfterSort[]=Utility.insertSorting(array);
 		Utility.printOrder(arrayAfterSort);
 		
 	}
