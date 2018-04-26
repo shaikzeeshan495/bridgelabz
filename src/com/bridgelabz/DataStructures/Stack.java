@@ -47,12 +47,19 @@ static	 Object[] STACK;
 			System.out.println("Stack is empty");
 		else
 		{
-		//	System.out.println(Arrays.toString(STACK));
 			for(int i=0;i<=top;i++)
 			{
 				System.out.print(stackArray[i]+" ");
 			}
 		}
+	}
+	public  <T extends Comparable<T>> boolean isEmpty()
+	{
+		if(top==-1)
+			return true;
+		else
+			return false;
+		
 	}
 
 }
