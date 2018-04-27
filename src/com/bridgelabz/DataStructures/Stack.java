@@ -1,22 +1,30 @@
+/******************************************************************************
+ *  Purpose:	Implementetaion of stack
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   26-04-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
 public class Stack <T extends Comparable <T>>{
-/*	static	int TOP=-1;
-	static	int SIZE;
-	  //static String []STACK=new String[SIZE];
-static	 Object[] STACK;
-	//=new Object[SIZE];	*/
 	Object stackArray[];
-	int size,top,stackLength;
+	int size,top;
 
+	/**Stack function is to initialize the stack length.
+	 * @param arrayLength it is length of input.
+	 */
 	public Stack(int arrayLength)
 	{
 		size = arrayLength;
-        stackLength = 0;
         stackArray = new Object[size];
         top = -1;
 	}
 
+	/**push function is to push the data in stack.
+	 * @param data is input data to push in stack
+	 */
 	public  <T extends Comparable<T>> void push(T data)
 	{
 	
@@ -25,12 +33,13 @@ static	 Object[] STACK;
 			else
 			{	
 				top++;
-			//	System.out.println(TOP);
 				stackArray[top]=data;
-			//	System.out.println(STACK[TOP]);	
 			}
 	}
 	
+	/**Static function pop is to delete data from stack.
+	 * 
+	 */
 	public  <T extends Comparable<T>> void pop()
 	{
 			if(top==-1)
@@ -41,6 +50,9 @@ static	 Object[] STACK;
 			}
 	}	
 	
+	/**static function display is to display elements inside a stack.
+	 * 
+	 */
 	public  <T extends Comparable<T>> void display()
 	{
 		if(top==-1)
@@ -53,6 +65,10 @@ static	 Object[] STACK;
 			}
 		}
 	}
+	
+	/**isEmpty function is to check the stack weather it is empty or full.
+	 * @return boolean true if it is empty otherwise false.
+	 */
 	public  <T extends Comparable<T>> boolean isEmpty()
 	{
 		if(top==-1)

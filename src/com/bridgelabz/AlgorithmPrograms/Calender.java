@@ -18,12 +18,6 @@ public class Calender {
 		int month=Integer.parseInt(args[1]);
 		int year=Integer.parseInt(args[2]);
 			Utility.dayOfWeek(date,month,year);
-		//System.out.println("Please enter the date");
-		//int date=Utility.inputInteger();
-		//System.out.println("Please enter the month");
-		//int mon=Utility.inputInteger();
-		//System.out.println("Please enter the year");
-		//int year=Utility.inputInteger();
 		
 
 	}

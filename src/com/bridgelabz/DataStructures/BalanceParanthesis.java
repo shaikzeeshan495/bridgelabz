@@ -14,19 +14,24 @@ public class BalanceParanthesis {
 
 	public static void main(String[] args) {
 	
-		System.out.println("Enter a input");
-		String input=Utility.inputString1();
-		String inputArray[]=input.split("\\s");
+	//	System.out.println("Enter a input");
+	//	String input=Utility.inputString1();
+		String input="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
+		char inputArray[]=input.toCharArray();
+		char c1='(',c2=')';
 		Stack stack=new Stack(inputArray.length);
 	
 		for(int i=0;i<inputArray.length;i++)
 		{
-			if(inputArray[i].equals("("))
+			if(inputArray[i]==c1)
 				stack.push(inputArray[i]);
-			else if(inputArray[i].equals(")"))
+		}	
+		
+		for(int i=0;i<inputArray.length;i++)
+		{
+			if(inputArray[i]==c2)
 				stack.pop();
 		}
-		stack.display();
 		System.out.println();
 		boolean result=stack.isEmpty();
 		if(result)

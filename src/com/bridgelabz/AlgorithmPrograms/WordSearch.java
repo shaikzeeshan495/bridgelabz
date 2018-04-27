@@ -32,6 +32,7 @@ public class WordSearch {
 		System.out.println("enter a word to search");
 		String key=Utility.inputString();
 		Utility.binarySearchGeneric(sortArray,0,sortArray.length-1,key);
+		bufferRead.close();
 		
 		}
 		catch(IOException e)

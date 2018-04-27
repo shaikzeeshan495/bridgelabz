@@ -11,7 +11,7 @@ package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class GuessNum {
+public class GuessNumber {
 
 	public static void main(String[] args) {
 		System.out.println("Enter a number");

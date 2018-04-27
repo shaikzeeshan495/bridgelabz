@@ -10,12 +10,10 @@ package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class ExtendAnnag {
+public class ExtendAnnagram {
 	
 	public static void main(String []args)
 	{
-		
-		
 		System.out.println("enter the Nth term");
 		int nTerm=Utility.inputInteger();
 		int primeArray[]=Utility.primeNum(nTerm);

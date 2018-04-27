@@ -1270,9 +1270,9 @@ return timeBubbleString;
 	{
 		
 		int yo=year-(14-month)/12;
-		int xo=yo+yo/4-4/100+yo/400;
+		int xo=yo+(yo/4)-(yo/100)+(yo/400);
 		int mo=month+12*((14-month)/12)-2;
-		int d=(day+xo+31*mo)%7;
+		int d=(day+xo+(31*mo)/12)%7;
 		day(d);
 		
 	}
@@ -1408,7 +1408,7 @@ public static String binaryToDecimal(String binary)
 	String tempString="";
 	char charArray[]=binary.toCharArray();
 	int power=charArray.length-1;
-	for(int i=0;i<charArray.length-1;i++)
+	for(int i=0;i<=charArray.length-1;i++)
 	{
 		int indexValue=Integer.parseInt(Character.toString(charArray[i]));
 		sum=sum+(int)(indexValue*Math.pow(2, power));

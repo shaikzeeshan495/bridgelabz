@@ -1,10 +1,15 @@
+/******************************************************************************
+ *  Purpose:	Unordered Linked List
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   23-04-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import com.bridgelabz.utility.Utility;
 
 public class OrderedList <T>{
@@ -89,7 +94,11 @@ public  <T extends Comparable<T>> void show()
 		}
 		System.out.println(node.data);
 	}
-	
+/**static operation function of unordered list.
+ * @param word	is string to search in file.
+ * @param stringArray is strings in a file.
+ * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
+ */
 	public static void operation(String number,String []sortArray) throws IOException
 	{
 		OrderedList list=new OrderedList();
@@ -112,6 +121,7 @@ public  <T extends Comparable<T>> void show()
 			Utility.printwrite(file,node.data);
 			node=node.nextNode;
 		}
+		
 		Utility.printwrite(file,node.data);
 	}
 

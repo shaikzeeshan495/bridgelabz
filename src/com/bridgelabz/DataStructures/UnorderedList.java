@@ -7,9 +7,7 @@
  *
  ******************************************************************************/
 package com.bridgelabz.DataStructures;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import com.bridgelabz.utility.Utility;
 
@@ -64,9 +62,7 @@ public class UnorderedList <T>{
 	public static <T extends Comparable<T>> void remove(int position)
 	{
 		if(position==0)
-		{
 			HEAD=HEAD.nextNode;
-		}
 		else
 		{
 			Node n=HEAD;
@@ -75,6 +71,7 @@ public class UnorderedList <T>{
 			{
 				n=n.nextNode;
 			}
+			
 			temp=n.nextNode;
 			n.nextNode=temp.nextNode;
 			temp=null;
@@ -96,6 +93,11 @@ public class UnorderedList <T>{
 			System.out.println(node.data);
 		}
 		
+	/**static operation function of unordered list.
+	 * @param word	is string to search in file.
+	 * @param stringArray is strings in a file.
+	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
+	 */
 	public static void operation(String word,String stringArray[]) throws IOException
 	{
 		UnorderedList list=new UnorderedList();
@@ -120,10 +122,6 @@ public class UnorderedList <T>{
 			}
 			
 			Utility.printwrite(file,node.data);
-		
-			}
+		}
 			
-		
-
-
 }

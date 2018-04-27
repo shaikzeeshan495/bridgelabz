@@ -10,7 +10,7 @@ package com.bridgelabz.AlgorithmPrograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class ExtendPalind {
+public class ExtendPalindrome {
 
 	public static void main(String []args)
 	{

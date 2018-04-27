@@ -9,7 +9,7 @@
 package com.bridgelabz.DataStructures;
 import com.bridgelabz.utility.Utility;
 
-public class BalancedParenthesis2 {
+public class Balanced2 {
 
 	public static void main(String[] args) {
 		StackLinked stack=new StackLinked();

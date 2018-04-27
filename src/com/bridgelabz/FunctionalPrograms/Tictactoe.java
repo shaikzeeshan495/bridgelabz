@@ -4,44 +4,56 @@ import com.bridgelabz.utility.Utility;
 
 public class Tictactoe {
 	
-	char ch='X';
-	char ch2='O';
-	static char turn=' ';
+	static String turn="";
 	
 	public static void main(String []args)
 	{
-		int array[][]=new int[3][3];
+		String array[][]=new String[3][3];
 		
 		game(array);
 	}
 	
-		static void game(int array[][])
+		static void game(String array[][])
 		{
-			char ch='X';
-			char ch2='O';
+			String ch="X";
+			String ch2="O";
 			System.out.println("enter coloumn");
 			int m=Utility.inputInteger();
 			System.out.println("enter row");
 			int n=Utility.inputInteger();
-			if(turn==ch)
+			for(int i=0;i<m;i++)
 			{
-			array[m][n]='X';
-			turn=ch2;
+				for(int j=0;j<n;j++)
+				{
+					if(turn==ch)
+					{
+					array[i][j]=ch;
+					turn=ch2;
+					}
+					else
+					{
+					array[i][j]=ch2;
+					turn=ch;
+					}
+				}
 			}
-			else
+			
+			for(int i=0;i<m;i++)
 			{
-			array[m][n]=ch2;
-			turn=ch;
-			}
-			String winner=checkwinner(array,turn);
+				for(int j=0;j<n;j++)
+				{
+					System.out.print(array[i][j]+" ");
+				}
+				System.out.println();
+	/*		String winner=checkwinner(array,turn);
 			if(winner=="computer")
 				System.out.println("winner is "+winner);
 			else
-				System.out.println("winner is "+winner);
+				System.out.println("winner is "+winner);	*/
 			
 		}
 		
-		static String checkwinner(int a[][],char turn)
+	/*	static String checkwinner(int a[][],char turn)
 		{
 			String check=null;
 			String winner=null;
@@ -72,7 +84,8 @@ public class Tictactoe {
 				return winner;
 			else
 				game(a);
+			return "";
 			
+		}	*/
 		}
-
 }
