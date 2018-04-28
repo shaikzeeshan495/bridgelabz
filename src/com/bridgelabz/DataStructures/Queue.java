@@ -47,8 +47,11 @@ public class Queue {
 	}
 	public <T extends Comparable <T>> void counter(String choice)
 	{
-	//	if(choice=="deposit")
-		//	BANKCASH=BANKCASH+queueArray[rare-1];
+		if(choice=="deposit")
+			BANKCASH=BANKCASH+(int)queueArray[rare];
+		else
+			BANKCASH=BANKCASH-(int)queueArray[rare];
+		System.out.println("Present Bank cash "+BANKCASH);
 	}
 
 }

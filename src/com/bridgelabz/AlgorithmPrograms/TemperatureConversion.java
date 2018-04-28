@@ -20,9 +20,11 @@ public class TemperatureConversion {
 		int input=Utility.inputInteger();
 		switch(input)
 		{
-		case 1:Utility.celsius();
+		case 1:	System.out.println("enter a temperature");
+				Utility.celsius();
 				break;
-		case 2:Utility.fahrenheit();
+		case 2:	System.out.println("enter a temperature");
+				Utility.fahrenheit();
 				break;
 		default: System.out.println("enter valid input");
 				break;

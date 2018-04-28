@@ -16,10 +16,11 @@ public class CashCounter {
 		System.out.println("give initial bank amount");
 		int bankCash=Utility.inputInteger();
 		Queue queue=new Queue(20,bankCash);
-		while(bankCash<=0)
+		while(bankCash>=0)
 		{
 			System.out.println("Enter 1 for deposit");
 			System.out.println("Enter 2 for withdraw");
+			System.out.println("Enter other number to close counter");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{
@@ -33,9 +34,14 @@ public class CashCounter {
 					queue.enqueue(withDrawCash);
 					queue.counter("withDraw");
 					break;
+			default:System.out.println("counter closed");
+					break;
 			
 			}
+			queue.dequeue();
+			
 		}
+		System.out.println("invalid cash");
 
 	}
 

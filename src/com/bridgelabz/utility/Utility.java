@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 public class Utility {
@@ -577,6 +578,130 @@ public class Utility {
 			      elapsed = ((STOP_TIME - START_TIME)/1000);
 			    return elapsed;
 			}
+		
+			//Functional 14. TIC TAC TOE GAME
+			
+			static String[] BOARD;
+			static String TURN;
+			
+			/**static play function is to Start a game.
+			 * 
+			 */
+			public static void play()
+			{
+				BOARD = new String[9];
+				TURN = "X";
+				String winner = null;
+				populateEmptyBoard();
+				printBoard();
+				System.out.println("X's will play first. Enter a slot number to place X in:");
+
+				while (winner == null) {
+					int slotNumber;
+					try {
+						slotNumber = Utility.inputInteger();
+						if (slotNumber < 0 && slotNumber >= 9) {
+							System.out.println("Invalid input; re-enter slot number:");
+							continue;
+						}
+					} catch (InputMismatchException e) {
+						System.out.println("Invalid input; re-enter slot number:");
+						continue;
+					}
+					if (BOARD[slotNumber-1].equals(String.valueOf(slotNumber))) {
+						BOARD[slotNumber-1] = TURN;
+						if (TURN.equals("X")) {
+							TURN = "O";
+						} else {
+							TURN = "X";
+						}
+						printBoard();
+						winner = checkWinner();
+					} else {
+						System.out.println("Slot already taken; re-enter slot number:");
+						continue;
+					}
+				}
+				if (winner.equalsIgnoreCase("draw")) {
+					System.out.println("It's a draw! Thanks for playing.");
+				} else {
+					System.out.println("Congratulations! " + winner + "'s have won! Thanks for playing.");
+				}
+			}
+			/**static checkWinner function is to check status of game.
+			 * @return the status of game.
+			 */
+			static String checkWinner() {
+				for (int a = 0; a < 8; a++) 
+				{
+					String line = null;
+					switch (a) {
+					case 0:
+						line = BOARD[0] + BOARD[1] + BOARD[2];
+						break;
+					case 1:
+						line = BOARD[3] + BOARD[4] + BOARD[5];
+						break;
+					case 2:
+						line = BOARD[6] + BOARD[7] + BOARD[8];
+						break;
+					case 3:
+						line = BOARD[0] + BOARD[3] + BOARD[6];
+						break;
+					case 4:
+						line = BOARD[1] + BOARD[4] + BOARD[7];
+						break;
+					case 5:
+						line = BOARD[2] + BOARD[5] + BOARD[8];
+						break;
+					case 6:
+						line = BOARD[0] + BOARD[4] + BOARD[8];
+						break;
+					case 7:
+						line = BOARD[2] + BOARD[4] + BOARD[6];
+						break;
+					}
+				
+					if (line.equals("XXX")) 
+						return "X";
+					 else if (line.equals("OOO")) 
+						return "O";
+					
+				}
+
+				for (int a = 0; a < 9; a++) 
+				{
+					if (Arrays.asList(BOARD).contains(String.valueOf(a+1))) 
+						break;
+					
+					else if (a == 8) 
+						return "draw";
+				}
+
+				System.out.println(TURN + "'s turn; enter a slot number to place " + TURN + " in:");
+				return null;
+			}
+			/**static printBoard funtion is to display the game board.
+			 * 
+			 */
+			static void printBoard() {
+				System.out.println("/---|---|---\\");
+				System.out.println("| " + BOARD[0] + " | " + BOARD[1] + " | " + BOARD[2] + " |");
+				System.out.println("|-----------|");
+				System.out.println("| " + BOARD[3] + " | " + BOARD[4] + " | " + BOARD[5] + " |");
+				System.out.println("|-----------|");
+				System.out.println("| " + BOARD[6] + " | " + BOARD[7] + " | " + BOARD[8] + " |");
+				System.out.println("/---|---|---\\");
+			}
+			/**static populateEmptyBoard function is to fill the board with slot numbers.
+			 * 
+			 */
+			static void populateEmptyBoard() {
+				for (int a = 0; a < 9; a++) 
+					BOARD[a] = String.valueOf(a+1);
+				
+				}
+			
 			// Functional 15.Quadratic
 			/**
 			    * Static function to find the roots of the equation.
@@ -1453,7 +1578,7 @@ public static String binaryToDecimal(String binary)
 	 * @param array collecting array to sort.
 	 * @return array after sorting.
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static <T extends Comparable> T[]  insertionSortGeneric(T[] array)
 	{
 		for(int i=1;i<array.length;i++)
@@ -1473,6 +1598,7 @@ public static String binaryToDecimal(String binary)
 	 * @param array input array to sort
 	 * @return sorting array
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static <T extends Comparable> T[] sortBubbleGeneric(T[] array)
 	{
 		T temp;
@@ -1519,7 +1645,7 @@ public static String binaryToDecimal(String binary)
 	 * @param data the data which is inserting in a file.
 	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies .
 	 */
-	public  static <T extends Comparable<T>> void printwrite(File file,Comparable data) throws IOException
+	public  static <T extends Comparable<T>> void printwrite(File file,@SuppressWarnings("rawtypes") Comparable data) throws IOException
 	{
 		FileWriter fw = new FileWriter(file,true);
   	  BufferedWriter bw = new BufferedWriter(fw);
