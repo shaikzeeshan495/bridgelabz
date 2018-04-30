@@ -9,8 +9,8 @@
 package com.bridgelabz.DataStructures;
 
 public class Stack <T extends Comparable <T>>{
-	Object stackArray[];
-	int size,top;
+static	Object stackArray[];
+static	int size,top;
 
 	/**Stack function is to initialize the stack length.
 	 * @param arrayLength it is length of input.
@@ -25,7 +25,7 @@ public class Stack <T extends Comparable <T>>{
 	/**push function is to push the data in stack.
 	 * @param data is input data to push in stack
 	 */
-	public  <T extends Comparable<T>> void push(T data)
+	public static <T extends Comparable<T>> void push(T data)
 	{
 	
 		if(top==size-1)
@@ -40,7 +40,7 @@ public class Stack <T extends Comparable <T>>{
 	/**Static function pop is to delete data from stack.
 	 * 
 	 */
-	public  <T extends Comparable<T>> void pop()
+	public static <T extends Comparable<T>> void pop()
 	{
 			if(top==-1)
 				System.out.println("Stack is empty");
@@ -53,7 +53,7 @@ public class Stack <T extends Comparable <T>>{
 	/**static function display is to display elements inside a stack.
 	 * 
 	 */
-	public  <T extends Comparable<T>> void display()
+	public static <T extends Comparable<T>> void display()
 	{
 		if(top==-1)
 			System.out.println("Stack is empty");
@@ -69,7 +69,7 @@ public class Stack <T extends Comparable <T>>{
 	/**isEmpty function is to check the stack weather it is empty or full.
 	 * @return boolean true if it is empty otherwise false.
 	 */
-	public  <T extends Comparable<T>> boolean isEmpty()
+	public static <T extends Comparable<T>> boolean isEmpty()
 	{
 		if(top==-1)
 			return true;

@@ -18,7 +18,7 @@ public class OrderedList <T>{
 	/**static add function to add a data inside a list
 	 * @param data the data wants to add in a list
 	 */
-public static <T extends Comparable<T>> void add(T data)
+	public static <T extends Comparable<T>> void add(T data)
 	{
 	Node node=new Node();
 	node.data=data;
@@ -60,6 +60,7 @@ public static <T extends Comparable<T>> int search(T word)
 /**static remove funtion is to remove the word in given position.
  * @param position the word which has to be remove.
  */
+@SuppressWarnings("unchecked")
 public static <T extends Comparable<T>> void remove(int position)
 {
 	if(position==0)
@@ -84,7 +85,7 @@ public static <T extends Comparable<T>> void remove(int position)
 /**static function show to display the list.
  * 
  */
-public  <T extends Comparable<T>> void show()
+public static <T extends Comparable<T>> void show()
 	{
 		Node node=HEAD;
 		while(node.nextNode!=null)
@@ -101,19 +102,19 @@ public  <T extends Comparable<T>> void show()
  */
 	public static void operation(String number,String []sortArray) throws IOException
 	{
-		OrderedList list=new OrderedList();
+	//	OrderedList list=new OrderedList();
 		for(int i=0;i<sortArray.length;i++)
 		{
-			list.add(sortArray[i]);
+			add(sortArray[i]);
 		}
 		
-		int position=list.search(number);
+		int position=search(number);
 		if(position==-1)
-			list.add(number);
+			add(number);
 		else
-			list.remove(position);
+			remove(position);
 		
-		list.show();
+		show();
 		File file=new File("/home/bridgeit/zeeshan/Files/OrderedListOut.txt");
 		Node node=HEAD;
 		while(node.nextNode!=null)

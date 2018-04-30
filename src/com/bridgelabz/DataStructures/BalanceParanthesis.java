@@ -8,7 +8,6 @@
  ******************************************************************************/
 
 package com.bridgelabz.DataStructures;
-import com.bridgelabz.utility.Utility;
 
 public class BalanceParanthesis {
 
@@ -19,25 +18,26 @@ public class BalanceParanthesis {
 		String input="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
 		char inputArray[]=input.toCharArray();
 		char c1='(',c2=')';
+		@SuppressWarnings({ "rawtypes", "unused" })
 		Stack stack=new Stack(inputArray.length);
-	
 		for(int i=0;i<inputArray.length;i++)
 		{
 			if(inputArray[i]==c1)
-				stack.push(inputArray[i]);
+				Stack.push(inputArray[i]);
 		}	
 		
 		for(int i=0;i<inputArray.length;i++)
 		{
 			if(inputArray[i]==c2)
-				stack.pop();
+				Stack.pop();
 		}
 		System.out.println();
-		boolean result=stack.isEmpty();
+		boolean result=Stack.isEmpty();
 		if(result)
 			System.out.println("Balanced Paranthesis");
 		else
 			System.out.println("Unbalanced Paranthesis");
 	}
+
 
 }

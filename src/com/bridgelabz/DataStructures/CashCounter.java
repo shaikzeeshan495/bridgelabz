@@ -8,40 +8,12 @@
  ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
-import com.bridgelabz.utility.Utility;
-
 public class CashCounter {
 
 	public static void main(String[] args) {
-		System.out.println("give initial bank amount");
-		int bankCash=Utility.inputInteger();
-		Queue queue=new Queue(20,bankCash);
-		while(bankCash>=0)
-		{
-			System.out.println("Enter 1 for deposit");
-			System.out.println("Enter 2 for withdraw");
-			System.out.println("Enter other number to close counter");
-			int choice=Utility.inputInteger();
-			switch(choice)
-			{
-			case 1:System.out.println("Enter the amount to deposit");
-					int depositCash=Utility.inputInteger();
-					queue.enqueue(depositCash);
-					queue.counter("deposit");
-					break;
-			case 2:System.out.println("Enter the amount to withdraw");
-					int withDrawCash=Utility.inputInteger();
-					queue.enqueue(withDrawCash);
-					queue.counter("withDraw");
-					break;
-			default:System.out.println("counter closed");
-					break;
-			
-			}
-			queue.dequeue();
-			
-		}
-		System.out.println("invalid cash");
+		int bankCash=100000;
+		Queue queue=new Queue(10,bankCash);
+		queue.operation();
 
 	}
 

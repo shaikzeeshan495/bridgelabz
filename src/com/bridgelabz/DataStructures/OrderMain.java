@@ -24,10 +24,10 @@ public class OrderMain {
 			OrderedList list=new OrderedList();
 			FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/OrderedList.txt");
 			BufferedReader br=new BufferedReader(fileRead);
-			String fileStr=br.readLine();
-			System.out.println(fileStr);
-			String []str=fileStr.split("\\s");
-			String []sortArray=Utility.sortBubbleGeneric(str);
+			String fileString=br.readLine();
+			System.out.println(fileString);
+			String []stringArray=fileString.split("\\s");
+			String []sortArray=Utility.sortBubbleGeneric(stringArray);
 			System.out.println("After Sorting");
 			System.out.println(Arrays.toString(sortArray));
 			System.out.println("Enter the Number");
