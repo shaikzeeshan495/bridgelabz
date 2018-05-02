@@ -15,10 +15,10 @@ public class PalindromeDeque {
 	public static void main(String[] args) {
 		System.out.println("Enter a String");
 		String inputString=Utility.inputString();
-		String []stringArray=inputString.split("\\s");
-		for(int i=0;i<stringArray.length;i++)
+		char []charArray=inputString.toCharArray();
+		for(int i=0;i<charArray.length;i++)
 		{
-			Dequeue.addRear(stringArray[i]);
+			Dequeue.addRear(charArray[i]);
 		}	
 		Dequeue.operation();
 

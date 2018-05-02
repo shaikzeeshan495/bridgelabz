@@ -29,6 +29,10 @@ public class Queue {
 		front=0;
 	}
 	
+	public Queue() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**enqueue is a function to add in a queue.
 	 * @param element the data to add in a queue.
 	 * @return boolean data to ensure queue is empty or not.
@@ -101,8 +105,9 @@ public class Queue {
 		}	
 		else
 		{
-			System.out.println("Invalid Cash in Bank");
-			System.exit(0);
+			System.out.println("Bank balance is insufficient");
+			dequeue();
+			operation();
 		}
 	
 	}

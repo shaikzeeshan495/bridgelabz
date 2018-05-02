@@ -10,6 +10,7 @@
 package com.bridgelabz.DataStructures;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -22,9 +23,8 @@ public class OrderMain {
 		
 		try{
 			OrderedList list=new OrderedList();
-			FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/OrderedList.txt");
-			BufferedReader br=new BufferedReader(fileRead);
-			String fileString=br.readLine();
+			File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");
+			String fileString=Utility.readFile(file);
 			System.out.println(fileString);
 			String []stringArray=fileString.split("\\s");
 			String []sortArray=Utility.sortBubbleGeneric(stringArray);

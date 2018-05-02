@@ -17,8 +17,8 @@ public class Calender {
 		int date=Integer.parseInt(args[0]);
 		int month=Integer.parseInt(args[1]);
 		int year=Integer.parseInt(args[2]);
-			Utility.dayOfWeek(date,month,year);
-		
+		int d=Utility.dayOfWeek(date,month,year);
+		Utility.day(d);
 
 	}
 

@@ -113,7 +113,7 @@ public class UnorderedList <T>{
 				list.remove(position);
 			
 			list.display();
-			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedListOut.txt");
+			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
 			Node node=HEAD;
 			while(node.nextNode!=null)
 			{

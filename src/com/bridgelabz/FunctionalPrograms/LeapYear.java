@@ -16,6 +16,10 @@ public class LeapYear {
 		public static void main(String[] args) {
 	    	System.out.println("Enter a Year:");
 	    	int year = Utility.inputInteger();
-			Utility.isLeap(year);
+			boolean isLeapYear=Utility.isLeap(year);
+			if(isLeapYear==true)
+	            System.out.println(year + " is a Leap Year.");
+	        else
+	            System.out.println(year + " is not a Leap Year.");
 		}
 }

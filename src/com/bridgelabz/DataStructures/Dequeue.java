@@ -56,7 +56,10 @@ public class Dequeue <T>{
 	{
 		if(HEAD==null)
 			System.out.println("Empty");
-		else
+		else if(HEAD.nextNode==null)
+		{
+			HEAD=null;
+		}else
 		{
 			Node temp=HEAD;
 			while(temp.nextNode.nextNode!=null)
@@ -95,7 +98,10 @@ public class Dequeue <T>{
 		Node result=null;
 		if(HEAD==null)
 			System.out.println("Empty list");
-		else
+		else if(HEAD.nextNode==null)
+		{
+			result=HEAD;
+		}else
 		{
 			
 			while(temp.nextNode.nextNode!=null)
@@ -105,7 +111,6 @@ public class Dequeue <T>{
 			result=temp.nextNode;
 			temp.nextNode=null;
 		}
-		System.out.println(result.data);
 		return (T) result.data;
 	}
 	
@@ -121,10 +126,11 @@ public class Dequeue <T>{
 			System.out.println("Empty");
 		else
 		{
-			HEAD=HEAD.nextNode;
+			HEAD=temp.nextNode;
 			result2=temp;
 			temp=null;
 		}
+
 		return (T) result2.data;
 	}
 	/**static function show to display the list.
@@ -132,18 +138,20 @@ public class Dequeue <T>{
 	 */
 	public static <T extends Comparable<T>> void operation()
 		{
+		if(HEAD.nextNode==null || HEAD==null)
+		{
+			System.out.println("palindrome");
+			System.exit(0);
+		}
 			T elem=popFront();
 			T elem2=popRear();
-			if(HEAD.nextNode==null || HEAD==null)
-			{
-				System.out.println("palindrome");
-			}
-			else if(elem.compareTo(elem2)==0)
+			if(elem.compareTo(elem2)==0)
 			{
 				operation();
+				
 			}
-			else
-				System.out.println("It is a Palindrome");
+			else 
+				System.out.println("It is not a Palindrome");
 			
 		}
 	/**static function show to display the list.
@@ -159,4 +167,5 @@ public class Dequeue <T>{
 			}
 			System.out.println(node.data);
 		}
+
 }

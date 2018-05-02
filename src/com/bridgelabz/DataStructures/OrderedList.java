@@ -36,6 +36,35 @@ public class OrderedList <T>{
 	}
 }
 
+	/**static add function to add a data inside a list
+	 * @param data the data wants to add in a list
+	 */
+	public static <T extends Comparable<T>> void addAt(T data)
+	{
+	Node node=new Node();
+	node.data=data;
+	node.nextNode=null;
+	Node insertTemp=null;
+	if(HEAD==null)
+		HEAD=node;
+	else
+	{
+		Node temp=HEAD;
+		while(temp.nextNode!=null)
+	
+		{	
+			if(temp.data.compareTo(data)<0 && temp.nextNode.data.compareTo(data)>0)
+			{
+			insertTemp=node;
+			insertTemp.nextNode=temp.nextNode;
+			temp.nextNode=insertTemp;
+			break;
+			}
+			temp=temp.nextNode;
+		}
+		temp.nextNode=node;
+	}
+	}
 /**static search funtion is to search the given word.
  * @param word the word which has to be search.
  * @return integer which is position of the word.
@@ -54,7 +83,7 @@ public static <T extends Comparable<T>> int search(T word)
 				i++;
 		}
 	
-	return -1;
+	return i;
 }
 
 /**static remove funtion is to remove the word in given position.
@@ -109,13 +138,14 @@ public static <T extends Comparable<T>> void show()
 		}
 		
 		int position=search(number);
-		if(position==-1)
-			add(number);
+		System.out.println(position);
+		if(position>sortArray.length-1)
+			addAt(number);
 		else
 			remove(position);
 		
 		show();
-		File file=new File("/home/bridgeit/zeeshan/Files/OrderedListOut.txt");
+		File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");
 		Node node=HEAD;
 		while(node.nextNode!=null)
 		{

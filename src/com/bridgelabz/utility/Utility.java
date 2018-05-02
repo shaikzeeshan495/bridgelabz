@@ -1,7 +1,9 @@
 package com.bridgelabz.utility;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -149,7 +151,7 @@ public class Utility {
 		    *
 		    * @param number the number is year to check for a leap year.
 		    */	
-		public static void isLeap(int year)
+		public static boolean isLeap(int year)
 			{
 				boolean isLeapYear=false;
 	    	if(year%4==0)
@@ -157,21 +159,25 @@ public class Utility {
 	    		if( year % 100 == 0)
 	            {
 	                if ( year % 400 == 0)
-	                	isLeapYear = true;
+	                //	isLeapYear = 
+	                	return true;
 	                else
-	                	isLeapYear = false;
+	                //	isLeapYear =
+	                	return false;
 	            }
 	            else
-	            	isLeapYear = true;
+	            //	isLeapYear =
+	            	return true;
 	        }
 	        else {
-	        	isLeapYear = false;
+	        //	isLeapYear =
+	        	return false;
 	        }
 
-	        if(isLeapYear==true)
+	    /*    if(isLeapYear==true)
 	            System.out.println(year + " is a Leap Year.");
 	        else
-	            System.out.println(year + " is not a Leap Year.");
+	            System.out.println(year + " is not a Leap Year.");	*/
 	    }
 
 		// Functional 4.power of two
@@ -1391,22 +1397,23 @@ return timeBubbleString;
 	 * @param mon given input to find the day of week.
 	 * @param year given input to find the day of week.
 	 */
-	public static void dayOfWeek(int day,int month,int year)
+	public static int dayOfWeek(int day,int month,int year)
 	{
 		
 		int yo=year-(14-month)/12;
 		int xo=yo+(yo/4)-(yo/100)+(yo/400);
 		int mo=month+12*((14-month)/12)-2;
 		int d=(day+xo+(31*mo)/12)%7;
-		day(d);
+		return d;
 		
 	}
 	
 		/**
 	    * Static function to print the day of week.
 	    */
-	static void day(int d)
+	public static void day(int d)
 	{
+		
 		switch(d)
 		{
 		case 0: System.out.println("Sunday");
@@ -1654,5 +1661,48 @@ public static String binaryToDecimal(String binary)
   	  pw.close();
   	  
 	}
+	
+	/**static function readFile to read a data in a file.
+	 * @param file is a location of file where we have to read.
+	 * @return	string after reading data in file.
+	 * @throws IOException
+	 */
+	public  static <T extends Comparable<T>> String readFile(File file) throws IOException
+	{
+		FileReader fileRead=new FileReader(file);
+		BufferedReader br=new BufferedReader(fileRead);
+		String fileString=br.readLine();
+		return fileString;
+	}
+	
+	/**catalan static function is to find maximum combination of binary tree.
+	 * @param n is a given ino=put number.
+	 * @return integer value, maximum no of combination.
+	 */
+	public static int catalan(int n)
+	{
+		int result=factorial(2*n)/(factorial(n+1)*factorial(n));
+		return result;
+	}
+	
+	/**factorial static function is to find a factorial of a given number.
+	 * @param number given input number.
+	 * @return factorial of given number.
+	 */
+	public static int factorial(int number)
+	{
+		int fact=1;
+		for(int i=1;i<=number;i++)
+		{
+			fact=fact*i;
+		}
+		return fact;
+	}
+	
+	public static void printQueue()
+	{
+		
+	}
+	
 
 }

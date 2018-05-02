@@ -24,13 +24,17 @@ public class BalanceParanthesis {
 		{
 			if(inputArray[i]==c1)
 				Stack.push(inputArray[i]);
+			else if(inputArray[i]==c2)
+			{
+				boolean flag=Stack.pop();
+				if(flag==false)
+				{
+					System.out.println("Unbalanced Paranthesis");
+					System.exit(0);
+				}
+			}
 		}	
 		
-		for(int i=0;i<inputArray.length;i++)
-		{
-			if(inputArray[i]==c2)
-				Stack.pop();
-		}
 		System.out.println();
 		boolean result=Stack.isEmpty();
 		if(result)

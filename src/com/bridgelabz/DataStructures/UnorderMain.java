@@ -9,6 +9,7 @@
 package com.bridgelabz.DataStructures;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import com.bridgelabz.utility.Utility;
@@ -19,9 +20,8 @@ public static void main(String[] args) {
 		
 		try{
 			UnorderedList list=new UnorderedList();
-			FileReader fileRead=new FileReader("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
-			BufferedReader br=new BufferedReader(fileRead);
-			String fileString=br.readLine();
+			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
+			String fileString=Utility.readFile(file);
 			System.out.println(fileString);
 			String []stringArray=fileString.split("\\s");
 			System.out.println("Enter the word");

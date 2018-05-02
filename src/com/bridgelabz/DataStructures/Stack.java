@@ -40,14 +40,18 @@ static	int size,top;
 	/**Static function pop is to delete data from stack.
 	 * 
 	 */
-	public static <T extends Comparable<T>> void pop()
+	public static <T extends Comparable<T>> boolean pop()
 	{
 			if(top==-1)
-				System.out.println("Stack is empty");
+			{
+				//System.out.println("Stack is empty");
+			return false;
+			}
 			else
 			{
 				top--;
 			}
+			return true;
 	}	
 	
 	/**static function display is to display elements inside a stack.
