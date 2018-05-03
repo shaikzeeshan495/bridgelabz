@@ -12,13 +12,13 @@ import java.io.File;
 import java.io.IOException;
 import com.bridgelabz.utility.Utility;
 
-public class OrderedList <T>{
+public class OrderedLinkedList <T>{
 	
-	static Node HEAD;	
+	 Node HEAD;	
 	/**static add function to add a data inside a list
 	 * @param data the data wants to add in a list
 	 */
-	public static <T extends Comparable<T>> void add(T data)
+	public <T extends Comparable<T>> void add(T data)
 	{
 	Node node=new Node();
 	node.data=data;
@@ -39,7 +39,7 @@ public class OrderedList <T>{
 	/**static add function to add a data inside a list
 	 * @param data the data wants to add in a list
 	 */
-	public static <T extends Comparable<T>> void addAt(T data)
+	public  <T extends Comparable<T>> void addOrder(T data)
 	{
 	Node node=new Node();
 	node.data=data;
@@ -69,7 +69,7 @@ public class OrderedList <T>{
  * @param word the word which has to be search.
  * @return integer which is position of the word.
  */
-public static <T extends Comparable<T>> int search(T word)
+public  <T extends Comparable<T>> boolean search(T word)
 {
 		Node temp=HEAD;
 		int i=0;
@@ -77,25 +77,27 @@ public static <T extends Comparable<T>> int search(T word)
 		{
 			if(temp.data.equals(word))
 			{
-				return i;
+				return true;
 			}
 			temp=temp.nextNode;
 				i++;
 		}
 	
-	return i;
+	return false;
 }
 
 /**static remove funtion is to remove the word in given position.
  * @param position the word which has to be remove.
  */
 @SuppressWarnings("unchecked")
-public static <T extends Comparable<T>> void remove(int position)
+public <T extends Comparable<T>> void remove(int position)
 {
+	
 	if(position==0)
 	{
 		HEAD=HEAD.nextNode;
 	}
+	
 	else
 	{
 		Node n=HEAD;
@@ -108,28 +110,86 @@ public static <T extends Comparable<T>> void remove(int position)
 		n.nextNode=temp.nextNode;
 		temp=null;
 	}
+/*	
+	Node temp=HEAD;
+	Node result=null;
+	if(HEAD==null)
+		System.out.println("Empty list");
+	else if(HEAD.nextNode==null)
+	{
+		result=HEAD;
+	}else
+	{
+		
+		while(temp.nextNode.nextNode!=null)
+		{
+			temp=temp.nextNode;
+		}
+		result=temp.nextNode;
+		temp.nextNode=null;
+	}	*/
 		
 }
-	
+public <T extends Comparable<T>> void delete(T key)
+{
+	Node temp1=null;
+	if(HEAD==null)
+		System.out.println("Empty");
+	else if(HEAD.data.compareTo(key)==0)
+	{
+		temp1=HEAD;
+		HEAD=HEAD.nextNode;
+		temp1=null;
+	}else 
+	{
+		Node prev=null;
+		Node temp2=HEAD;
+		while(temp2!=null)
+		{
+			if(temp2.data.compareTo(key)==0)
+			{
+				prev.nextNode=temp2.nextNode;
+				temp2=null;
+				break;
+			}
+			else
+			{
+				prev=temp2;
+				temp2=temp2.nextNode;
+			}
+			
+		}
+		
+	}
+}
 /**static function show to display the list.
  * 
  */
-public static <T extends Comparable<T>> void show()
+public <T extends Comparable<T>> void show()
 	{
 		Node node=HEAD;
-		while(node.nextNode!=null)
+		if(HEAD==null)
+		{
+			System.out.println("empty");
+		}
+		else if(HEAD.nextNode==null)
 		{
 			System.out.println(node.data);
-			node=node.nextNode;
 		}
-		System.out.println(node.data);
+		else
+		{	while(node!=null)
+			{
+				System.out.println(node.data);
+				node=node.nextNode;
+			}
+		}
 	}
 /**static operation function of unordered list.
  * @param word	is string to search in file.
  * @param stringArray is strings in a file.
  * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
  */
-	public static void operation(String number,String []sortArray) throws IOException
+	public void operation(String number,String []sortArray) throws IOException
 	{
 	//	OrderedList list=new OrderedList();
 		for(int i=0;i<sortArray.length;i++)
@@ -137,12 +197,11 @@ public static <T extends Comparable<T>> void show()
 			add(sortArray[i]);
 		}
 		
-		int position=search(number);
-		System.out.println(position);
-		if(position>sortArray.length-1)
-			addAt(number);
+		boolean flag=search(number);
+		if(flag==false)
+			addOrder(number);
 		else
-			remove(position);
+			delete(number);
 		
 		show();
 		File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");

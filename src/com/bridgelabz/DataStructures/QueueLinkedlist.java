@@ -47,10 +47,10 @@ public class QueueLinkedlist <T>{
 			Node node=HEAD;
 			while(node.nextNode!=null)
 			{
-				System.out.print(node.data);
+				System.out.print(node.data+" ");
 				node=node.nextNode;
 			}
-			System.out.print(node.data);
+			System.out.print(node.data+" ");
 		}
 
 }

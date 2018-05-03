@@ -22,7 +22,7 @@ public class OrderMain {
 	public static void main(String[] args) {
 		
 		try{
-			OrderedList list=new OrderedList();
+			OrderedLinkedList list=new OrderedLinkedList();
 			File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");
 			String fileString=Utility.readFile(file);
 			System.out.println(fileString);

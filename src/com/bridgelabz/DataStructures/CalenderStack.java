@@ -6,12 +6,10 @@ public class CalenderStack {
 
 	public static void main(String[] args) {
 		
-
         int month = Integer.parseInt(args[0]);
         int year = Integer.parseInt(args[1]);
-       
-        StackLinkedlist stack1=new StackLinkedlist();
-        StackLinkedlist stack2=new StackLinkedlist();
+        StackLinked stack1=new StackLinked();
+        StackLinked stack2=new StackLinked();
 	
         String[] months = {
             "",
@@ -33,17 +31,18 @@ public class CalenderStack {
         for (int i = 0; i < d; i++)
            stack1.push("\t");
 
-        for (int i = 1; i <= days[month]; i++) {
+        for (int i = 1; i <= days[month]; i++) 
+        {
         	stack1.push("\t"+i);
             if (((i + d) % 7 == 0) || (i == days[month]))
             	stack1.push("\n");
         }	
-      int sizeOfStack=stack1.size();
-      while(sizeOfStack>0)
+        int sizeOfStack=stack1.size();
+      	while(sizeOfStack>0)
         {
-      String data=stack1.pop();
-       stack2.push(data);
-       sizeOfStack--;
+    	  String data=stack1.pop();
+    	  stack2.push(data);
+    	  sizeOfStack--;
         }	
         
         stack2.display();

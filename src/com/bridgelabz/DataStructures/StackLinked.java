@@ -1,7 +1,7 @@
 package com.bridgelabz.DataStructures;
 
-public class StackLinkedlist {	
-	static Node HEAD;
+public class StackLinked {	
+	 Node HEAD;
 	public static int SIZE=0;
 	
 	/**static add function to add a data at front of list.
@@ -26,7 +26,27 @@ public class StackLinkedlist {
 		}
 	}
 
+	/**static remove funtion is to remove the data in front of list.
+	 * @param position the data which has to be remove.
+	 */
+	@SuppressWarnings("unchecked")
+	public  <T extends Comparable<T>> T pop()
+	{
+		Node temp=HEAD;
+		Node result2=null;
+		if(HEAD==null)
+			System.out.println("Empty");
+		else
+		{
+			HEAD=temp.nextNode;
+			result2=temp;
+			temp=null;
+			SIZE--;
+		}
 
+		return (T) result2.data;
+	}
+	
 /**static search funtion is to search the given word.
  * @param word the word which has to be search.
  * @return integer which is position of the word.
@@ -48,40 +68,8 @@ public  <T extends Comparable<T>> int search(T word)
 	return -1;
 }
 
-/**static remove funtion is to remove the word in given position.
- * @param position the word which has to be remove.
- */
-/*
-public static <T extends Comparable<T>> void pop()
-{
-		Node temp1=null;
-		Node temp=HEAD;
-		while(temp.nextNode.nextNode!=null)
-		{
-			temp=temp.nextNode;
-		}
-		temp.nextNode=null;
-}	*/
-/**static remove funtion is to remove the data in front of list.
- * @param position the data which has to be remove.
- */
-@SuppressWarnings("unchecked")
-public  <T extends Comparable<T>> T pop()
-{
-	Node temp=HEAD;
-	Node result2=null;
-	if(HEAD==null)
-		System.out.println("Empty");
-	else
-	{
-		HEAD=temp.nextNode;
-		result2=temp;
-		temp=null;
-		SIZE--;
-	}
-	
-	return (T) result2.data;
-}
+
+
 /**static function show to display the list.
  * 
  */

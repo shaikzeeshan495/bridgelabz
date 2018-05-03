@@ -28,9 +28,8 @@ public static void main(String[] args) {
         for (int i = 0; i < d; i++)
            QueueLinkedlist.add("\t");
 
-        for (int i = 1; i <= days[month]; i++) {
-            
-        	//System.out.printf("%2d ", i);
+        for (int i = 1; i <= days[month]; i++) 
+        {
         	QueueLinkedlist.add("\t"+i);
             if (((i + d) % 7 == 0) || (i == days[month]))
             	QueueLinkedlist.add("\n");

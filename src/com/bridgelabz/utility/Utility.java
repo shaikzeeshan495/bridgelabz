@@ -199,16 +199,12 @@ public class Utility {
 		 *
 		 * @param number the array contains prime num to find annagram
 		 */
-		public static void extendAnnagram(int res[])
+		public static int[] extendAnnagram(int res[])
 		{
 			int count=0,j=0;
-			String tempString1=" ";
-			String tempString2=" ";
-
 			
 			for(int i=0;i<res.length;i++)
-			{
-				
+			{	
 				if(res[i]!=0){
 					count++;
 				}
@@ -226,14 +222,25 @@ public class Utility {
 			}
 			
 			System.out.println();
+			return arr;
+		}
 			
-			for(int i=0;i<arr.length-1;i++)
+		/**
+		 * @param arr
+		 */
+		public static void AnnagramOperation(int arr[])
+		{
+			String tempString1=" ";
+			String tempString2=" ";
+		for(int i=0;i<arr.length-1;i++)
 			{
 				for(int k=i+1;k<arr.length;k++)
 				{
 					tempString1=""+arr[i];
 					tempString2=""+arr[k];
-					Utility.annagFunNum(tempString1,tempString2);
+					boolean flag=Utility.annagFunNum(tempString1,tempString2);
+					if(flag)
+						System.out.println(arr[i]+" "+arr[k]+" Annagram");
 				}
 				
 			}
@@ -799,11 +806,20 @@ public class Utility {
 	    * @param string the string to convert string to array.
 	    * @param string the string to convert string to array.
 	    */
-	public static void annagFunNum(String inputString1,String inputString2)
+	public static boolean annagFunNum(String inputString1,String inputString2)
 	{	
-		char charArray1[]=inputString1.toCharArray();
-		char charArray2[]=inputString2.toCharArray();
-		checkAnnagNum(charArray1,charArray2);
+		boolean result;
+		if(inputString1.length()!=inputString2.length())
+		{
+			return false;
+		}
+		else 
+		{
+			char charArray1[]=inputString1.toCharArray();
+			char charArray2[]=inputString2.toCharArray();
+			result=checkAnnagNum(charArray1,charArray2);
+		}
+		return result;
 	}
 	/**
 	    * Static function to check annagram.
@@ -811,23 +827,18 @@ public class Utility {
 	    * @param arrays the char arrays to check the annagram.
 	    * @param arrays the char arrays to check the annagram.
 	    */
-	public static void checkAnnagNum(char charArray1[],char charArray2[])
+	public static boolean checkAnnagNum(char charArray1[],char charArray2[])
 	{
 		String temp=new String(charArray2);
 		Arrays.sort(charArray1);
 		Arrays.sort(charArray2);
-		if(charArray1.length!=charArray2.length)
-		{
-			
-		}
-		else 
-		{
 			String string1=new String(charArray1);
 			String string2=new String(charArray2);
 			if(string1.equals(string2))
-				System.out.println(string1+" "+temp+" Annagram");					
-		}
-	
+				return true;
+			//	System.out.println(string1+" "+temp+" Annagram");
+			else
+				return false;
 	}
 			
 	// Algorithm 2.Prime number
@@ -1703,6 +1714,17 @@ public static String binaryToDecimal(String binary)
 	{
 		
 	}
-	
+	public static boolean check(int num,int size,int annagramArray[])
+	{
+		
+		for(int i=0;i<size;i++)
+		{
+			if(annagramArray[i]==num)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 
 }

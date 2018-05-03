@@ -17,7 +17,8 @@ public class ExtendAnnagram {
 		System.out.println("enter the Nth term");
 		int nTerm=Utility.inputInteger();
 		int primeArray[]=Utility.primeNum(nTerm);
-		Utility.extendAnnagram(primeArray);
+		int array[]=Utility.extendAnnagram(primeArray);
+		Utility.AnnagramOperation(array);
 	}
 
 }
