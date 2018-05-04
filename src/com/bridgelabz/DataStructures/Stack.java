@@ -43,14 +43,9 @@ static	int size,top;
 	public static <T extends Comparable<T>> boolean pop()
 	{
 			if(top==-1)
-			{
-				//System.out.println("Stack is empty");
-			return false;
-			}
+				return false;
 			else
-			{
 				top--;
-			}
 			return true;
 	}	
 	
@@ -64,9 +59,7 @@ static	int size,top;
 		else
 		{
 			for(int i=0;i<=top;i++)
-			{
 				System.out.print(stackArray[i]+" ");
-			}
 		}
 	}
 	

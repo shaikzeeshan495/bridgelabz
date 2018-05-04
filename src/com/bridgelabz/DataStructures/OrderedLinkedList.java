@@ -8,9 +8,11 @@
  ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import com.bridgelabz.utility.Utility;
+import java.io.PrintWriter;
 
 public class OrderedLinkedList <T>{
 	
@@ -36,7 +38,7 @@ public class OrderedLinkedList <T>{
 	}
 }
 
-	/**static add function to add a data inside a list
+	/**static add function to add a data inside a list in order.
 	 * @param data the data wants to add in a list
 	 */
 	public  <T extends Comparable<T>> void addOrder(T data)
@@ -65,6 +67,7 @@ public class OrderedLinkedList <T>{
 		temp.nextNode=node;
 	}
 	}
+	
 /**static search funtion is to search the given word.
  * @param word the word which has to be search.
  * @return integer which is position of the word.
@@ -72,7 +75,6 @@ public class OrderedLinkedList <T>{
 public  <T extends Comparable<T>> boolean search(T word)
 {
 		Node temp=HEAD;
-		int i=0;
 		while(temp!=null)
 		{
 			if(temp.data.equals(word))
@@ -80,7 +82,6 @@ public  <T extends Comparable<T>> boolean search(T word)
 				return true;
 			}
 			temp=temp.nextNode;
-				i++;
 		}
 	
 	return false;
@@ -110,26 +111,11 @@ public <T extends Comparable<T>> void remove(int position)
 		n.nextNode=temp.nextNode;
 		temp=null;
 	}
-/*	
-	Node temp=HEAD;
-	Node result=null;
-	if(HEAD==null)
-		System.out.println("Empty list");
-	else if(HEAD.nextNode==null)
-	{
-		result=HEAD;
-	}else
-	{
-		
-		while(temp.nextNode.nextNode!=null)
-		{
-			temp=temp.nextNode;
-		}
-		result=temp.nextNode;
-		temp.nextNode=null;
-	}	*/
 		
 }
+/**delete function is to delete a data in list.
+ * @param key is a data to delete.
+ */
 public <T extends Comparable<T>> void delete(T key)
 {
 	Node temp1=null;
@@ -191,7 +177,7 @@ public <T extends Comparable<T>> void show()
  */
 	public void operation(String number,String []sortArray) throws IOException
 	{
-	//	OrderedList list=new OrderedList();
+		OrderedLinkedList list=new OrderedLinkedList();
 		for(int i=0;i<sortArray.length;i++)
 		{
 			add(sortArray[i]);
@@ -204,15 +190,36 @@ public <T extends Comparable<T>> void show()
 			delete(number);
 		
 		show();
-		File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");
-		Node node=HEAD;
-		while(node.nextNode!=null)
-		{
-			Utility.printwrite(file,node.data);
-			node=node.nextNode;
-		}
+		print();
 		
-		Utility.printwrite(file,node.data);
+	}
+	/**print function is to override data in file.
+	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
+	 */
+	public void print() throws IOException
+	{
+		File file=new File("/home/bridgeit/zeeshan/Files/OrderedList.txt");
+		FileWriter fw = new FileWriter(file);
+	  	  BufferedWriter bw = new BufferedWriter(fw);
+	  	  PrintWriter pw = new PrintWriter(bw);
+	  	Node node=HEAD;
+		if(HEAD==null)
+		{
+			System.out.println("empty");
+		}
+		else if(HEAD.nextNode==null)
+		{
+			pw.print(node.data+" ");
+		}
+		else
+		{	while(node!=null)
+			{
+			pw.print(node.data+" ");
+				node=node.nextNode;
+			}
+		}
+	  	  pw.close();
+		
 	}
 
 }

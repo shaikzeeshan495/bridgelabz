@@ -18,10 +18,10 @@ public class BinaryTree {
 		
 		for(int i=0;i<testCase;i++)
 		{
-		System.out.println("enter number");
-		int number=Utility.inputInteger();
-		int result=Utility.catalan(number);
-		System.out.println(result);
+			System.out.println("enter number");
+			int number=Utility.inputInteger();
+			int result=Utility.catalan(number);
+			System.out.println(result);
 		}
 		
 		System.out.println("Completed");

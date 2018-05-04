@@ -1,5 +1,12 @@
+/******************************************************************************
+ *  Purpose:	Calender using queue.
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   02-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
-
 import com.bridgelabz.utility.Utility;
 
 public class CalenderQueue {

@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Purpose:	prime numbers collecting in two D array.
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   03-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
 import com.bridgelabz.utility.Utility;
@@ -10,6 +18,7 @@ public class PrimeNumberArray {
 		int arrayTwoD[][]=new int[10][26];
 		int primeArray[]=Utility.primeNum(1000);
 		System.out.println("Prime numbers are");
+		//Collecting prime numbers in 2D array.
 		for(int i=0;i<primeArray.length;i++)
 		{
 			if(primeArray[i]!=0)
@@ -23,7 +32,7 @@ public class PrimeNumberArray {
 				arrayTwoD[row][column++]=primeArray[i];
 			}
 		}	
-		
+		//Printing prime numbers from 2D array.
 		for(int i=0;i<arrayTwoD.length;i++)
 		{
 			for(int j=0;j<arrayTwoD[i].length;j++)

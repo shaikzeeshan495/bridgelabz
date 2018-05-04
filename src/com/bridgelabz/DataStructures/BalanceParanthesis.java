@@ -18,7 +18,6 @@ public class BalanceParanthesis {
 		String input="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
 		char inputArray[]=input.toCharArray();
 		char c1='(',c2=')';
-		@SuppressWarnings({ "rawtypes", "unused" })
 		Stack stack=new Stack(inputArray.length);
 		for(int i=0;i<inputArray.length;i++)
 		{

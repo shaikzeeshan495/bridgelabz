@@ -12,7 +12,6 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 public class Utility {
-	
 	private static Scanner scanner = new Scanner(System.in);
 	
 	/**inputInteger is to take input from scanner
@@ -159,19 +158,18 @@ public class Utility {
 	    		if( year % 100 == 0)
 	            {
 	                if ( year % 400 == 0)
-	                //	isLeapYear = 
+	               
 	                	return true;
 	                else
-	                //	isLeapYear =
+	                
 	                	return false;
 	            }
 	            else
-	            //	isLeapYear =
+	            
 	            	return true;
 	        }
 	        else {
-	        //	isLeapYear =
-	        	return false;
+	       	return false;
 	        }
 
 	    /*    if(isLeapYear==true)
@@ -195,7 +193,7 @@ public class Utility {
 		}
 		
 		/**
-		 * Static function to find annagram from prime numbers
+		 * Static function to find annagram from prime numbers collecting correct size of array
 		 *
 		 * @param number the array contains prime num to find annagram
 		 */
@@ -209,7 +207,7 @@ public class Utility {
 					count++;
 				}
 			}
-			
+			//initializing correct size for prime array
 			int arr[]=new int[count];
 			
 			for(int i=0;i<res.length;i++)
@@ -1663,9 +1661,9 @@ public static String binaryToDecimal(String binary)
 	 * @param data the data which is inserting in a file.
 	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies .
 	 */
-	public  static <T extends Comparable<T>> void printwrite(File file,@SuppressWarnings("rawtypes") Comparable data) throws IOException
+	public  static <T extends Comparable<T>> void printwrite(File file,Comparable data) throws IOException
 	{
-		FileWriter fw = new FileWriter(file,true);
+		FileWriter fw = new FileWriter(file);
   	  BufferedWriter bw = new BufferedWriter(fw);
   	  PrintWriter pw = new PrintWriter(bw);
   	  pw.print(data+" ");
@@ -1687,7 +1685,7 @@ public static String binaryToDecimal(String binary)
 	}
 	
 	/**catalan static function is to find maximum combination of binary tree.
-	 * @param n is a given ino=put number.
+	 * @param n is a given input number.
 	 * @return integer value, maximum no of combination.
 	 */
 	public static int catalan(int n)
@@ -1714,12 +1712,12 @@ public static String binaryToDecimal(String binary)
 	{
 		
 	}
-	public static boolean check(int num,int size,int annagramArray[])
+	public static boolean check(int num,int size,int annagramArray[][])
 	{
 		
 		for(int i=0;i<size;i++)
 		{
-			if(annagramArray[i]==num)
+			if(annagramArray[i][0]==num)
 			{
 				return false;
 			}

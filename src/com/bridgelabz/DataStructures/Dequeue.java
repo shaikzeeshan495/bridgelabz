@@ -137,7 +137,7 @@ public class Dequeue <T>{
 	 * 
 	 */
 	public static <T extends Comparable<T>> void operation()
-		{
+	{
 		if(HEAD.nextNode==null || HEAD==null)
 		{
 			System.out.println("palindrome");
@@ -146,14 +146,11 @@ public class Dequeue <T>{
 			T elem=popFront();
 			T elem2=popRear();
 			if(elem.compareTo(elem2)==0)
-			{
 				operation();
-				
-			}
 			else 
 				System.out.println("It is not a Palindrome");
 			
-		}
+	}
 	/**static function show to display the list.
 	 * 
 	 */

@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Purpose:	Finding annagram from prime numbers.
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   03-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
 import com.bridgelabz.utility.Utility;
@@ -6,12 +14,13 @@ public class ExtendPrime {
 
 	public static void main(String[] args) {
 		int tempArray[]=Utility.primeNum(1000);
-		int z=0;
+		int position=0;
 		int count=0,index=0;
 		System.out.println("Prime numbers are");
 		int array[]=Utility.extendAnnagram(tempArray);
+		//temporary initializing length 
 		int tempAnnagram[]=new int[500];
-		
+		//Collecting annagram in temporary array.
 		String tempString1="";
 		String tempString2="";
 		for(int i=0;i<array.length-1;i++)
@@ -23,44 +32,34 @@ public class ExtendPrime {
 				boolean flag=Utility.annagFunNum(tempString1,tempString2);
 				if(flag)
 				{
-					tempAnnagram[z++]=array[i];
-					tempAnnagram[z++]=array[k];
+					tempAnnagram[position++]=array[i];
+					tempAnnagram[position++]=array[k];
 					count=count+2;
 				}
 				
 			}
 			
 		}
-		int AnnagramArray[]=new int[count];
-		int nonAnnagram[]=new int[count];
-		for(int i=0;i<count;i++)
-		{
-			AnnagramArray[i]=tempAnnagram[i];
-		}
 	
 		int resultArray[][]=new int[count][2];
-		for(int i=1;i<count;i++)
+		//Collecting Annagram.
+		for(int i=0;i<count;i++)
 		{
-			resultArray[i][0]=AnnagramArray[i-1];
+			resultArray[i][0]=tempAnnagram[i];
 		}
-	
-		
+		//Collecting Non Annagram.
 		for(int i=1;i<array.length;i++)
 		{
-			boolean flag=Utility.check(array[i],count,AnnagramArray);
+			boolean flag=Utility.check(array[i],count,resultArray);
 			if(flag)
 			{
-				nonAnnagram[index]=array[i];
+				resultArray[index][1]=array[i];
 				index++;
 			}	
 		}
 	
-		for(int i=1;i<count;i++)
-		{
-			resultArray[i][1]=nonAnnagram[i-1];
-		}
 		System.out.println("Annagram\tNot a annagram");
-		
+		//Printing the Annagram and Non Annagram array.
 		for(int i=0;i<resultArray.length;i++)
 		{
 			for(int j=0;j<resultArray[i].length;j++)

@@ -15,7 +15,10 @@ public class Queue {
 	Object queueArray[];
 	int size,rare,front,stackLength;
 	static int BANKCASH;
-	
+
+	public Queue() {
+		
+	}
 	/**Queue function is to intialize the queue.
 	 * @param queueLength the lengthy of queue array.
 	 * @param bankCash is a number of initial bank amount
@@ -29,10 +32,6 @@ public class Queue {
 		front=0;
 	}
 	
-	public Queue() {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**enqueue is a function to add in a queue.
 	 * @param element the data to add in a queue.
 	 * @return boolean data to ensure queue is empty or not.

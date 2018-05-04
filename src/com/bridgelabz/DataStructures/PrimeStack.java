@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Purpose:	Finding annagram from prime numbers and store in a stack.
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   03-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DataStructures;
 
 import com.bridgelabz.utility.Utility;
@@ -9,9 +17,11 @@ public class PrimeStack {
 		int z=0;
 		int count=0;
 		System.out.println("Prime numbers are");
+		//From prime numbers collecting correct size of array.
 		int array[]=Utility.extendAnnagram(tempArray);
+		//initializing temporary array
 		int tempAnnagram[]=new int[500];
-		
+		//Finding annagram from prime numbers and collecting in tempAnnagram array
 		String tempString1="";
 		String tempString2="";
 		for(int i=0;i<array.length-1;i++)
@@ -31,11 +41,13 @@ public class PrimeStack {
 			}
 			
 		}
+		//Initializing array by using coount
 		int AnnagramArray[]=new int[count];
 		for(int i=0;i<count;i++)
 		{
 			AnnagramArray[i]=tempAnnagram[i];
 		}
+		
 		StackLinked stack=new StackLinked();
 		
 		for(int i=0;i<count;i++)
