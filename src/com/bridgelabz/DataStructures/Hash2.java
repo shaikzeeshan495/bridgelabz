@@ -23,8 +23,8 @@ public class Hash2 {
 		boolean flag=hash.search(key);
 		if(flag==false)
 			hash.operationAdd(key);
-		hash.operateMap();
-		
+	//	hash.operateMap();
+		hash.display();
 	}
 
 }

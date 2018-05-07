@@ -17,7 +17,7 @@ public class UnorderMain {
 public static void main(String[] args) {
 		
 		try{
-			UnorderedList list=new UnorderedList();
+			UnorderedList<?> list=new UnorderedList<Object>();
 			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
 			String fileString=Utility.readFile(file);
 			System.out.println(fileString);

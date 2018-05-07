@@ -15,10 +15,10 @@ public class BinaryTree {
 	public static void main(String[] args) {
 		System.out.println("Enter no of test cases");
 		int testCase=Utility.inputInteger();
-		
+		System.out.println("enter number");
 		for(int i=0;i<testCase;i++)
 		{
-			System.out.println("enter number");
+			
 			int number=Utility.inputInteger();
 			int result=Utility.catalan(number);
 			System.out.println(result);

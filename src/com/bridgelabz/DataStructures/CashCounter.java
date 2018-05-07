@@ -13,6 +13,7 @@ public class CashCounter {
 	public static void main(String[] args) {
 		int bankCash=100000;
 		Queue queue=new Queue(10,bankCash);
+		System.out.println("First add in a queue, then go for Transaction");
 		queue.operation();
 
 	}

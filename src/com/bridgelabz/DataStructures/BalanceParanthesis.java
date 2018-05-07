@@ -11,11 +11,11 @@ package com.bridgelabz.DataStructures;
 
 public class BalanceParanthesis {
 
-	public static void main(String[] args) {
+	public static <T> void main(String[] args) {
 	
 	//	System.out.println("Enter a input");
 	//	String input=Utility.inputString1();
-		String input="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
+		String input="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3))))";
 		char inputArray[]=input.toCharArray();
 		char c1='(',c2=')';
 		Stack stack=new Stack(inputArray.length);

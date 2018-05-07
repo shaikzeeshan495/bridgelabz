@@ -7,16 +7,13 @@
  *
  ******************************************************************************/
 package com.bridgelabz.DataStructures;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import com.bridgelabz.utility.Utility;
 
 public class UnorderedList <T>{
 	 public static	 Node HEAD;
 	
-		/**static add function to add a data inside a list
+		/** add function to add a data inside a list
 		 * @param data the data wants to add in a list
 		 */
 	public  <T extends Comparable<T>> void add(T data)
@@ -37,7 +34,7 @@ public class UnorderedList <T>{
 		}
 	}
 	
-	/**static search funtion is to search the given word.System.out.println(node.data);
+	/** search funtion is to search the given word.System.out.println(node.data);
 	 * @param word the word which has to be search.
 	 * @return boolean status of search function.
 	 */
@@ -94,7 +91,7 @@ public class UnorderedList <T>{
 		}
 	}
 		
-	/**static function show to display the list.
+	/** function show to display the list.
 	 * 
 	 */
 	public  <T extends Comparable<T>> void display()
@@ -108,7 +105,7 @@ public class UnorderedList <T>{
 			System.out.println(node.data);
 		}
 		
-	/**static operation function of unordered list.
+	/**operation function of unordered list.
 	 * @param word	is string to search in file.
 	 * @param stringArray is strings in a file.
 	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
@@ -117,9 +114,7 @@ public class UnorderedList <T>{
 	{
 		UnorderedList list=new UnorderedList();
 			for(int i=0;i<stringArray.length;i++)
-			{
 				list.add(stringArray[i]);
-			}
 			
 			boolean flag=search(word);
 			if(flag==false)
@@ -128,28 +123,7 @@ public class UnorderedList <T>{
 				list.delete(word);
 			
 			list.display();
-			File file=new File("/home/bridgeit/zeeshan/Files/UnorderedList.txt");
-			FileWriter fw = new FileWriter(file);
-		  	  BufferedWriter bw = new BufferedWriter(fw);
-		  	  PrintWriter pw = new PrintWriter(bw);
-		  	Node node=HEAD;
-			if(HEAD==null)
-			{
-				System.out.println("empty");
-			}
-			else if(HEAD.nextNode==null)
-			{
-				pw.print(node.data+" ");
-			}
-			else
-			{	while(node!=null)
-				{
-				pw.print(node.data+" ");
-					node=node.nextNode;
-				}
-			}
-		  	  pw.close();
-			
+			Node node=HEAD;
+			Utility.printLinkedList("/home/bridgeit/zeeshan/Files/UnorderedList.txt",node);
 		}
-			
 }

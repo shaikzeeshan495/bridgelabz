@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import com.bridgelabz.utility.Utility;
 
 public class OrderedLinkedList <T>{
 	
@@ -156,19 +157,19 @@ public <T extends Comparable<T>> void show()
 		Node node=HEAD;
 		if(HEAD==null)
 		{
-			System.out.println("empty");
+			System.out.print("empty");
 		}
 		else if(HEAD.nextNode==null)
 		{
-			System.out.println(node.data);
+			System.out.print(node.data+" ");
 		}
 		else
 		{	while(node!=null)
 			{
-				System.out.println(node.data);
+				System.out.print(node.data+" ");
 				node=node.nextNode;
 			}
-		}
+		}System.out.println();
 	}
 /**static operation function of unordered list.
  * @param word	is string to search in file.
@@ -190,7 +191,8 @@ public <T extends Comparable<T>> void show()
 			delete(number);
 		
 		show();
-		print();
+		Node node=HEAD;
+		Utility.printLinkedList("/home/bridgeit/zeeshan/Files/OrderedList.txt",node);
 		
 	}
 	/**print function is to override data in file.

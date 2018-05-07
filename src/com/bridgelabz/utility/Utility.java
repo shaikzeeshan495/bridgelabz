@@ -6,11 +6,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+
+import com.bridgelabz.DataStructures.Node;
 public class Utility {
 	private static Scanner scanner = new Scanner(System.in);
 	
@@ -1670,7 +1673,56 @@ public static String binaryToDecimal(String binary)
   	  pw.close();
   	  
 	}
+	/**static function printwrite to write a data in a file.
+	 * @param file is a location of file where we have to print.
+	 * @param data the data which is inserting in a file.
+	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies .
+	 */
+	public static void writeHash(String fileStr,Node[] table) throws Exception {
+		try {
+			File file=new File(fileStr);
+			PrintStream print = new PrintStream(file);
+		System.setOut(print);
+		for(int i=0;i<table.length;i++) {
+			Node t =table[i];
+		while(t!=null) {
+			System.out.print(t.data+" ");
+			t=t.nextNode;
+		}
+		}
+		}catch(Exception e) {
+			System.out.println("Oops!, Something went wrong");
+		}
+	}
 	
+	/**print function is to override data in file.
+	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies.
+	 */
+	public static void printLinkedList(String fileStr,Node HEAD) throws IOException
+	{
+		File file=new File(fileStr);
+		FileWriter fw = new FileWriter(file);
+	  	  BufferedWriter bw = new BufferedWriter(fw);
+	  	  PrintWriter pw = new PrintWriter(bw);
+	  	Node node=HEAD;
+		if(HEAD==null)
+		{
+			System.out.println("empty");
+		}
+		else if(HEAD.nextNode==null)
+		{
+			pw.print(node.data+" ");
+		}
+		else
+		{	while(node!=null)
+			{
+			pw.print(node.data+" ");
+				node=node.nextNode;
+			}
+		}
+	  	  pw.close();
+		
+	}
 	/**static function readFile to read a data in a file.
 	 * @param file is a location of file where we have to read.
 	 * @return	string after reading data in file.
@@ -1681,6 +1733,7 @@ public static String binaryToDecimal(String binary)
 		FileReader fileRead=new FileReader(file);
 		BufferedReader br=new BufferedReader(fileRead);
 		String fileString=br.readLine();
+		br.close();
 		return fileString;
 	}
 	
@@ -1708,10 +1761,12 @@ public static String binaryToDecimal(String binary)
 		return fact;
 	}
 	
-	public static void printQueue()
-	{
-		
-	}
+	/**check static function is used to check whether number is present in annagram array or not.
+	 * @param num given input nummber
+	 * @param size is size of array
+	 * @param annagramArray is array with annagram
+	 * @return boolean i.e.. status of array
+	 */
 	public static boolean check(int num,int size,int annagramArray[][])
 	{
 		
