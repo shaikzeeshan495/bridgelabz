@@ -15,6 +15,7 @@ public class Queue {
 	Object queueArray[];
 	int size,rare,front,stackLength;
 	static int BANKCASH;
+	static int QUEUE_SIZE=0;
 
 	public Queue() {
 		
@@ -45,6 +46,7 @@ public class Queue {
 		}
 		else{
 			queueArray[++rare]=element;
+			QUEUE_SIZE++;
 			return true;
 		}
 	}
@@ -57,7 +59,10 @@ public class Queue {
 		if(rare==-1||front>rare)
 			System.out.println("Queue was empty, deletion not possible");
 		else
+		{
 			front++;
+			QUEUE_SIZE--;
+		}
 	}
 	
 	/**display function is to display elements in a queue.
@@ -121,7 +126,11 @@ public class Queue {
 		else
 			return false;
 	}
-		
+	
+	public int size()
+	{
+		return QUEUE_SIZE;
+	}
 	/**operation is a function is to choose option to enter in a queue or go for transaction.
 	 * 
 	 */
@@ -129,6 +138,7 @@ public class Queue {
 	{
 		System.out.println("enter 1 to add in a queue");
 		System.out.println("enter 2 for transaction");
+		System.out.println("enter 3 for present customers in Queue");
 		int choice=Utility.inputInteger();
 		switch(choice)
 		{
@@ -153,7 +163,10 @@ public class Queue {
 						counter();
 						break;
 					}
-				
+		
+		case 3:System.out.println("Present customers in Queue: "+size());
+				operation();
+				break;
 		default:System.out.println("Invalid number, enter again");
 				operation();
 				break;

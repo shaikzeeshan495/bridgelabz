@@ -1,17 +1,17 @@
 package com.bridgelabz.DesignPatternPrograms;
 
 public class LazyInitializedSingleton {
-	private static LazyInitializedSingleton instance;
+	private static LazyInitializedSingleton INSTANCE;
 	private LazyInitializedSingleton()
 	{
 		
 	}
 	public static LazyInitializedSingleton getInstance(){
-		if(instance==null)
+		if(INSTANCE==null)
 		{
-			instance=new LazyInitializedSingleton();
+			INSTANCE=new LazyInitializedSingleton();
 		}
-		return instance;
+		return INSTANCE;
 	}
 	public static void main(String args[])
 	 {

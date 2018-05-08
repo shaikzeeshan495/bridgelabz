@@ -7,12 +7,12 @@ public class BillPughSingleton {
 	}
 private static class InnerClass
 {
-	private static BillPughSingleton instance=new BillPughSingleton();
+	private static BillPughSingleton INSTANCE=new BillPughSingleton();
 }
 
 public static BillPughSingleton getInstance()
 {
-	return InnerClass.instance;
+	return InnerClass.INSTANCE;
 }
 	public static void main(String[] args) {
 		//Creating object  Instance1

@@ -38,7 +38,7 @@ public class PrimeNumberArray {
 			for(int j=0;j<arrayTwoD[i].length;j++)
 			{
 				if(arrayTwoD[i][j]!=0)
-					System.out.print(arrayTwoD[i][j]+" ");
+					System.out.print(String.format("%5d", arrayTwoD[i][j]));
 			}
 			System.out.println();
 		}

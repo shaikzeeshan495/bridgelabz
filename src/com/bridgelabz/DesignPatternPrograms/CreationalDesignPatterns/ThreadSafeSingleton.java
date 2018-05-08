@@ -1,14 +1,25 @@
 package com.bridgelabz.DesignPatternPrograms;
 
 public class ThreadSafeSingleton {
-	private static ThreadSafeSingleton instance;
+	private static ThreadSafeSingleton INSTANCE;
 	private ThreadSafeSingleton(){	
 	}
 	public static synchronized ThreadSafeSingleton getInstance()
 	{
-		if(instance==null)
-			instance=new ThreadSafeSingleton();
-		return instance;
+		if(INSTANCE==null)
+			INSTANCE=new ThreadSafeSingleton();
+		return INSTANCE;
+	}
+	
+	public static ThreadSafeSingleton getInstanceUsingDoubleLocking(){
+	    if(INSTANCE == null){
+	        synchronized (ThreadSafeSingleton.class) {
+	            if(INSTANCE == null){
+	            	INSTANCE = new ThreadSafeSingleton();
+	            }
+	        }
+	    }
+	    return INSTANCE;
 	}
 	public static void main(String args[])
 	 {

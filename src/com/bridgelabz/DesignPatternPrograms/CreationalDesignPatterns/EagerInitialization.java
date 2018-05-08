@@ -1,13 +1,13 @@
 package com.bridgelabz.DesignPatternPrograms;
 
 public class EagerInitialization {
- private final	static EagerInitialization instance=new EagerInitialization();
+ private final	static EagerInitialization INSTANCE=new EagerInitialization();
  
  private EagerInitialization(){
  }
  public static EagerInitialization getInstance()
  { 
-	 return instance;
+	 return INSTANCE;
  }
  public static void main(String args[])
  {
