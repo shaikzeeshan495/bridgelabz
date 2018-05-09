@@ -69,6 +69,46 @@ public class OrderedLinkedList <T>{
 	}
 	}
 	
+	/**static add function to add a data inside a list in order.
+	 * @param data the data wants to add in a list
+	 */
+	public  <T extends Comparable<T>> void addOrderInt(T data)
+	{
+	Node node=new Node();
+	node.data=data;
+	node.nextNode=null;
+	Node insertTemp=null;
+	Node temp=HEAD;
+	int tempData=Integer.parseInt((String) temp.data) ;
+	int tempNext=Integer.parseInt((String) temp.nextNode.data) ;
+	int dataInput=Integer.parseInt((String) data) ;
+	if(HEAD==null)
+		HEAD=node;
+	else if(tempData>dataInput)
+	{
+		insertTemp=node;
+		insertTemp.nextNode=temp;
+		HEAD=node;
+		
+	}else
+	{		
+		while(temp.nextNode!=null)	
+		{	
+		tempData=Integer.parseInt((String) temp.data) ;
+		tempNext=Integer.parseInt((String) temp.nextNode.data) ;
+		dataInput=Integer.parseInt((String) data) ;
+			if(tempData<dataInput && tempNext>dataInput)
+			{
+			insertTemp=node;
+			insertTemp.nextNode=temp.nextNode;
+			temp.nextNode=insertTemp;
+			break;
+			}
+			temp=temp.nextNode;
+		}
+		temp.nextNode=node;
+	}
+}
 /**static search funtion is to search the given word.
  * @param word the word which has to be search.
  * @return integer which is position of the word.
@@ -186,7 +226,7 @@ public <T extends Comparable<T>> void show()
 		
 		boolean flag=search(number);
 		if(flag==false)
-			addOrder(number);
+			addOrderInt(number);
 		else
 			delete(number);
 		

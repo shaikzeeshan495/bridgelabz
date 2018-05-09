@@ -1637,6 +1637,31 @@ public static String binaryToDecimal(String binary)
 		return array;
 	}
 	
+	/**static fuction BubbleSort for generic.
+	 * @param array input array to sort
+	 * @return sorting array
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static <T extends Comparable> T[] sortBubbleGenericInt(T[] array)
+	{
+		T temp;
+		for(int i=0;i<array.length-2;i++)
+		{
+			for(int j=0;j<=array.length-2-i;j++)
+			{
+				//(array[j]).compareTo(array[j+1])>0
+				int a=Integer.parseInt((String)array[j]);
+				int b=Integer.parseInt((String)array[j+1]);
+				if(a>b)
+				{
+					temp=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temp;
+				}
+			}
+		}
+		return array;
+	}
 	/**static function binary search for generic
 	 * @param array collection of words.
 	 * @param low initial index.

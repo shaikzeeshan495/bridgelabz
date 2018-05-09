@@ -24,7 +24,7 @@ public class OrderMain {
 			String fileString=Utility.readFile(file);
 			System.out.println(fileString);
 			String []stringArray=fileString.split("\\s");
-			String []sortArray=Utility.sortBubbleGeneric(stringArray);
+			String []sortArray=Utility.sortBubbleGenericInt(stringArray);
 			System.out.println("After Sorting");
 			System.out.println(Arrays.toString(sortArray));
 			System.out.println("Enter the Number");
