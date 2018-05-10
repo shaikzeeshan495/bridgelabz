@@ -8,10 +8,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.bridgelabz.DataStructures.Node;
 public class Utility {
@@ -155,7 +163,7 @@ public class Utility {
 		    */	
 		public static boolean isLeap(int year)
 			{
-				boolean isLeapYear=false;
+			//	boolean isLeapYear=false;
 	    	if(year%4==0)
 	    	{
 	    		if( year % 100 == 0)
@@ -830,7 +838,7 @@ public class Utility {
 	    */
 	public static boolean checkAnnagNum(char charArray1[],char charArray2[])
 	{
-		String temp=new String(charArray2);
+	//	String temp=new String(charArray2);
 		Arrays.sort(charArray1);
 		Arrays.sort(charArray2);
 			String string1=new String(charArray1);
@@ -1641,7 +1649,7 @@ public static String binaryToDecimal(String binary)
 	 * @param array input array to sort
 	 * @return sorting array
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+
 	public static <T extends Comparable> T[] sortBubbleGenericInt(T[] array)
 	{
 		T temp;
@@ -1803,6 +1811,136 @@ public static String binaryToDecimal(String binary)
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * @param jsonObject
+	 */
+	public static void inventoryManager(JSONObject jsonObject)
+	{
+		int riceTotal=1,pulseTotal=1,wheatTotal=1,sum=0;
+		
+		JSONArray Obj1 = (JSONArray) jsonObject.get("rice");
+		@SuppressWarnings("unchecked")
+		Iterator<String> iterator1 = Obj1.iterator();
+        while (iterator1.hasNext()) {
+        	riceTotal=riceTotal*Integer.parseInt(iterator1.next());
+        }
+        sum=riceTotal;
+        
+        
+        JSONArray Obj2 = (JSONArray) jsonObject.get("pulses");
+		@SuppressWarnings("unchecked")
+		Iterator<String> iterator2 = Obj2.iterator();
+        while (iterator2.hasNext()) {
+        	pulseTotal=pulseTotal*Integer.parseInt(iterator2.next());
+        }
+        sum=sum+pulseTotal;
+        
+        
+        JSONArray Obj3 = (JSONArray) jsonObject.get("wheat");
+		@SuppressWarnings("unchecked")
+		Iterator<String> iterator3 = Obj3.iterator();
+        while (iterator3.hasNext()) {
+        	wheatTotal=wheatTotal*Integer.parseInt(iterator3.next());
+        }
+        sum=sum+wheatTotal;
+        
+        
+        System.out.println("Name	"+jsonObject.get("Name"));
+        System.out.println("rice	"+jsonObject.get("rice"));
+        System.out.println("pulses	"+jsonObject.get("pulses"));
+        System.out.println("wheat	"+jsonObject.get("wheat"));
+        System.out.println("Total price of rice "+riceTotal);
+        System.out.println("Total price of pulses "+pulseTotal);
+        System.out.println("Total price of wheat "+wheatTotal);
+        System.out.println("---------------------------");
+        System.out.println("	Total	=	"+sum);
+        System.out.println("---------------------------");
+	}
+	/**
+	 * @param jsonObject
+	 */
+	public static void inventory(JSONObject jsonObject)
+	{
+		System.out.println("Enter Choice for details");
+		System.out.println("1 for Rice");
+		System.out.println("2 for pulse");
+		System.out.println("3 for wheat");
+		int choice=Utility.inputInteger();
+		JSONArray Obj = (JSONArray) jsonObject.get("Name");
+		System.out.print("Name		");
+		@SuppressWarnings("unchecked")
+		Iterator<String> iterator = Obj.iterator();
+		
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next()+"		");
+        }
+		String type="";
+		System.out.println();
+		switch(choice)
+		{
+		case 1:type="rice";
+				break;
+		case 2:type="pulses";
+				break;
+		case 3:type="wheat";
+				break;	
+		default:System.out.println("invalid input");
+				break;
+		}
+		System.out.print(type+"		");
+		JSONArray Obj1 = (JSONArray) jsonObject.get(type);
+		@SuppressWarnings("unchecked")
+		Iterator<String> iterator1 = Obj1.iterator();
+        while (iterator1.hasNext()) {
+            System.out.print(iterator1.next()+"		");
+        }
+	}
+	
+	public static void regexReplace(String mainString)
+	{
+		System.out.println("Enter SurName");
+		String surName=inputString();
+		boolean surNameFlag=Pattern.matches("\\D*",surName);
+		if(surNameFlag)
+		{
+			mainString=mainString.replaceAll("<<name>>", surName);
+		}
+		else{
+			System.out.println("invalid input.....try again");
+			return;
+		}
+		
+		System.out.println("Enter Full Name");
+		String fullName=inputString();
+		boolean fullNameFlag=Pattern.matches("\\D*",fullName);
+		if(fullNameFlag)
+		{
+			mainString=mainString.replaceAll("<<full name>>", fullName);
+		}
+		else{
+			System.out.println("invalid input.....try again");
+			return;
+		}
+		
+		System.out.println("Enter Contact Number");
+		String number=inputString();
+		boolean numberFlag=Pattern.matches("[0-9]{10}",number);
+		if(numberFlag)
+		{
+			mainString=mainString.replaceAll("xxxxxxxxxx", number);
+		}
+		else{
+			System.out.println("invalid input.....try again");
+			return;
+		}
+		
+		LocalDate date=java.time.LocalDate.now();
+		mainString=mainString.replaceAll("01/01/2016", date.toString());	
+		
+		System.out.println(mainString);
+	
 	}
 
 }
