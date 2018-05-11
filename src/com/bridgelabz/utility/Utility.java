@@ -1846,7 +1846,6 @@ public static String binaryToDecimal(String binary)
         }
         sum=sum+wheatTotal;
         
-        
         System.out.println("Name	"+jsonObject.get("Name"));
         System.out.println("rice	"+jsonObject.get("rice"));
         System.out.println("pulses	"+jsonObject.get("pulses"));
@@ -1898,9 +1897,12 @@ public static String binaryToDecimal(String binary)
         }
 	}
 	
+	/**regexReplace is a function to replace a String
+	 * @param mainString is a main String
+	 */
 	public static void regexReplace(String mainString)
 	{
-		System.out.println("Enter SurName");
+		System.out.println("Enter Name");
 		String surName=inputString();
 		boolean surNameFlag=Pattern.matches("\\D*",surName);
 		if(surNameFlag)
@@ -1915,6 +1917,7 @@ public static String binaryToDecimal(String binary)
 		System.out.println("Enter Full Name");
 		String fullName=inputString();
 		boolean fullNameFlag=Pattern.matches("\\D*",fullName);
+		fullName=surName+" "+fullName;
 		if(fullNameFlag)
 		{
 			mainString=mainString.replaceAll("<<full name>>", fullName);
@@ -1941,6 +1944,42 @@ public static String binaryToDecimal(String binary)
 		
 		System.out.println(mainString);
 	
+	}
+	
+	public static String[][] deckOfCards()
+	{
+		 int[] deck = new int[52];
+		    int cards=13,persons=4;
+		    String [][]twoDArray=new String[cards+1][persons+1];
+		    String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
+		    String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+
+		    // Initialize cards
+		    for (int i = 0; i < deck.length; i++) {
+		      deck[i] = i;
+		    }
+
+		    // Shuffle the cards
+		    for (int i = 0; i < deck.length; i++) {
+		      int index = (int)(Math.random() * deck.length);
+		      int temp = deck[i];
+		      deck[i] = deck[index];
+		      deck[index] = temp;
+		    }
+		    int row=0,column=0;
+		    // Collecting all cards in a array.
+		    for (int i = 0; i <52; i++) {
+		      String suit = suits[deck[i] / 13];
+		      String rank = ranks[deck[i] % 13];
+		      twoDArray[row++][column]=rank + " of " + suit;
+		      if((i+1)%13==0)
+		      {
+		    	  row=0;
+		    	  column=column+1;
+		      }
+		    }
+		   
+		    return twoDArray;
 	}
 
 }

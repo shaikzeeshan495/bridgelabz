@@ -1,6 +1,6 @@
 package com.bridgelabz.DesignPatternPrograms.BehavioralDesignPattern.VisitorPattern;
 
-public class ShoppingCartVisitorImpl implements ShoppingCartVisitor{
+public class Calculation implements ShoppingCartVisitor{
 	@Override
 	public int visit(Book book) {
 		int cost=0;

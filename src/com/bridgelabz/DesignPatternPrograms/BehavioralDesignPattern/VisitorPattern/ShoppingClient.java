@@ -11,7 +11,7 @@ public class ShoppingClient {
 	}
 
 	private static int calculatePrice(ItemElement[] items) {
-		ShoppingCartVisitor visitor = new ShoppingCartVisitorImpl();
+		ShoppingCartVisitor visitor = new Calculation();
 		int sum=0;
 		for(ItemElement item : items){
 			sum = sum + item.accept(visitor);

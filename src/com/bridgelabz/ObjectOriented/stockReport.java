@@ -1,9 +1,9 @@
 /******************************************************************************
- *  Purpose:	DataManagement using json
+ *  Purpose:	Stock report using json
  *
  *  @author  Zeeshan
  *  @version 1.0
- *  @since   10-05-2018
+ *  @since   11-05-2018
  *
  ******************************************************************************/
 package com.bridgelabz.ObjectOriented;
@@ -16,15 +16,20 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.utility.Utility;
+public class stockReport {
 
-public class ExtendDataManagement {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
+		StockPortfolio stock=new StockPortfolio();
 		JSONParser parser = new JSONParser();
-		File file=new File("/home/bridgeit/zeeshan/src/com/bridgelabz/ObjectOriented/jsonFiles/DataManagement.json");
+		File file=new File("/home/bridgeit/zeeshan/src/com/bridgelabz/ObjectOriented/jsonFiles/Shares.json");
 		Object obj=parser.parse(new FileReader(file));
 		JSONObject jsonObject = (JSONObject) obj;
-		Utility.inventoryManager(jsonObject);
+		System.out.println("Name	"+jsonObject.get("Name"));
+        System.out.println("Infosys	"+jsonObject.get("Infosys"));
+        System.out.println("jpMorgan"+jsonObject.get("jpMorgan"));
+        System.out.println("KPIT	"+jsonObject.get("KPIT"));
+		stock.calculationStock(jsonObject);
+
 	}
 
 }

@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Purpose:	Replacing regex using string
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   10-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.ObjectOriented;
 
 import com.bridgelabz.utility.Utility;
