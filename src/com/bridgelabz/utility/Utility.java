@@ -1946,10 +1946,13 @@ public static String binaryToDecimal(String binary)
 	
 	}
 	
+	/**
+	 * @return
+	 */
 	public static String[][] deckOfCards()
 	{
-		 int[] deck = new int[52];
-		    int cards=13,persons=4;
+			int[] deck = new int[36];
+		    int cards=9,persons=4;
 		    String [][]twoDArray=new String[cards+1][persons+1];
 		    String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
 		    String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
@@ -1968,11 +1971,11 @@ public static String binaryToDecimal(String binary)
 		    }
 		    int row=0,column=0;
 		    // Collecting all cards in a array.
-		    for (int i = 0; i <52; i++) {
+		    for (int i = 0; i <36; i++) {
 		      String suit = suits[deck[i] / 13];
 		      String rank = ranks[deck[i] % 13];
 		      twoDArray[row++][column]=rank + " of " + suit;
-		      if((i+1)%13==0)
+		      if((i+1)%9==0)
 		      {
 		    	  row=0;
 		    	  column=column+1;
