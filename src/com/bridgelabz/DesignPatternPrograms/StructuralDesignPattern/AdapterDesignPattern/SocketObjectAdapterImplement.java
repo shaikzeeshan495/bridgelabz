@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Purpose:	SocketObjectAdapterImplement implements SocketAdapter Using Composition for adapter pattern
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   11-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DesignPatternPrograms.StructuralDesignPattern.AdapterDesignPattern;
 
 public class SocketObjectAdapterImplement implements SocketAdapter{

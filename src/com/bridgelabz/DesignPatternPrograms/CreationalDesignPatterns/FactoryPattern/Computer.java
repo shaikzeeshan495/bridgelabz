@@ -1,4 +1,13 @@
+/******************************************************************************
+ *  Purpose:	FactoryPattern
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   12-05-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.DesignPatternPrograms.CreationalDesignPatterns.FactoryPattern;
+
 
 public abstract class Computer {
 	

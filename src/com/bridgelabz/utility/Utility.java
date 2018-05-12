@@ -1984,5 +1984,29 @@ public static String binaryToDecimal(String binary)
 		   
 		    return twoDArray;
 	}
+	
+	/**
+	 * @param array
+	 * @param col
+	 * @return
+	 */
+	public  String[] sortingString(String array[][],int column)
+	{
+		char str[]={'A','2','3','4','5','6','7','8','9','1','J','Q','K'};
+		int index=0;
+		String sortArray[]=new String[9];
+		for(int i=0;i<=str.length-1;i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				if(str[i]==array[j][column].charAt(0))
+				{
+					sortArray[index]=array[j][column];
+					index++;
+				}
+			}
+		}
+		return sortArray;
+	}
 
 }
