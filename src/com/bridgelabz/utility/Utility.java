@@ -1813,7 +1813,7 @@ public static String binaryToDecimal(String binary)
 		return true;
 	}
 	
-	/**
+	/**inventoryManager function is to calculate price.
 	 * @param jsonObject
 	 */
 	public static void inventoryManager(JSONObject jsonObject)
@@ -1857,7 +1857,7 @@ public static String binaryToDecimal(String binary)
         System.out.println("	Total	=	"+sum);
         System.out.println("---------------------------");
 	}
-	/**
+	/**inventory is a function Details for Rice, Pulses and Wheats with properties name, weight, price per kg
 	 * @param jsonObject
 	 */
 	public static void inventory(JSONObject jsonObject)
@@ -1946,8 +1946,8 @@ public static String binaryToDecimal(String binary)
 	
 	}
 	
-	/**
-	 * @return
+	/**deckOfCards is function to distribute 9 Cards to 4 Players.
+	 * @return array of players distributed cards.
 	 */
 	public static String[][] deckOfCards()
 	{
@@ -1985,10 +1985,10 @@ public static String binaryToDecimal(String binary)
 		    return twoDArray;
 	}
 	
-	/**
-	 * @param array
-	 * @param col
-	 * @return
+	/**sortingString is a function to sort deck of cards.
+	 * @param array is a input string array.
+	 * @param column is a integer of particular person.
+	 * @return sortArray
 	 */
 	public  String[] sortingString(String array[][],int column)
 	{

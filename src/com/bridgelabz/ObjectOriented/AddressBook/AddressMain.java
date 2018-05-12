@@ -19,7 +19,7 @@ public class AddressMain {
 				break;
 		case 2: System.out.println("enter the first name to edit contact");
 				addressbook.editPerson();		
-				
+				break;
 		}
 	/*	
 			*/
