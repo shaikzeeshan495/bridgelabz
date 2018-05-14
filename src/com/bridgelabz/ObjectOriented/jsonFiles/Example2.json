@@ -1,12 +1,1 @@
-[
-	{
-		"mobile": {
-			"price": 9999
-		}
-	},
-	{
-	"zee":{
-		"nsd": "ndk"
-	}
-	}
-]
+{"name":"mkyong.com","messages":["msg 1","msg 2","msg 3",{"testing":"done","helloooo":"hiee"}],"age":100}

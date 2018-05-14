@@ -1,11 +1,13 @@
 package com.bridgelabz.ObjectOriented.AddressBook;
 
+import java.util.List;
+
 public interface AddressBook {
-	public void addPerson();
-	public void editPerson();
-	public void deletePerson();
-	public void sortLastName();
-	public void zip();
-	public void print();
-	public void PhoneNumber();
+	public List<Person> add();
+	public void edit();
+	public void remove() throws Exception;
+	public void sortByName();
+	public void sortByZip();
+	public void printAll();
+
 }
