@@ -30,7 +30,7 @@ public class AddressBookManagerImpl implements AddressBookManager {
 	public void read(String inputAddressBook) throws Exception {
 		AddressBookImpl addressbook = new AddressBookImpl();
 		addressbook.read(inputAddressBook);
-	}
+	}	
 
 	/**
 	 * Purpose : readnDisplayFiles is a function is to read and display files.

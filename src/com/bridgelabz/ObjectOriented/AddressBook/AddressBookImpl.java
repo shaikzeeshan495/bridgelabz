@@ -166,7 +166,7 @@ public class AddressBookImpl implements AddressBook {
 			e.printStackTrace();
 		}
 
-	}
+	}	
 	
 	/* 
 	 *Purpose : Edit information of existing Person from list 
@@ -204,8 +204,6 @@ public class AddressBookImpl implements AddressBook {
 		if (count == 0)
 			System.out.println("\n\t\t\tdata not found");
 	}
-
-	
 
 	/* 
 	 * Purpose : Displaying the list

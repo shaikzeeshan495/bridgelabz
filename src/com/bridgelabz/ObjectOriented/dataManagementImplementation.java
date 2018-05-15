@@ -42,11 +42,31 @@ public class dataManagementImplementation {
 	
 	public void Calculation() {
 		System.out.println("\n\t\t\tDisplaying Data");
+		String rice="rice";
+		String pulses="pulses";
+		String wheat="wheat";
+		int totalRicePrice=0,totalPulsesPrice=0,totalWheatPrice=0,sum=0;
 		for (Product P : list) {
-				
-				
-			
+			if (rice.equals(P.getType())) {
+				sum=0;
+				sum=P.getPrice()*P.getWeight();
+				totalRicePrice=totalRicePrice+sum;
+			}	else if(pulses.equals(P.getType()))
+			{
+				sum=0;
+				sum=P.getPrice()*P.getWeight();
+				totalPulsesPrice=totalPulsesPrice+sum;	
+			} else if(wheat.equals(P.getType()))
+			{
+				sum=0;
+				sum=P.getPrice()*P.getWeight();
+				totalWheatPrice=totalWheatPrice+sum;
+			}
 		}
+		
+		System.out.println("total price of rice :"+totalRicePrice);
+		System.out.println("total price of wheat : "+totalWheatPrice);
+		System.out.println("total price  of pulses :"+totalPulsesPrice);
 		
 	}
 

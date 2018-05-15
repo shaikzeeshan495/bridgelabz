@@ -1648,6 +1648,7 @@ public static String binaryToDecimal(String binary)
 	 * @return sorting array
 	 */
 
+	@SuppressWarnings("rawtypes")
 	public static <T extends Comparable> T[] sortBubbleGenericInt(T[] array)
 	{
 		T temp;
@@ -1695,7 +1696,7 @@ public static String binaryToDecimal(String binary)
 	 * @param data the data which is inserting in a file.
 	 * @throws IOException is a class of Exception that was raised due to all Input/Output contingencies .
 	 */
-	public  static <T extends Comparable<T>> void printwrite(File file,Comparable data) throws IOException
+	public  static <T extends Comparable<T>> void printwrite(File file,@SuppressWarnings("rawtypes") Comparable data) throws IOException
 	{
 		FileWriter fw = new FileWriter(file);
   	  BufferedWriter bw = new BufferedWriter(fw);

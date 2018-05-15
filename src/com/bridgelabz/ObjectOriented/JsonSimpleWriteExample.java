@@ -1,10 +1,7 @@
 package com.bridgelabz.ObjectOriented;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.bridgelabz.utility.Utility;
@@ -12,6 +9,7 @@ import com.bridgelabz.utility.Utility;
 public class JsonSimpleWriteExample {
 	
 	public static List<String> list3 = new ArrayList<String>();
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		
 		
