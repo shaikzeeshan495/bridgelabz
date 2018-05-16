@@ -28,16 +28,15 @@ public class AddressBookImpl implements AddressBook {
 	}
 
 	/**
-	 * Purpose : Adding information of person and add it in an object
+	 * Purpose : Adding information of person and add it in an object.
 	 * 
-	 * @return object of person with added information in it
+	 * @return object of person with added information in it.
 	 */
 	private Person addUser() {
 		Person person = new Person();
 		
 		System.out.println("\n\t\t\tEnter First Name");
 		person.setFirstName(Utility.inputString());
-		System.out.println(person.getFirstName());
 		System.out.println("\n\t\t\tEnter Last Name");
 		person.setLastName(Utility.inputString());
 		System.out.println("\n\t\t\tEnter city");
@@ -54,8 +53,8 @@ public class AddressBookImpl implements AddressBook {
 	/**
 	 * Purpose : Editing of Address and phone number
 	 * 
-	 * @param P is the person object
-	 * @param i is the case for editing address or phone number
+	 * @param P is the person object.
+	 * @param i is the case for editing address or phone number.
 	 */
 	private void editAddressInformation(Person P) {
 		
@@ -238,7 +237,7 @@ public class AddressBookImpl implements AddressBook {
 			addressBookManagerImpl.read(inputAddressBook);
 			boolean menu=true;
 			while (menu) {
-				System.out.println("\n\t*****Menu*****\n");
+				System.out.println("\n\t\t***** Menu *****\n");
 				System.out.println("\t1. Add  new Person information");
 				System.out.println("\t2. Edit  information");
 				System.out.println("\t3. Remove information");
@@ -262,12 +261,10 @@ public class AddressBookImpl implements AddressBook {
 						break;
 				case 6:	printAll();
 						break;
-				case 7:
-					menu=false;
-					break;
-				default:
-					System.out.println("\t\t\tinvalid input......Please try again");
-					break;
+				case 7:	menu=false;
+						break;
+				default:System.out.println("\t\t\tinvalid input......Please try again");
+						break;
 
 				}
 			}

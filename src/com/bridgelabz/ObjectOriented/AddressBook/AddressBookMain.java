@@ -17,7 +17,9 @@ public class AddressBookMain {
 		boolean mainMenu=true;
 		while (mainMenu) {
 		
-			System.out.println("\t\tAddress Book");
+			System.out.println("\t_____________________________________________\n");
+			System.out.println("\t\t\tADDRESS BOOK");
+			System.out.println("\t_____________________________________________\n");
 			System.out.println("\t1. Create new Address Book");
 			System.out.println("\t2. Open existing Address Book");
 			System.out.println("\t3. Save As Address Book");
@@ -27,7 +29,6 @@ public class AddressBookMain {
 			
 			case 1:
 				addressBookManagerImpl.create();
-				addressBookManagerImpl.close(inputAddressBook);
 				break;
 		
 			case 2:

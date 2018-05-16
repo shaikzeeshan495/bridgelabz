@@ -29,7 +29,7 @@ public class Appointment {
 	}
 	@Override
 	public String toString() {
-		return "\nAppointment\t:\n" + doctor +"\n" + patient + "\n\t\t\ttime=" + date;
+		return "\nAppointment\t:\n" + doctor +"\n" + patient + "\n\t\t\ttime\t=\t" + date;
 	}
 	
 

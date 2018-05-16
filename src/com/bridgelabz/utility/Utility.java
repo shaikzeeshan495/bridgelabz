@@ -20,6 +20,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.bridgelabz.DataStructures.Node;
+import com.bridgelabz.ObjectOriented.CommercialDataProcessing.StockAccountImplementation;
+import com.bridgelabz.ObjectOriented.clinicManagement.ClinicImplementation;
 public class Utility {
 	private static Scanner scanner = new Scanner(System.in);
 	
@@ -2007,5 +2009,83 @@ public static String binaryToDecimal(String binary)
 		}
 		return sortArray;
 	}
+	
+	/**clinicManagement function is to display main menu to user.
+	 * @throws Exception 
+	 * 
+	 */
+	public static void clinicManagement() throws Exception
+	{
+		ClinicImplementation clinic=new ClinicImplementation();	
+		clinic.readDoctor();
+		clinic.readPatient();
+		clinic.read();
+		boolean message=true;
+		while(message)
+		{
+			System.out.println("\t\t\t\tMAIN MENU");
+			System.out.println("\t\t_____________________________________________\n");
+			System.out.println("\t\tenter '1' to add doctor");
+			System.out.println("\t\tenter '2' to add patient");
+			System.out.println("\t\tenter '3' to take appointment");
+			System.out.println("\t\tenter '4' to display appointments or to search");
+			System.out.println("\t\tenter '5' to close");
+			System.out.println("\t\t_____________________________________________");
+			int choice=Utility.inputInteger();
+			switch(choice)
+			{
+			case 1: clinic.addDoctor();
+					clinic.saveDoctor();
+					break;
+			case 2: clinic.addPatient();
+					clinic.savePatient();
+					break;
+			case 3: clinic.takeAppointment();
+					break;
+			case 4:clinic.display();
+					break;
+			case 5:message=false;
+					break;
+			default:System.out.println("\t\tinvalid input.......Please try again\n");
+					break;
+					
+			}
+		}
+		System.out.println("\t\tClinic Closed");
 
+	}
+	
+	/**
+	 * @throws Exception
+	 */
+	public static void stockAccount() throws Exception
+	{
+		StockAccountImplementation stockImpl=new StockAccountImplementation();
+		boolean mainMenu=true;
+		while (mainMenu) {
+		
+			System.out.println("\t_____________________________________________\n");
+			System.out.println("\t\t\tSTOCK ACCOUNT");
+			System.out.println("\t_____________________________________________\n");
+			System.out.println("\t1. Create a new Stock Account for customer");
+			System.out.println("\t2. Open existing Stock Account of customers");
+			System.out.println("\t3. add company");
+			System.out.println("\t4. to buy shares of stock");
+			int choice = Utility.inputInteger();
+			switch (choice) {
+			
+			case 1:	stockImpl.createCustomer();
+					break;
+			case 2:	stockImpl.readnDisplayFiles();
+					stockImpl.operation();
+					break;
+			case 3:	stockImpl.addCompany();
+					break;
+			case 4: 
+					
+					
+			}
+		}
+	}
+	
 }

@@ -10,25 +10,17 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Appointment;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.DisplayClinic;
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.searchClinic;
 import com.bridgelabz.utility.Utility;
 
-public class ClinicImplementation {
+public class ClinicImplementation implements ClinicManager{
 	public static List<Patient> listPatient = new ArrayList<Patient>();
 	public static List<Doctor> listDoctor = new ArrayList<Doctor>();
 	public static List<Appointment> listAppointment = new ArrayList<Appointment>();
 	ObjectMapper mapper = new ObjectMapper();
 	static ClinicImplementation clinic=new ClinicImplementation();
-	public static void main(String[] args) throws Exception {
-		clinic.addPatient();
-		clinic.addDoctor();
-		clinic.takeAppointment();
-	//	clinic.read();
-	//	clinic.printAll();
-	}
+	
 	
 	/* 
 	 * Purpose : add person in person list
@@ -127,12 +119,14 @@ public class ClinicImplementation {
 		String doctorName=doctorAvailabile.getName();
 		for(Appointment appointment:listAppointment)
 		{
-			if(doctorName.equals(appointment.getDoctor()))
+			if((doctorAvailabile.toString()).equals(appointment.getDoctor().toString()))
 			{
 				count++;
 			}
 		}
-		System.out.println(count);
+		System.out.println("Dr. "+doctorName+" had a "+count+" patients");
+		if(count<5)
+		{
 		System.out.println("\nenter any patient details to search\nId\nname\ncontact\nnumber");
 		detailsPatient=Utility.inputString();
 		Patient patientAvailabilty=clinic.searchPatient(detailsPatient);
@@ -142,61 +136,83 @@ public class ClinicImplementation {
 		for (Appointment appoint : listAppointment) {
 			System.out.println(appoint.toString());
 		}
+		}
+		else
+		{
+			System.out.println("Doctor will be not available today, because of more appointments");
+		}
 	
 	}
 	
 	/**
 	 * @param details
 	 * @return
+	 * @throws Exception 
 	 */
-	public Doctor searchDoctor(String details)
+	public Doctor searchDoctor(String details) throws Exception
 	{	
+		int count=0;
 		Doctor doctor=new Doctor();
 		for (Doctor doctor1 : listDoctor) {
 			if (details.equals(doctor1.getName()) || 
 					details.equals(doctor1.getId()) || 
 							details.equals(doctor1.getSpecialization())) {
+				count++;
 				System.out.println("Doctor was Availabile");
-				doctor=doctor1;
-				return doctor;		
+				return doctor1;		
 			}	
-			else
-			{
-				System.out.println("Doctor was not available: \nenter '1' for another doctor\nenter '2' for exit");
-				int choice=Utility.inputInteger();
-				switch(choice)
-				{
-				case 1:	searchDoctor(details);
-						break;
-				default:System.exit(0);
-				}
-				
-			}
 	}
+		if(count==0)
+		{
+			System.out.println("Doctor was not available: \nenter '1' for another doctor\nenter '2' for main menu");
+			int choice=Utility.inputInteger();
+			switch(choice)
+			{
+			case 1:	System.out.println("Enter Doctor details");
+					details=Utility.inputString();
+					searchDoctor(details);
+					break;
+			case 2:Utility.clinicManagement();
+					break;
+			default:System.exit(0);
+			}
+		}
+		
+		
 		return doctor;
 	}
 	
 	/**
 	 * @param details
 	 * @return
+	 * @throws Exception 
 	 */
-	public Patient searchPatient(String details)
+	public Patient searchPatient(String details) throws Exception
 	{
 		Patient patient=new Patient();
+		int count=0;
 		for (Patient patient1 : listPatient) {
 			if (details.equals(patient1.getName()) || 
 					details.equals(patient1.getId()) || 
 						details.equals(patient1.getAge()) || 
 							details.equals(patient1.getNumber())) 
 			{
+			
+				count++;	
 				System.out.println("Patient was availabile");	
-				patient=patient1;
-				return patient;		
+				return patient1;		
 			}	else
 				{
-					System.out.println("Patient was not available");
+					
 				}
 		}
+		if(count==0)
+		{
+			System.out.println("Patient was not available");
+			Utility.clinicManagement();
+		}
+		
+		
 		return patient;
 	}
 	
@@ -338,11 +354,16 @@ public class ClinicImplementation {
 		boolean message=true;
 		while(message)
 		{
-			System.out.println("enter '1' to display doctor");
-			System.out.println("enter '2' to display patient");
-			System.out.println("enter '3' to display appointment");
-			System.out.println("enter '4' to search");
-			System.out.println("enter '5' for main menu");
+			System.out.println("\n\t\t\t\tDisplay Menu");
+			System.out.println("\t\t_____________________________________________\n");
+			System.out.println("\t\tenter '1' to display doctor");
+			System.out.println("\t\tenter '2' to display patient");
+			System.out.println("\t\tenter '3' to display appointment");
+			System.out.println("\t\tenter '4' to display Popular Doctor");
+			System.out.println("\t\tenter '5' to display Popular Specialization");
+			System.out.println("\t\tenter '6' to search");
+			System.out.println("\t\tenter '7' for main menu");
+			System.out.println("\t\t_____________________________________________");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{
@@ -353,17 +374,20 @@ public class ClinicImplementation {
 					break;
 			case 3:display.displayAppointment(listAppointment);
 					break;
-			case 4:	search.search(listDoctor,listPatient);
+			case 4:display.popularDoctor(listDoctor, listAppointment);
 					break;
-			case 5:message=false;
-			break;
+			case 5:display.popularSpecialist(listDoctor, listAppointment);
+					break;
+			case 6:	search.search(listDoctor,listPatient);
+					break;
+			case 7:message=false;
+					break;
 			default :System.out.println("invalid input");
 					break;
 			}
 		}
-		
-		
-		
 	}
+		
+	
 
 }

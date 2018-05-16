@@ -1,7 +1,9 @@
-package com.bridgelabz.ObjectOriented.clinicManagement.POJOclass;
+package com.bridgelabz.ObjectOriented.clinicManagement;
 
 import java.util.List;
 
+import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
+import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
 import com.bridgelabz.utility.Utility;
 
 public class searchClinic {
@@ -36,9 +38,9 @@ public class searchClinic {
 		boolean message=true;
 		while(message)
 		{
-			System.out.println("enter '1' to search doctor");
-			System.out.println("enter '2' to search patient");
-			System.out.println("enter '3' to go main menu");
+			System.out.println("\t\tenter '1' to search doctor");
+			System.out.println("\t\tenter '2' to search patient");
+			System.out.println("\t\tenter '3' to go main menu");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{

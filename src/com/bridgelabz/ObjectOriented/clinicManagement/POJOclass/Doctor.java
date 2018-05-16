@@ -36,7 +36,7 @@ public class Doctor {
 	}
 	@Override
 	public String toString() {
-		return "\n\tDoctor\t\t[name\t=\t" + name +"\n\t\t\tid\t=\t" + id + "\n\t\t\tspecialization\t=\t" + specialization + "\n\t\t\tavailability\t=\t" + availability + "]";
+		return "\n\tDoctor\t\t[name\t\t=\t" + name +"\n\t\t\tid\t\t=\t" + id + "\n\t\t\tspecialization\t=\t" + specialization + "\n\t\t\tavailability\t=\t" + availability + "]";
 	}
 	
 }
