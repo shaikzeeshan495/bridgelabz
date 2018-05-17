@@ -216,15 +216,15 @@ public class AddressBookImpl implements AddressBook {
 	/**
 	 * Purpose : clears the list from previous address book if new address book is opened
 	 * 
-	 * @param existingAddressBook
+	 * @param existingAddressBook is current address book
 	 */
 	public void close(String existingAddressBook) {
 		list.clear();
 	}
 	
 	/**operation is a function to do several operations in existing address book.
-	 * @param addressBookManagerImpl	
-	 * @param inputAddressBook
+	 * @param addressBookManagerImpl id object of AddressBookManagerImpl.
+	 * @param inputAddressBook user given input
 	 * @return String which is name of address book.
 	 * @throws Exception
 	 */

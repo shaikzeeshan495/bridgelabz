@@ -105,7 +105,7 @@ public class ClinicImplementation implements ClinicManager{
 		return appointment;
 	}
 	
-	/**
+	/**takeAppointment is a function operation of taking appointment
 	 * @throws Exception
 	 */
 	public void takeAppointment() throws Exception
@@ -144,9 +144,9 @@ public class ClinicImplementation implements ClinicManager{
 	
 	}
 	
-	/**
-	 * @param details
-	 * @return
+	/**searchDoctor is to search a doctor availaibility
+	 * @param details is String setails of doctor
+	 * @return object of doctor
 	 * @throws Exception 
 	 */
 	public Doctor searchDoctor(String details) throws Exception
@@ -182,9 +182,9 @@ public class ClinicImplementation implements ClinicManager{
 		return doctor;
 	}
 	
-	/**
-	 * @param details
-	 * @return
+	/**searchPatient is a function to search patient
+	 * @paramdetails is String setails of patient
+	 * @return object of patient
 	 * @throws Exception 
 	 */
 	public Patient searchPatient(String details) throws Exception

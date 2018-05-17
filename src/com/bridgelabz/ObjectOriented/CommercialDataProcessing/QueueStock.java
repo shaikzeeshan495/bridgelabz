@@ -6,7 +6,7 @@ public class QueueStock <T>{
 	/**static add function to add a data at end of list.
 	 * @param data the data wants to add in a list.
 	 */
-	public  <T extends Comparable<T>> void add(T data)
+	public  <T extends Comparable<T>> void add(Object data)
 	{
 		NodeStock node=new NodeStock();
 		node.data=data;

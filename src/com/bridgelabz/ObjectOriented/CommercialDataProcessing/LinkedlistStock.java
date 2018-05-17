@@ -5,20 +5,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import com.bridgelabz.utility.Utility;
 
-public class LinkedlistStock {
-	public NodeStock	 [] table;
-	public int size;
+public class LinkedlistStock  <T extends Comparable<T>>{
+				
 	 NodeStock HEAD;	
 		/**static add function to add a data inside a list
-		 * @param companies the data wants to add in a list
+		 * @param company the data wants to add in a list
 		 */
-		public <T extends Comparable<T>> void add(Companies companies)
+		public <T extends Comparable<T>> void add(Object company)
 		{
-		NodeStock node=new NodeStock();
-		node.data=(Comparable) companies;
+		NodeStock<T> node=new NodeStock<T>();
+		node.data=  company;
 		node.nextNode=null;
 		if(HEAD==null)
 			HEAD=node;
@@ -33,11 +31,47 @@ public class LinkedlistStock {
 		}
 	}
 		
+		/**delete function is to delete a data in list.
+		 * @param key is data to delete
+		 */
+		public <T extends Comparable<T>> void delete(Object key)
+		{
+			NodeStock temp1=null;
+			if(HEAD==null)
+				System.out.println("Empty");
+			else if(HEAD.data==key)
+			{
+				temp1=HEAD;
+				HEAD=HEAD.nextNode;
+				temp1=null;
+			}else 
+			{
+				NodeStock prev=null;
+				NodeStock temp2=HEAD;
+				while(temp2!=null)
+				{
+					if(temp2.data==key)
+					{
+						prev.nextNode=temp2.nextNode;
+						temp2=null;
+						break;
+					}
+					else
+					{
+						prev=temp2;
+						temp2=temp2.nextNode;
+					}
+					
+				}
+				
+			}
+		}
+		
 		public  <T extends Comparable<T>> Companies searchCompany(T word) throws Exception
 		{
 			int count=0;
 			Companies company=new Companies();
-			NodeStock temp=HEAD;
+			NodeStock<T> temp=HEAD;
 				while(temp!=null)
 				{
 					company=(Companies) temp.data;
@@ -77,7 +111,7 @@ public class LinkedlistStock {
 		 */
 		public <T extends Comparable<T>> void show()
 			{
-			NodeStock node=HEAD;
+			NodeStock<T> node=HEAD;
 				if(HEAD==null)
 				{
 					System.out.print("empty");

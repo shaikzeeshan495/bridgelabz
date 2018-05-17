@@ -19,7 +19,7 @@ public class ExtendDataManagement {
 	public static List<String> list2 = new ArrayList<String>();
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 	
-		dataManagementImplementation dmImp=new dataManagementImplementation();
+		dataManagementImplementation dataImp=new dataManagementImplementation();
 //		System.out.println("Enter no of products");
 //		int numberProducts=Utility.inputInteger();
 		String type="";
@@ -45,12 +45,12 @@ public class ExtendDataManagement {
 		
 		for(int j=0;j<noOfTypes;j++)
 		{
-			dmImp.add(type);
+			dataImp.add(type);
 		}
 		
 	}
-		dmImp.save();	
-		dmImp.Calculation();
+		dataImp.save();	
+		dataImp.Calculation();
 	}
 	
 

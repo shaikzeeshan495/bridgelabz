@@ -8,7 +8,7 @@ public class StackStock {
 		/**static add function to add a data at front of list.
 		 * @param data the data wants to add in a list.
 		 */
-		public  <T extends Comparable<T>> void push(T data)
+		public  <T extends Comparable<T>> void push(Object data)
 		{
 			NodeStock node=new NodeStock();
 			node.data=data;
@@ -31,7 +31,7 @@ public class StackStock {
 		 * @param position the data which has to be remove.
 		 */
 		@SuppressWarnings("unchecked")
-		public  <T extends Comparable<T>> T pop()
+		public  <T extends Comparable<T>> void pop()
 		{
 			NodeStock temp=HEAD;
 			NodeStock result2=null;
@@ -40,12 +40,12 @@ public class StackStock {
 			else
 			{
 				HEAD=temp.nextNode;
-				result2=temp;
+				System.out.println(temp.data.toString());
 				temp=null;
 				SIZE--;
 			}
 
-			return (T) result2.data;
+			
 		}
 		
 	/**static search funtion is to search the given word.
@@ -79,10 +79,10 @@ public class StackStock {
 		NodeStock node=HEAD;
 			while(node.nextNode!=null)
 			{
-				System.out.print(node.data+" ");
+				System.out.println(node.data+"\n");
 				node=node.nextNode;
 			}
-			System.out.print(node.data+" ");
+			System.out.println(node.data);
 		}
 		/**isEmpty function is to give a status of stack.
 		 * @return string status of stack either stack is empty or full.

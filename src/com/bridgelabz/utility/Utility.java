@@ -2063,7 +2063,7 @@ public static String binaryToDecimal(String binary)
 		StockAccountImplementation stockImpl=new StockAccountImplementation();
 		stockImpl.readTransaction();
 		stockImpl.readCompanies();
-		stockImpl.readCustomer();
+		stockImpl.readCustomer();	
 		boolean mainMenu=true;
 		while (mainMenu) {
 		
@@ -2087,8 +2087,7 @@ public static String binaryToDecimal(String binary)
 			case 2:	stockImpl.addCompany();
 					stockImpl.saveCompany();
 					break;
-			
-			
+				
 			case 3: System.out.println("1 for buy");
 					System.out.println("2 for sell");
 					int option=Utility.inputInteger();
@@ -2100,15 +2099,15 @@ public static String binaryToDecimal(String binary)
 							stockImpl.saveCustomer();
 							stockImpl.saveTransaction();
 							break;
-					case 2:	stockImpl.readTransaction();	
+					case 2:	stockImpl.readTransaction();
+							stockImpl.sellShares();
 							stockImpl.saveCompany();
 							stockImpl.saveCustomer();		
-							stockImpl.sellShares();
 							stockImpl.saveTransaction();
 							break;
 					default:stockAccount();
 							break;
-					}
+					}break;
 			
 			case 4:stockImpl.displayCompanies();
 			break;
