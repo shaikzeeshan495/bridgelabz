@@ -4,8 +4,7 @@ public class Customer {
 	
 	String name;
 	int amount;
-	String symbol;
-	int numberShares;
+	int numberOfShares;
 	
 	public String getName() {
 		return name;
@@ -16,24 +15,20 @@ public class Customer {
 	public int getAmount() {
 		return amount;
 	}
-	public String getSymbol() {
-		return symbol;
-	}
+	
 	public int getNumberShares() {
-		return numberShares;
+		return numberOfShares;
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
+	
 	public void setNumberShares(int numberShares) {
-		this.numberShares = numberShares;
+		this.numberOfShares = numberShares;
 	}
 	@Override
 	public String toString() {
-		return "Customer [name=" + name + ", amount=" + amount + ", symbol=" + symbol + ", numberShares=" + numberShares
+		return "Customer [name=" + name + ", amount=" + amount + ", numberShares=" + numberOfShares
 				+ "]";
 	}
 	

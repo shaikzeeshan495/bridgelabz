@@ -11,7 +11,7 @@ import com.bridgelabz.utility.Utility;
 
 public class CalenderQueue {
 public static void main(String[] args) {
-    	
+	QueueLinkedlist queuelist=new QueueLinkedlist();
         int month = Integer.parseInt(args[0]);
         int year = Integer.parseInt(args[1]);
 	
@@ -33,15 +33,15 @@ public static void main(String[] args) {
 
         int d = Utility.dayOfWeek( 1,month, year);
         for (int i = 0; i < d; i++)
-           QueueLinkedlist.add("\t");
+        	queuelist.add("\t");
 
         for (int i = 1; i <= days[month]; i++) 
         {
-        	QueueLinkedlist.add("\t"+i);
+        	queuelist.add("\t"+i);
             if (((i + d) % 7 == 0) || (i == days[month]))
-            	QueueLinkedlist.add("\n");
+            	queuelist.add("\n");
         }	
-        QueueLinkedlist.show();
+        queuelist.show();
 
     }	
 

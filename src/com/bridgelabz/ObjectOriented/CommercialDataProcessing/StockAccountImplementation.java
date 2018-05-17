@@ -1,27 +1,26 @@
 package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
-
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Appointment;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
+import org.codehaus.jackson.type.TypeReference;
 import com.bridgelabz.utility.Utility;
 
 public class StockAccountImplementation {
 	static int COUNT=0;
 	ObjectMapper mapper = new ObjectMapper();
-	StockAccountImplementation stockImp=new StockAccountImplementation();
-	public static List<Companies> listCompanies = new ArrayList<Companies>();
+	public static LinkedlistStock listCompanies = new LinkedlistStock();
 	public static List<Customer> listCustomer = new ArrayList<Customer>();
-	/* 
+	public static List<Transaction> listTransaction = new ArrayList<Transaction>();
+/*	/* 
 	 * Purpose : Creates new file 
 	 */
-	public void createCustomer() throws IOException {
+/*	public void createCustomer() throws IOException {
 		System.out.println("\n\t\t\tEnter the name of address book");
 		String StockAccountName = Utility.inputString();
 		File file = new File("StockAccount//"+ StockAccountName + ".json");
@@ -30,19 +29,17 @@ public class StockAccountImplementation {
 		} else {
 			System.out.println("\n\t\t\tFile already exists.");
 		}
-	}
+	}*/
 	
 	/**
 	 * @return
 	 */
-	public List<Companies> addCompany()
+	public <T extends Comparable<T>> LinkedlistStock addCompany()
 	{
 
-		listCompanies.add(addUser());
-			for (Companies company : listCompanies) {
-				System.out.println(company.toString());
-			}
-			return listCompanies;
+		listCompanies.add(addComapnyInfo());
+		listCompanies.show();
+			return  listCompanies;
 		
 	}
 	
@@ -53,7 +50,7 @@ public class StockAccountImplementation {
 	 * 
 	 * @return object of person with added information in it.
 	 */
-	private Companies addUser() {
+	private Companies addComapnyInfo() {
 		Companies company = new Companies();
 		
 		System.out.println("\n\t\t\tEnter Company Name");
@@ -62,7 +59,7 @@ public class StockAccountImplementation {
 		company.setCompanySymbol(Utility.inputString());
 		System.out.println("\n\t\t\tEnter price of per share");
 		company.setSharePrice(Utility.inputInteger());
-		System.out.println("\n\t\t\tEnter State");
+		System.out.println("\n\t\t\tEnter Total Shares");
 		company.setTotalShares(Utility.inputInteger());
 		Date date = new Date();
 		company.setTime(date.toString());
@@ -80,13 +77,14 @@ public class StockAccountImplementation {
 		return listCustomer;
 	}
 	
+	/**
+	 * @return
+	 */
 	private Customer addCustomerInfo()
 	{
 		Customer customer=new Customer();
 		System.out.println("\n\t\t\tEnter customer Name");
 		customer.setName(Utility.inputString());
-		System.out.println("\n\t\t\tEnter Company symbol");
-		customer.setSymbol(Utility.inputString());
 		System.out.println("\n\t\t\tEnter customer amount");
 		customer.setAmount(Utility.inputInteger());
 		System.out.println("\n\t\t\tEnter Company shares");
@@ -95,35 +93,18 @@ public class StockAccountImplementation {
 		
 	}
 	
-	public double valueOf()
-	{
-		return 0.0;
-	}
 	
-	public void buy(int amount,String symbol)
-	{
-		
-	}
 	
-	public void Sell(int amount,String symbol)
-	{
-		
-	}
 	
-	public void save(String file)
+	public void saveCustomer()
 	{
 		try {
-			mapper.writeValue(new File( "StockAccount//"+file + ".json"), listCustomer);
+			mapper.writeValue(new File( "StockAccount//Customer.json"), listCustomer);
 			System.out.println("\n\t\t\tSaved");
 		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void printReport()
-	{
-		
 	}
 	
 	/**
@@ -141,10 +122,95 @@ public class StockAccountImplementation {
 		}
 	}
 	
+	public void saveTransaction()
+	{
+		try {
+			mapper.writeValue(new File( "StockAccount//Transaction.json"), listTransaction);
+			System.out.println("\n\t\t\tSaved");
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void printReport()
+	{
+		
+	}
+	
+	/**
+	 * Purpose : Reading file from file
+	 * 
+	 * @param existingAddressBook is the name of File from which data is to read
+	 * @throws Exception for file not found
+	 */
+	public void readCustomer() throws Exception {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("StockAccount//Customer.json"));
+			String arrayToJson;
+			if ((arrayToJson = reader.readLine()) != null) {
+				TypeReference<LinkedlistStock> type = new TypeReference<LinkedlistStock>() {
+				};
+				listCustomer = objectMapper.readValue(arrayToJson, type);
+				reader.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	/**
+	 * Purpose : Reading file from file
+	 * 
+	 * @param existingAddressBook is the name of File from which data is to read
+	 * @throws Exception for file not found
+	 */
+	public void readCompanies() throws Exception {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("StockAccount//Companies.json"));
+			String arrayToJson;
+			if ((arrayToJson = reader.readLine()) != null) {
+				TypeReference<LinkedlistStock> type = new TypeReference<LinkedlistStock>() {
+				};
+				listCompanies = objectMapper.readValue(arrayToJson, type);
+				reader.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	/**
+	 * Purpose : Reading file from file
+	 * 
+	 * @param existingAddressBook is the name of File from which data is to read
+	 * @throws Exception for file not found
+	 */
+	public void readTransaction() throws Exception {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("StockAccount//Transaction.json"));
+			String arrayToJson;
+			if ((arrayToJson = reader.readLine()) != null) {
+				TypeReference<ArrayList<Transaction>> type = new TypeReference<ArrayList<Transaction>>() {
+				};
+				listTransaction = objectMapper.readValue(arrayToJson, type);
+				reader.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	/**
 	 * Purpose : readnDisplayFiles is a function is to read and display files.
 	 */
-	public void readnDisplayFiles() {
+/*	public void readnDisplayFiles() {
 		File f = new File("StockAccount//");
 		int count = 0;
 		for (File file : f.listFiles()) {
@@ -154,13 +220,13 @@ public class StockAccountImplementation {
 			}
 		}
 		System.out.println("\n\t\t\tNumber of files: " + count);
-	}
+	}**/
 	
 	/**
 	 * @throws Exception 
 	 * 
 	 */
-	public void operation() throws Exception
+/*	public void operation() throws Exception
 	{
 		System.out.println("\n\t\t\tEnter the name of the Customer \n");
 		String presentCustomerFile = Utility.inputString();
@@ -170,20 +236,17 @@ public class StockAccountImplementation {
 			boolean menu=true;
 			while (menu) {
 				System.out.println("\n\t\t***** Menu *****\n");
-				System.out.println("\t1. Add  new Person information");
-				System.out.println("\t2. Edit  information");
+				System.out.println("\t1. Edit  information");
 				System.out.println("\t3. Remove information");
 				System.out.println("\t4. Display   information");
 				System.out.println("\t5. Go for Main Menu");
 				int choose = Utility.inputInteger();
 				switch (choose) {
-				case 1:	addCustomerInfo();
-						save(presentCustomerFile);
+				
+				case 1:	editCustomer();
+						saveCustomer();
 						break;
-				case 2:	edit();
-						save(presentCustomerFile);
-						break;
-				case 3: remove();
+				case 3: removeCustomer();
 						break;
 				case 4:	printAll();
 						break;
@@ -194,7 +257,7 @@ public class StockAccountImplementation {
 			}
 		}
 	}
-}
+}	*/
 	
 	/**
 	 * Purpose : Checks whether the file is present or not
@@ -223,11 +286,11 @@ public class StockAccountImplementation {
 	/* 
 	 *Purpose : Edit information of existing Person from list 
 	 */
-	public void edit() {
-		System.out.println("\n\t\t\tEnter Symbol of company to edit");
-		String Symbol = Utility.inputString();
+	public void editCustomer() {
+		System.out.println("\n\t\t\tEnter name of customer to edit");
+		String customerName = Utility.inputString();
 		for (Customer customer : listCustomer) {
-			if (Symbol.equals(customer.getSymbol())) {
+			if (customerName.equals(customer.getName())) {
 				COUNT++;
 				System.out.println("\n\t\t\tData found\n");
 				editCustomerInformation(customer);
@@ -241,13 +304,13 @@ public class StockAccountImplementation {
 	/* 
 	 * Purpose : Removing data of a person from list
 	 */
-	public void remove() throws Exception {
-		System.out.println("\n\t\t\tEnter Company Symbol to remove data");
+	public void removeCustomer() throws Exception {
+		System.out.println("\n\t\t\tEnter customer name to remove data");
 		String firstName = Utility.inputString();
 		int count = 0;
 		List<Customer> deleteInfo = new ArrayList<>();
 		for (Customer customer : listCustomer) {
-			if (firstName.equals(customer.getSymbol())) {
+			if (firstName.equals(customer.getName())) {
 				System.out.println("\n\t\t\tData found\n\n\t\t\tData Removed");
 				deleteInfo.add(customer);
 				count++;
@@ -276,36 +339,117 @@ public class StockAccountImplementation {
 		System.out.println("\nenter symbol of company");
 		String companySymbol=Utility.inputString();
 		String customerName="";
-		Companies company=stockImp.searchCompany(companySymbol);
+		//searc hing for company availaibity
+		Companies company=searchCompany(companySymbol);
 		System.out.println(company.getCompanyName());
 		System.out.println("\nenter any customer name");
 		customerName=Utility.inputString();
-		Customer customer=stockImp.searchCustomer(customerName);
+		//searching for customer availaibility
+		Customer customer=searchCustomer(customerName);
 		System.out.println("\tenter amount to buy shares");
 		int amount=Utility.inputInteger();
 		buy(amount,customer,company);
 		
 	}
 	
-	public void buy(int amount,Customer customer,Companies company)
+	/**
+	 * @param amount
+	 * @param customer
+	 * @param company
+	 * @throws Exception
+	 */
+	public void buy(int amount,Customer customer,Companies company) throws Exception
 	{
 		
 		if(amount<=customer.getAmount())
 		{
-			int quotient=0;
-			int rem=0;
+			
 			int priceShare=company.getSharePrice();
-			int res=amount/priceShare;
-			if(company.getTotalShares()>=res)
+			int shares=amount/priceShare;
+			if(company.getTotalShares()>=shares)
 			{
-				int remainingAmount=amount-res;
-				customer.setAmount(remainingAmount);
-				company.set
+			//	int remainingAmount=amount;
+				customer.setAmount(customer.getAmount()-amount);
+				customer.setNumberShares(customer.getNumberShares()+shares);
+				company.setTotalShares(company.getTotalShares()-shares);
+				Transaction transaction=new Transaction();
+				transaction.setBuySell("buy");
+				transaction.setCompanySymbol(company.getCompanySymbol());
+				transaction.setCustomerName(customer.getName());
+				transaction.setTotalPrice(amount);
+				transaction.setTotalShares(shares);
+				Date date = new Date();
+				transaction.setTime(date.toString());
+				listTransaction.add(transaction);
+				displayTransaction();
+			}
+			else
+			{
+				System.out.println("Company had insuuficient shares");
+				Utility.stockAccount();
 			}
 		}
 		else
 		{
-			
+			System.out.println("Customer had insufficient amount");
+			Utility.stockAccount();
+		}
+		
+	}
+	
+	public void sellShares() throws Exception
+	{
+		
+		System.out.println("\nenter symbol of company");
+		String companySymbol=Utility.inputString();
+		String customerName="";
+		//searc hing for company availaibity
+		Companies company=searchCompany(companySymbol);
+		System.out.println(company.getCompanyName());
+		System.out.println("\nenter customer name");
+		customerName=Utility.inputString();
+		//searching for customer availaibility
+		Customer customer=searchCustomer(customerName);
+		System.out.println("\tenter amount to sell shares");
+		int amount=Utility.inputInteger();
+		buy(amount,customer,company);
+		
+	}
+	
+	public void sell(int amount,Customer customer,Companies company) throws Exception
+	{
+		
+		if(amount>=customer.getAmount())
+		{
+			int priceShare=company.getSharePrice();
+			int shares=amount/priceShare;
+			if(company.getTotalShares()>=shares)
+			{
+			//	int remainingAmount=amount;
+				customer.setAmount(customer.getAmount()+amount);
+				customer.setNumberShares(customer.getNumberShares()-shares);
+				company.setTotalShares(company.getTotalShares()+shares);
+				Transaction transaction=new Transaction();
+				transaction.setBuySell("Sell");
+				transaction.setCompanySymbol(company.getCompanySymbol());
+				transaction.setCustomerName(customer.getName());
+				transaction.setTotalPrice(amount);
+				transaction.setTotalShares(shares);
+				Date date = new Date();
+				transaction.setTime(date.toString());
+				listTransaction.add(transaction);
+				displayTransaction();
+			}
+			else
+			{
+				System.out.println("Company had insuuficient shares");
+				Utility.stockAccount();
+			}
+		}
+		else
+		{
+			System.out.println("Customer had insufficient amount");
+			Utility.stockAccount();
 		}
 		
 	}
@@ -317,7 +461,7 @@ public class StockAccountImplementation {
 	 */
 	public Companies searchCompany(String details) throws Exception
 	{	
-		int count=0;
+/*		int count=0;
 		Companies company1=new Companies();
 		for (Companies company : listCompanies) {
 			if (details.equals(company.getCompanySymbol())) {
@@ -325,10 +469,14 @@ public class StockAccountImplementation {
 				System.out.println("Company was Availabile");
 				return company;		
 			}	
-	}
-		if(count==0)
+	}	*/
+		Companies company=listCompanies.searchCompany(details);
+		
+	/*	if(count==0)
 		{
 			System.out.println("Company was not available ");
+			System.out.println("enter 1 for company");
+			System.out.println("enter 2 for main menu");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{
@@ -342,8 +490,8 @@ public class StockAccountImplementation {
 				System.exit(0);
 			}
 		}	
-		
-		return company1;
+		*/
+		return company;
 	}
 	
 	/**
@@ -365,6 +513,8 @@ public class StockAccountImplementation {
 		if(count==0)
 		{
 			System.out.println("Customer was not available ");
+			System.out.println("enter 1 for customer");
+			System.out.println("enter 2 for main menu");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{
@@ -382,6 +532,26 @@ public class StockAccountImplementation {
 		return customertemp;
 	}
 	
+	public void displayCustomer()
+	{
+		for (Customer customer : listCustomer) {
+			System.out.println(customer.toString());
+		}
+	}
+	
+	public void displayCompanies()
+	{
+		listCompanies.show();
+		
+	}
+	
+	public void displayTransaction()
+	{
+		for (Transaction company : listTransaction) {
+			System.out.println(company.toString());
+		}
+	}
+	
 	/**
 	 * Purpose : Editing of Address and phone number
 	 * 
@@ -396,9 +566,8 @@ public class StockAccountImplementation {
 			
 			System.out.println("\n\t\t\t1. To edit the Name");
 			System.out.println("\n\t\t\t2. To edit the amount");
-			System.out.println("\n\t\t\t3. To edit the symbol");
-			System.out.println("\n\t\t\t4. To edit the shares");
-			System.out.println("\n\t\t\t5. Save and Exit");
+			System.out.println("\n\t\t\t3. To edit the shares");
+			System.out.println("\n\t\t\t4. Save and Exit");
 			int choice=Utility.inputInteger();
 			switch(choice)
 			{
@@ -408,12 +577,9 @@ public class StockAccountImplementation {
 					customer.setAmount(Utility.inputInteger());
 					break;
 			case 3:	System.out.println("Please Enter");
-					customer.setSymbol(Utility.inputString());
-					break;
-			case 4:	System.out.println("Please Enter");
 					customer.setNumberShares(Utility.inputInteger());
 					break;
-			case 5:	System.out.println("\n\t\t\tInformation updated ");
+			case 4:	System.out.println("\n\t\t\tInformation updated ");
 					status=false;
 					break;
 			default:System.out.println("Invalid input");

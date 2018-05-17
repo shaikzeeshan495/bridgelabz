@@ -2061,27 +2061,65 @@ public static String binaryToDecimal(String binary)
 	public static void stockAccount() throws Exception
 	{
 		StockAccountImplementation stockImpl=new StockAccountImplementation();
+		stockImpl.readTransaction();
+		stockImpl.readCompanies();
+		stockImpl.readCustomer();
 		boolean mainMenu=true;
 		while (mainMenu) {
 		
 			System.out.println("\t_____________________________________________\n");
 			System.out.println("\t\t\tSTOCK ACCOUNT");
 			System.out.println("\t_____________________________________________\n");
-			System.out.println("\t1. Create a new Stock Account for customer");
-			System.out.println("\t2. Open existing Stock Account of customers");
-			System.out.println("\t3. add company");
-			System.out.println("\t4. to buy shares of stock");
+			System.out.println("\t1.	add customer");
+			System.out.println("\t2.	add company");
+			System.out.println("\t3.	transactions");
+			System.out.println("\t4. 	display companies");
+			System.out.println("\t5. 	display customers");
+			System.out.println("\t6. 	display Transaction");
+			System.out.println("\t7. 	edit customer info ");
+			System.out.println("\t8. 	to exit");
 			int choice = Utility.inputInteger();
 			switch (choice) {
 			
-			case 1:	stockImpl.createCustomer();
+			case 1:	stockImpl.addCustomer();
+					stockImpl.saveCustomer();
 					break;
-			case 2:	stockImpl.readnDisplayFiles();
-					stockImpl.operation();
+			case 2:	stockImpl.addCompany();
+					stockImpl.saveCompany();
 					break;
-			case 3:	stockImpl.addCompany();
-					break;
-			case 4: 
+			
+			
+			case 3: System.out.println("1 for buy");
+					System.out.println("2 for sell");
+					int option=Utility.inputInteger();
+					switch(option)
+					{
+					case 1:	stockImpl.readTransaction();
+							stockImpl.buyShares();
+							stockImpl.saveCompany();
+							stockImpl.saveCustomer();
+							stockImpl.saveTransaction();
+							break;
+					case 2:	stockImpl.readTransaction();	
+							stockImpl.saveCompany();
+							stockImpl.saveCustomer();		
+							stockImpl.sellShares();
+							stockImpl.saveTransaction();
+							break;
+					default:stockAccount();
+							break;
+					}
+			
+			case 4:stockImpl.displayCompanies();
+			break;
+			case 5:stockImpl.displayCustomer();
+			break;
+			case 6:stockImpl.displayTransaction();
+			break;		
+			case 7:mainMenu=false;
+			break;
+			default:System.out.println("invalid input");
+			break;
 					
 					
 			}
