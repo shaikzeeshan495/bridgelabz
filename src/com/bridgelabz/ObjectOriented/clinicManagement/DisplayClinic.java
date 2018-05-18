@@ -8,7 +8,6 @@ package com.bridgelabz.ObjectOriented.clinicManagement;
  *
  ******************************************************************************/
 import java.util.List;
-
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Appointment;
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;

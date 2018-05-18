@@ -2055,7 +2055,7 @@ public static String binaryToDecimal(String binary)
 
 	}
 	
-	/**
+	/**stockAccount is a function to display main menu
 	 * @throws Exception
 	 */
 	public static void stockAccount() throws Exception
@@ -2076,8 +2076,7 @@ public static String binaryToDecimal(String binary)
 			System.out.println("\t4. 	display companies");
 			System.out.println("\t5. 	display customers");
 			System.out.println("\t6. 	display Transaction");
-			System.out.println("\t7. 	edit customer info ");
-			System.out.println("\t8. 	to exit");
+			System.out.println("\t7. 	to exit");
 			int choice = Utility.inputInteger();
 			switch (choice) {
 			
@@ -2109,14 +2108,15 @@ public static String binaryToDecimal(String binary)
 							break;
 					}break;
 			
-			case 4:stockImpl.displayCompanies();
-			break;
-			case 5:stockImpl.displayCustomer();
-			break;
-			case 6:stockImpl.displayTransaction();
-			break;		
-			case 7:mainMenu=false;
-			break;
+			case 4:	stockImpl.displayCompanies();
+					break;
+			case 5:	stockImpl.displayCustomer();
+					break;
+			case 6:	stockImpl.displayTransaction();
+					break;		
+			case 7:	System.out.println("\t\tThank You!");
+					mainMenu=false;
+					break;
 			default:System.out.println("invalid input");
 			break;
 					

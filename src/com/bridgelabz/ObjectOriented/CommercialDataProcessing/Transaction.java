@@ -1,5 +1,12 @@
 package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
-
+/******************************************************************************
+ *  Purpose:	Transaction pojo class for Stock account report
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   12-05-2018
+ *
+ ******************************************************************************/
 public class Transaction {
 	String customerName;
 	String companySymbol;

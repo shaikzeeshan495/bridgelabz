@@ -1,5 +1,12 @@
 package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
-
+/******************************************************************************
+ *  Purpose:	LinkedlistStock Stock account report
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   12-05-2018
+ *
+ ******************************************************************************/
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

@@ -1,5 +1,12 @@
 package com.bridgelabz.ObjectOriented.clinicManagement;
-
+/******************************************************************************
+ *  Purpose:	ClinicManager interface for ClinicManager
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   12-05-2018
+ *
+ ******************************************************************************/
 import java.util.List;
 
 import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;

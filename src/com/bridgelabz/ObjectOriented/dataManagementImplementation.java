@@ -1,5 +1,12 @@
 package com.bridgelabz.ObjectOriented;
-
+/******************************************************************************
+ *  Purpose:	dataManagement Implementation using json
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   10-05-2018
+ *
+ ******************************************************************************/
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +18,11 @@ public class dataManagementImplementation {
 	
 	public static List<Product> list = new ArrayList<Product>();
 	ObjectMapper mapper = new ObjectMapper();
+	
+	/**add is to add product objects in a list
+	 * @param type list
+	 * @return
+	 */
 	public List<Product> add(String type) {
 		list.add(addUser(type));
 		for (Product P : list) {
@@ -19,6 +31,10 @@ public class dataManagementImplementation {
 		return list;
 	}
 	
+	/**addUser is a function to add product details in pojo
+	 * @param type
+	 * @return object of product
+	 */
 	private Product addUser(String type) {
 		Product product = new Product();
 		product.setType(type);
@@ -31,6 +47,9 @@ public class dataManagementImplementation {
 		return product;
 	}
 	
+	/**save is a function used to save the list in file
+	 * 
+	 */
 	public void save() {
 		try {
 			mapper.writeValue(new File("/home/bridgeit/zeeshan/src/com/bridgelabz/ObjectOriented/jsonFiles/inventory.json"), list);
@@ -40,6 +59,9 @@ public class dataManagementImplementation {
 		}
 	}
 	
+	/**Calculation is a funcction to tally product details
+	 * 
+	 */
 	public void Calculation() {
 		System.out.println("\n\t\t\tDisplaying Data");
 		String rice="rice";

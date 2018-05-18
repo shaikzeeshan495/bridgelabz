@@ -1,6 +1,13 @@
 package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
 
-
+/******************************************************************************
+ *  Purpose:	StackStock class for user defined linked list.
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   15-05-2018
+ *
+ ******************************************************************************/
 public class StackStock {
 	 NodeStock HEAD;
 		public static int SIZE=0;
@@ -30,7 +37,6 @@ public class StackStock {
 		/**static remove funtion is to remove the data in front of list.
 		 * @param position the data which has to be remove.
 		 */
-		@SuppressWarnings("unchecked")
 		public  <T extends Comparable<T>> void pop()
 		{
 			NodeStock temp=HEAD;
@@ -44,7 +50,6 @@ public class StackStock {
 				temp=null;
 				SIZE--;
 			}
-
 			
 		}
 		
@@ -70,7 +75,6 @@ public class StackStock {
 	}
 
 
-
 	/**static function show to display the list.
 	 * 
 	 */
@@ -84,6 +88,7 @@ public class StackStock {
 			}
 			System.out.println(node.data);
 		}
+	
 		/**isEmpty function is to give a status of stack.
 		 * @return string status of stack either stack is empty or full.
 		 */

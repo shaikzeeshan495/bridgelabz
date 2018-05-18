@@ -20,11 +20,11 @@ public class ExtendDataManagement {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 	
 		dataManagementImplementation dataImp=new dataManagementImplementation();
-//		System.out.println("Enter no of products");
-//		int numberProducts=Utility.inputInteger();
+		System.out.println("Enter no of products");
+		int numberProducts=Utility.inputInteger();
 		String type="";
 		System.out.println("The InventoryManager has three types of product ");
-		for(int i=0;i<3;i++)
+		for(int i=0;i<numberProducts;i++)
 		{
 		System.out.println("Select one  of the product\n1 for rice\n2 for wheat\n3 for pulses");
 		int choice=Utility.inputInteger();

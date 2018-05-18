@@ -1,5 +1,12 @@
 package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
-
+/******************************************************************************
+ *  Purpose:	StockAccountImplementation class for Stock account report
+ *
+ *  @author  Zeeshan
+ *  @version 1.0
+ *  @since   13-05-2018
+ *
+ ******************************************************************************/
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,8 +39,9 @@ public class StockAccountImplementation implements StockAccount{
 		}
 	}*/
 	
-	/**
-	 * @return
+	
+	/**addCompany is a to add companies in  a stack userdefined linked list
+	 * @return list of companies
 	 */
 	public List<Companies> addCompany()
 	{
@@ -48,7 +56,7 @@ public class StockAccountImplementation implements StockAccount{
 		
 	}
 	
-	/**
+	/**Delete Company is a to delete companies in  a stack userdefined linked list
 	 * @return
 	 */
 	public List<Companies> deleteCompany()
@@ -91,7 +99,7 @@ public class StockAccountImplementation implements StockAccount{
 	}
 	
 	/* 
-	 * Purpose : add person in person list
+	 * Purpose : add customer in customer list
 	 */
 	public List<Customer> addCustomer() {
 		listCustomer.add(addCustomerInfo());
@@ -120,6 +128,9 @@ public class StockAccountImplementation implements StockAccount{
 	
 	
 	
+	/**saveCustomer is a function to save objects in a file.
+	 * 
+	 */
 	public void saveCustomer()
 	{
 		try {
@@ -146,6 +157,11 @@ public class StockAccountImplementation implements StockAccount{
 		}
 	}
 	
+	/**
+	 * Purpose : Saving list data in file 
+	 * 
+	 * @param file is the name of file in which list is saved 
+	 */
 	public void saveTransaction()
 	{
 		try {
@@ -303,8 +319,8 @@ public class StockAccountImplementation implements StockAccount{
 			return true;
 	}
 	
-	/* 
-	 *Purpose : Edit information of existing Person from list 
+	/** Purpose : Edit information of existing customer from list
+	 * 
 	 */
 	public void editCustomer() {
 		System.out.println("\n\t\t\tEnter name of customer to edit");
@@ -321,8 +337,8 @@ public class StockAccountImplementation implements StockAccount{
 	}
 	
 	
-	/* 
-	 * Purpose : Removing data of a person from list
+	/**Purpose : Removing customer from list
+	 * 
 	 */
 	public void removeCustomer() throws Exception {
 		System.out.println("\n\t\t\tEnter customer name to remove data");
@@ -350,7 +366,7 @@ public class StockAccountImplementation implements StockAccount{
 		}
 	}
 	
-	/**
+	/**buyShares is a function to buy shares
 	 * @throws Exception 
 	 */
 	public void buyShares() throws Exception
@@ -359,11 +375,13 @@ public class StockAccountImplementation implements StockAccount{
 		System.out.println("\nenter symbol of company");
 		String companySymbol=Utility.inputString();
 		String customerName="";
+		
 		//searc hing for company availaibity
 		Companies company=searchCompany(companySymbol);
 		System.out.println(company.getCompanyName());
 		System.out.println("\nenter any customer name");
 		customerName=Utility.inputString();
+		
 		//searching for customer availaibility
 		Customer customer=searchCustomer(customerName);
 		System.out.println("\tenter amount to buy shares");
@@ -372,10 +390,10 @@ public class StockAccountImplementation implements StockAccount{
 		
 	}
 	
-	/**
-	 * @param amount
-	 * @param customer
-	 * @param company
+	/**buy is a function to buy shares
+	 * @param amount customer given input
+	 * @param customer present customer
+	 * @param company customer selected company
 	 * @throws Exception
 	 */
 	public void buy(int amount,Customer customer,Companies company) throws Exception
@@ -387,11 +405,11 @@ public class StockAccountImplementation implements StockAccount{
 			int priceShare=company.getSharePrice();
 			int shares=amount/priceShare;
 			if(company.getTotalShares()>=shares)
-			{
-			
+			{			
 				StackStock stacklist=new StackStock();
 				QueueStock queue=new QueueStock();
 				Transaction transaction=new Transaction();
+				
 				// adding before transaction in queue
 				queue.add(transaction);
 				stacklist.push(transaction);
@@ -405,9 +423,11 @@ public class StockAccountImplementation implements StockAccount{
 				transaction.setTotalShares(shares);
 				Date date = new Date();
 				transaction.setTime(date.toString());
+				
 				//pop after transaction
 				stacklist.pop();
 				listTransaction.add(transaction);
+				
 				//remove after transaction
 				queue.remove();
 				//displayTransaction();
@@ -426,16 +446,21 @@ public class StockAccountImplementation implements StockAccount{
 		
 	}
 	
+	/**sellShares function is to sell shares to company
+	 * 
+	 */
 	public void sellShares() throws Exception
 	{
 		System.out.println("\nenter symbol of company");
 		String companySymbol=Utility.inputString();
 		String customerName="";
-		//searc hing for company availaibity
+		
+		//searching for company availaibity
 		Companies company=searchCompany(companySymbol);
 		System.out.println(company.getCompanyName());
 		System.out.println("\nenter customer name");
 		customerName=Utility.inputString();
+		
 		//searching for customer availaibility
 		Customer customer=searchCustomer(customerName);
 		System.out.println("\tenter amount to sell shares");
@@ -444,6 +469,12 @@ public class StockAccountImplementation implements StockAccount{
 		
 	}
 	
+	/**sell function is to sell shares to company.
+	  * @param amount customer given input
+	 * @param customer present customer
+	 * @param company customer selected company
+	 * @throws Exception
+	 */
 	public void sell(int amount,Customer customer,Companies company) throws Exception
 	{
 		
@@ -485,9 +516,9 @@ public class StockAccountImplementation implements StockAccount{
 		
 	}
 	
-	/**
-	 * @param details
-	 * @return
+	/**searchCompany function is to check availiability of company in list
+	 * @param details string is details of company
+	 * @return object of particular company
 	 * @throws Exception 
 	 */
 	public Companies searchCompany(String details) throws Exception
@@ -523,9 +554,9 @@ public class StockAccountImplementation implements StockAccount{
 		return company1;
 	}
 	
-	/**
-	 * @param details
-	 * @return
+	/**searchCustomer function is to check availiability of customer in list
+	 * @param details string is details of customer
+	 * @return object of particular customer
 	 * @throws Exception 
 	 */
 	public Customer searchCustomer(String customerName) throws Exception
@@ -561,6 +592,9 @@ public class StockAccountImplementation implements StockAccount{
 		return customertemp;
 	}
 	
+	/**displayCustomer is to display customers in a list.
+	 * 
+	 */
 	public void displayCustomer()
 	{
 		for (Customer customer : listCustomer) {
@@ -568,6 +602,9 @@ public class StockAccountImplementation implements StockAccount{
 		}
 	}
 	
+	/**displayCompanies is to display Companies in a list.
+	 * 
+	 */
 	public void displayCompanies()
 	{
 		for (Companies company : listCompanies) {
@@ -575,6 +612,9 @@ public class StockAccountImplementation implements StockAccount{
 		}
 	}
 	
+	/**displayTransaction is to display Companies in a list.
+	 * 
+	 */
 	public void displayTransaction()
 	{
 		StackStock stock=new StackStock();
