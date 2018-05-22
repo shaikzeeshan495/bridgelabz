@@ -1,2 +1,19 @@
-{"Name":["stocks","price/stock"],"Infosys":["20","100"],"jpMorgan":["10","80"],"KPIT":["5","75"]
+{
+  "Stocks": [
+    {
+      "Name": "Infosys",
+      "stocks": 200,
+      "price": 40
+    },
+    {
+      "Name": "Tata",
+      "stocks": 300,
+      "price": 45
+    },
+    {
+      "Name": "Tcs",
+      "stocks": 400,
+      "price": 50
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-package com.bridgelabz.ObjectOriented.clinicManagement;
+package com.bridgelabz.ObjectOriented.clinicManagement.Service;
 /******************************************************************************
  *  Purpose:	Clinic Management
  *

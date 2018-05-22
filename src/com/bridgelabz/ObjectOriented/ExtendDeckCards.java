@@ -14,12 +14,11 @@ import com.bridgelabz.utility.Utility;
 public class ExtendDeckCards {
 
 	public static void main(String[] args) {
-		ExtendDeckCards deck=new ExtendDeckCards();
 		String [][]array=Utility.deckOfCards();
-		QueueLinkedlist person1=new QueueLinkedlist();	
-		QueueLinkedlist person2=new QueueLinkedlist();
-		QueueLinkedlist person3=new QueueLinkedlist();
-		QueueLinkedlist person4=new QueueLinkedlist();
+		QueueLinkedlist<?> person1=new QueueLinkedlist<Object>();	
+		QueueLinkedlist<?> person2=new QueueLinkedlist<Object>();
+		QueueLinkedlist<?> person3=new QueueLinkedlist<Object>();
+		QueueLinkedlist<?> person4=new QueueLinkedlist<Object>();
 		Utility utility=new Utility();
 		String []newArray1=utility.sortingString(array,0);
 		for(int i=0;i<9;i++)
@@ -42,7 +41,7 @@ public class ExtendDeckCards {
 		String []newArray4=utility.sortingString(array,3);		
 		for(int i=0;i<9;i++)
 		{
-			person4.add(newArray3[i]);
+			person4.add(newArray4[i]);
 		}
 		person1.show();
 		System.out.println();

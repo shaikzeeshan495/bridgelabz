@@ -261,6 +261,7 @@ public class AddressBookImpl implements AddressBook {
 						addressBookManagerImpl.save(inputAddressBook);
 						break;
 				case 3:	remove();
+						addressBookManagerImpl.save(inputAddressBook);
 						break;
 				case 4:	sortByName();
 						break;

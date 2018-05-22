@@ -1,9 +1,8 @@
-package com.bridgelabz.ObjectOriented.clinicManagement;
+package com.bridgelabz.ObjectOriented.clinicManagement.Controller;
 
 import java.util.List;
-
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Doctor;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Patient;
 import com.bridgelabz.utility.Utility;
 
 public class searchClinic {

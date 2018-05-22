@@ -21,7 +21,7 @@ import org.json.simple.JSONObject;
 
 import com.bridgelabz.DataStructures.Node;
 import com.bridgelabz.ObjectOriented.CommercialDataProcessing.StockAccountImplementation;
-import com.bridgelabz.ObjectOriented.clinicManagement.ClinicImplementation;
+import com.bridgelabz.ObjectOriented.clinicManagement.Controller.ClinicImplementation;
 public class Utility {
 	private static Scanner scanner = new Scanner(System.in);
 	
@@ -1861,41 +1861,24 @@ public static String binaryToDecimal(String binary)
 	/**inventory is a function Details for Rice, Pulses and Wheats with properties name, weight, price per kg
 	 * @param jsonObject
 	 */
-	public static void inventory(JSONObject jsonObject)
+	public static void inventory(Object obj)
 	{
-		System.out.println("Enter Choice for details");
-		System.out.println("1 for Rice");
-		System.out.println("2 for pulse");
-		System.out.println("3 for wheat");
-		int choice=Utility.inputInteger();
-		JSONArray Obj = (JSONArray) jsonObject.get("Name");
-		System.out.print("Name		");
-		@SuppressWarnings("unchecked")
-		Iterator<String> iterator = Obj.iterator();
-		
-        while (iterator.hasNext()) {
-            System.out.print(iterator.next()+"		");
-        }
-		String type="";
-		System.out.println();
-		switch(choice)
+		JSONObject jsonObject = (JSONObject) obj;
+		JSONArray companyStocks=(JSONArray) jsonObject.get("Inventory"); 
+		Iterator<?> iterator=companyStocks.iterator();
+		while(iterator.hasNext())
 		{
-		case 1:type="rice";
-				break;
-		case 2:type="pulses";
-				break;
-		case 3:type="wheat";
-				break;	
-		default:System.out.println("invalid input");
-				break;
-		}
-		System.out.print(type+"		");
-		JSONArray Obj1 = (JSONArray) jsonObject.get(type);
-		@SuppressWarnings("unchecked")
-		Iterator<String> iterator1 = Obj1.iterator();
-        while (iterator1.hasNext()) {
-            System.out.print(iterator1.next()+"		");
-        }
+			
+			 JSONObject jsonObject1 = (JSONObject) iterator.next();
+			 String name = (String) jsonObject1.get("Name");
+			 long totalweight =  (long) jsonObject1.get("weight");
+			 long pricePerKg =  (long) jsonObject1.get("price");
+			 long total=totalweight*pricePerKg;
+			 System.out.println("Name : "+name);
+			 System.out.println("weight : "+totalweight);
+			 System.out.println("price : "+pricePerKg);
+			 System.out.println("Total Price : "+total+"\n");
+		}	
 	}
 	
 	/**regexReplace is a function to replace a String
@@ -1915,7 +1898,7 @@ public static String binaryToDecimal(String binary)
 			return;
 		}
 		
-		System.out.println("Enter Full Name");
+		System.out.println("Enter Surname");
 		String fullName=inputString();
 		boolean fullNameFlag=Pattern.matches("\\D*",fullName);
 		fullName=surName+" "+fullName;
@@ -1971,6 +1954,7 @@ public static String binaryToDecimal(String binary)
 		      deck[index] = temp;
 		    }
 		    int row=0,column=0;
+		  
 		    // Collecting all cards in a array.
 		    for (int i = 0; i <36; i++) {
 		      String suit = suits[deck[i] / 13];

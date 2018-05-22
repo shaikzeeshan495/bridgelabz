@@ -1,4 +1,4 @@
-package com.bridgelabz.ObjectOriented.clinicManagement;
+package com.bridgelabz.ObjectOriented.clinicManagement.Controller;
 /******************************************************************************
  *  Purpose:	Clinic Management to display clinic details
  *
@@ -8,9 +8,10 @@ package com.bridgelabz.ObjectOriented.clinicManagement;
  *
  ******************************************************************************/
 import java.util.List;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Appointment;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
+
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Appointment;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Doctor;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Patient;
 
 public class DisplayClinic {
 	

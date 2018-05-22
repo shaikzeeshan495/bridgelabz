@@ -65,7 +65,7 @@ public class StockAccountImplementation implements StockAccount{
 		String symbol=Utility.inputString();
 		LinkedlistStock list=new LinkedlistStock();
 
-		listCompanies.add(addComapnyInfo());
+	//	listCompanies.add(addComapnyInfo());
 			for (Companies company : listCompanies) {
 				if(symbol.equals(company.getCompanySymbol()))
 				{

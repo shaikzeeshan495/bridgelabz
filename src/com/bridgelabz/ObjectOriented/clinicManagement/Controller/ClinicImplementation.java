@@ -1,4 +1,4 @@
-package com.bridgelabz.ObjectOriented.clinicManagement;
+package com.bridgelabz.ObjectOriented.clinicManagement.Controller;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,9 +9,9 @@ import java.util.Date;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Appointment;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Doctor;
-import com.bridgelabz.ObjectOriented.clinicManagement.POJOclass.Patient;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Appointment;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Doctor;
+import com.bridgelabz.ObjectOriented.clinicManagement.Modal.Patient;
 import com.bridgelabz.utility.Utility;
 
 public class ClinicImplementation implements ClinicManager{
@@ -254,7 +254,7 @@ public class ClinicImplementation implements ClinicManager{
 	 */
 	public void save() {
 		try {
-			mapper.writeValue(new File( "ClinicManagement//ClinicManagement.json"), listAppointment);
+			mapper.writeValue(new File( "ClinicManagement//Appointment.json"), listAppointment);
 			System.out.println("\n\t\t\tSaved");
 		
 		} catch (IOException e) {
@@ -312,13 +312,12 @@ public class ClinicImplementation implements ClinicManager{
 	/**
 	 * Purpose : Reading file from file
 	 * 
-	 * @param existingAddressBook is the name of File from which data is to read
 	 * @throws Exception for file not found
 	 */
 	public void read() throws Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("ClinicManagement//ClinicManagement.json"));
+			BufferedReader reader = new BufferedReader(new FileReader("ClinicManagement//Appointment.json"));
 			String arrayToJson;
 			if ((arrayToJson = reader.readLine()) != null) {
 				TypeReference<ArrayList<Appointment>> type = new TypeReference<ArrayList<Appointment>>() {

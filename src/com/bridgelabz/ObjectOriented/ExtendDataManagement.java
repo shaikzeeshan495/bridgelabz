@@ -10,21 +10,19 @@ package com.bridgelabz.ObjectOriented;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.json.simple.parser.ParseException;
 import com.bridgelabz.utility.Utility;
 
 public class ExtendDataManagement {
-	public static List<String> list2 = new ArrayList<String>();
+
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 	
 		dataManagementImplementation dataImp=new dataManagementImplementation();
-		System.out.println("Enter no of products");
-		int numberProducts=Utility.inputInteger();
+	//	System.out.println("Enter no of products");
+	//	int numberProducts=Utility.inputInteger();
 		String type="";
 		System.out.println("The InventoryManager has three types of product ");
-		for(int i=0;i<numberProducts;i++)
+		for(int i=0;i<3;i++)
 		{
 		System.out.println("Select one  of the product\n1 for rice\n2 for wheat\n3 for pulses");
 		int choice=Utility.inputInteger();
@@ -53,5 +51,4 @@ public class ExtendDataManagement {
 		dataImp.Calculation();
 	}
 	
-
 }

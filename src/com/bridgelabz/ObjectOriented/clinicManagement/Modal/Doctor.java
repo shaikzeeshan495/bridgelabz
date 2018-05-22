@@ -1,4 +1,4 @@
-package com.bridgelabz.ObjectOriented.clinicManagement.POJOclass;
+package com.bridgelabz.ObjectOriented.clinicManagement.Modal;
 /**POJO class of Doctor.
  * @author Zeeshan
  * Date : 15-05-2018

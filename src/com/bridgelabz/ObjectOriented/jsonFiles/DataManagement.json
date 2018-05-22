@@ -1,4 +1,19 @@
 {
-"Name":["Weight ","price\\kg "],
-"rice":["50","25"],"pulses":["45","20"],"wheat":["30","15"]
+  "Inventory": [
+    {
+      "Name": "Rice",
+      "weight": 200,
+      "price": 40
+    },
+    {
+      "Name": "Pulses",
+      "weight": 300,
+      "price": 45
+    },
+    {
+      "Name": "Wheat",
+      "weight": 400,
+      "price": 50
+    }
+  ]
 }
