@@ -9,9 +9,9 @@ package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
  ******************************************************************************/
 public class Customer {
 	
-	String name;
-	int amount;
-	int numberOfShares;
+	private String name;
+	private int amount;
+	private int numberOfShares;
 	
 	public String getName() {
 		return name;

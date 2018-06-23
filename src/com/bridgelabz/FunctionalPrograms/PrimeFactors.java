@@ -17,7 +17,12 @@ public class PrimeFactors {
 	public static void main(String[] args) {
 		System.out.println("Please enter the input number");
 		int number=Utility.inputInteger();
-		Utility.factorization(number);
+	//	Utility.factorization(number);
+		int result=Utility.factorization2(number);
+		if(result==-1)
+		System.out.println("not a perfect square");
+		else
+			System.out.println("square root: "+result);
 	}
 
 }

@@ -1,0 +1,19 @@
+{
+  "Stocks": [
+    {
+      "Name": "Infosys",
+      "stocks": 200,
+      "price": 40
+    },
+    {
+      "Name": "Tata",
+      "stocks": 300,
+      "price": 45
+    },
+    {
+      "Name": "Tcs",
+      "stocks": 400,
+      "price": 50
+    }
+  ]
+}

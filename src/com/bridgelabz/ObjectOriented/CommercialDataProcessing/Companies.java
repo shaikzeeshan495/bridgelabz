@@ -8,11 +8,11 @@ package com.bridgelabz.ObjectOriented.CommercialDataProcessing;
  *
  ******************************************************************************/
 public class Companies {
-	String companyName;
-	String companySymbol;
-	int sharePrice;
-	int totalShares;
-	String time;
+	private String companyName;
+	private String companySymbol;
+	private int sharePrice;
+	private int totalShares;
+	private String time;
 	
 	public String getCompanyName() {
 		return companyName;

@@ -25,4 +25,3 @@ ext/mkinstalldirs
 ext/run-tests.php
 ext/.deps
 ext/libtool
-bin

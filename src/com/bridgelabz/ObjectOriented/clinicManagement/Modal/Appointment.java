@@ -6,9 +6,9 @@ package com.bridgelabz.ObjectOriented.clinicManagement.Modal;
  */
 public class Appointment {
 	
-	Doctor doctor;
-	Patient patient;
-	String date;
+	private Doctor doctor;
+	private Patient patient;
+	private String date;
 	public Doctor getDoctor() {
 		return doctor;
 	}

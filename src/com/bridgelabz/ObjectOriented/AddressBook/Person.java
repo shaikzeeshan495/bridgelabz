@@ -6,12 +6,12 @@ package com.bridgelabz.ObjectOriented.AddressBook;
  *
  */
 public class Person {
-	String firstName;
-	String lastName;
-	String phoneNumber;
-	String city;
-	String state;
-	long zip;
+ 	private String firstName;
+ 	private String lastName;
+ 	private String phoneNumber;
+ 	private String city;
+ 	private String state;
+ 	private long zip;
 	public String getCity() {
 		return city;
 	}

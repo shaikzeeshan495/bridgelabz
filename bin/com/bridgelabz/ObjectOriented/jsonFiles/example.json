@@ -1,0 +1,18 @@
+[
+	{
+		"type": "mobile",
+		"obj": {
+			"brand": "lenovo",
+			"colour": "red",
+			"price": 9999
+		}
+	},
+	{
+		"type": "bike",
+		"obj": {
+			"brand": "ktm",
+			"colour": "red",
+			"price": 9999
+		}
+	}
+]

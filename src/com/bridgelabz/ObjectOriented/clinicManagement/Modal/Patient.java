@@ -6,10 +6,10 @@ package com.bridgelabz.ObjectOriented.clinicManagement.Modal;
  *
  */
 public class Patient {
-	String name;
-	String id;
-	String number;
-	String age;
+	private String name;
+	private String id;
+	private String number;
+	private String age;
 	public String getName() {
 		return name;
 	}	
